@@ -22,7 +22,7 @@
 		</global-exception-mappings>
 
 		<!-- Am adaugat o pagina aparte pentru regisrarea doar in cazul aceasta 
-			actiunea se incarca -->
+			actiunea pentru forme se incarca -->
 		<action name="registerButton">
 			<result>user/register.jsp</result>
 		</action>
