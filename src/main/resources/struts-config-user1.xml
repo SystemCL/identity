@@ -16,21 +16,30 @@
 
 		<default-interceptor-ref name="appDefaultStack" />
 
-       <global-exception-mappings>
+		<global-exception-mappings>
 			<exception-mapping result="error"
 				exception="md.utm.entity.exception.ObjectsNotFoundException"></exception-mapping>
 		</global-exception-mappings>
 
-
-
-
-		<action name="registerUser" class="userAction" method="registerUser">
-			<result>user/index.jsp</result>
+		<!-- Am adaugat o pagina aparte pentru regisrarea doar in cazul aceasta 
+			actiunea se incarca -->
+		<action name="registerButton">
+			<result>user/register.jsp</result>
 		</action>
+
+		<!-- Lucreaza ambele variante -->
 		
+		<!-- <action name="registerUser" class="userAction" method="registerUser"> 
+			<result>/index.jsp</result> </action> -->
+
+		<action name="registerUser" class="md.utm.entity.action.user.RegisterUser"
+			method="registerUser">
+			<result>/index.jsp</result>
+		</action>
 
 
-		
+
+
 
 	</package>
 </struts>
