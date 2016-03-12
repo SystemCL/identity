@@ -7,9 +7,22 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <link rel="stylesheet" type="text/css" href="css/login.css" />
+<%@ taglib prefix="s" uri="/struts-tags"%>
 <title>Entity</title>
 </head>
 <body>
+
+
+<s:form>
+	<s:textfield name="username" label="Username" value="%{username}" />
+	<s:textfield name="password" label="Password" value="%{password}" />
+	<s:if test="%{idAccount==null}">
+		<s:submit value="Create" action="registerUser" />
+	</s:if>
+	<s:else>
+		<s:submit value="Update" action="registerUser"/>
+	</s:else>
+</s:form>
 
 	<!-- <b><font size="9" color="#5F9EA0"><center>Entity</center></font></b> -->
 	<h2 class='retroshadow'>Identity</h2>
@@ -92,15 +105,5 @@
 </body>
 </html>
 
-	<%@ taglib prefix="s" uri="/struts-tags"%>
 
-<s:form>
-	<s:textfield name="username" label="Name" value="%{username}" />
-	<s:textfield name="password" label="Surname" value="%{password}" />
-	<s:if test="%{idAccount==null}">
-		<s:submit value="Create" action="register" />
-	</s:if>
-	<s:else>
-		<s:submit value="Update" action="register"/>
-	</s:else>
-</s:form>
+

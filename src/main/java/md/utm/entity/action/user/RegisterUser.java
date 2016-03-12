@@ -14,7 +14,7 @@ public class RegisterUser implements ModelDriven<UserAc>  {
 	//private UserDAO userDAO;
 	
 	
-	public String addUser() throws Exception {
+	public String registerUser() throws Exception {
 		//userDAO.save(user);
 		if (user.getUsername() != null) {
 			return Action.SUCCESS;

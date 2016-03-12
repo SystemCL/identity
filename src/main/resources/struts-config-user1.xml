@@ -16,12 +16,15 @@
 
 		<default-interceptor-ref name="appDefaultStack" />
 
+       <global-exception-mappings>
+			<exception-mapping result="error"
+				exception="md.utm.entity.exception.ObjectsNotFoundException"></exception-mapping>
+		</global-exception-mappings>
 
 
 
 
-
-		<action name="register" class="md.utm.entity.action.user.RegisterUser" method="registerUser">
+		<action name="registerUser" class="userAction" method="registerUser">
 			<result>user/index.jsp</result>
 		</action>
 		

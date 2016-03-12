@@ -9,7 +9,7 @@
 	</bean> -->
 
 
-	<!--<bean id="userAction" class="md.utm.library.action.user.CrudUserAction"> 
-		<property name="userDAO" ref="userDAO" /> </bean> -->
+	<bean id="userAction" class="md.utm.entity.action.user.RegisterUser"> 
+		 </bean> 
 
 </beans>
