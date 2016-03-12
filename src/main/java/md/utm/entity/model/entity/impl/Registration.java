@@ -15,6 +15,11 @@ public class Registration {
 		
 		return false;
 	}
+
+	public String getName() {
+		// TODO Auto-generated method stub
+		return this.newUserName;
+	}
 	
 	
 

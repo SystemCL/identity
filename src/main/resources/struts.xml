@@ -5,5 +5,5 @@
 
 <struts>
 	<constant name="struts.devMode" value="true" />
-	<include file="struts-config-user.xml" />
+     <include file="struts-config-user1.xml" /> 
 </struts>
