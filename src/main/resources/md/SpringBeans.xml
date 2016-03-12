@@ -13,7 +13,7 @@ http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
  
 <!-- <import resource="md/utm/library/model/dao/BookBean.xml" /> -->    
   	
-	<import resource="md/utm/library/model/dao/UserBean.xml" />
+	<import resource="md/utm/entity/model/dao/UserBean.xml" />
 	
 
 </beans>

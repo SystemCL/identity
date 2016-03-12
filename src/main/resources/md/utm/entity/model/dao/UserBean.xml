@@ -4,9 +4,10 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/beans 
 	http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
 
-	<bean id="userDAO" class="md.utm.entity.model.dao.impl.UserDAOImpl">
+	<!-- 	<bean id="userDAO" class="md.utm.entity.model.dao.impl.UserDAOImpl">
 		<property name="sessionFactory" ref="sessionFactory" />
-	</bean>
+	</bean> -->
+
 
 	<!--<bean id="userAction" class="md.utm.library.action.user.CrudUserAction"> 
 		<property name="userDAO" ref="userDAO" /> </bean> -->

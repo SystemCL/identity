@@ -1,5 +1,5 @@
 
-package md.utm.entity.model.entity;
+package md.utm.entity.model.entity.impl;
 
 public class Administrator extends UserAc {
 

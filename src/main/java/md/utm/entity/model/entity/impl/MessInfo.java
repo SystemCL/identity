@@ -1,7 +1,6 @@
-package md.utm.entity.model.entity;
+package md.utm.entity.model.entity.impl;
 
-
-
+import md.utm.entity.model.entity.MsgResp;
 
 public abstract class MessInfo implements MsgResp {
 	

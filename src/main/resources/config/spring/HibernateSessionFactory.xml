@@ -34,7 +34,7 @@ http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
 
 			</list>
 		</property>
-		<property name="packagesToScan" value="md.utm.entity.model.entity" />
+		<property name="packagesToScan" value="md.utm.entity.model.entity.impl" />
 
 	</bean>
 </beans>

@@ -1,4 +1,4 @@
-package md.utm.entity.model.entity;
+package md.utm.entity.model.entity.impl;
 
 import java.util.ArrayList;
 import java.util.Date;
