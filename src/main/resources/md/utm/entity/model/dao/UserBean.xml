@@ -9,10 +9,11 @@
 	</bean> -->
 
 
-	<bean id="userAction" class="md.utm.entity.action.user.RegisterUser"> 
+	<bean id="userAction" class="md.utm.entity.action.user.CrudUserAction"> 
 	</bean>
 	
 	<bean id="userAction1" class="md.utm.entity.action.user.LoginAuthAction"> 
 		 </bean> 
+
 
 </beans>

@@ -41,13 +41,17 @@
  <!--  <action name="loginauth" class="md.utm.entity.action.user.LoginAuthAction" method="execute"> 	 -->
 		
 			<result name="success" type="redirect">
-				<param name="location">user/entityMain.jsp</param>
+				<param name="location">entityMain.jsp</param>
 			</result>
 			<result name="error">
-				user/register.jsp
+				register.jsp
 			</result>
 		</action>
 
+		<action name="createUserAction" class="userAction" method="addUser">
+			<result name="success">index.jsp</result>
+			<result name="error">user/register.jsp</result>
+		</action>
 
 
 
