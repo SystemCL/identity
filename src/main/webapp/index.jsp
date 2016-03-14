@@ -23,7 +23,7 @@
 		<b>Welcome. Please login. </b>
 	</h1>
 	<div id="login">
-		<a href="registerButton">Register</a><br>
+		<a href="loginauth">Register</a><br>
 		<!-- Trebuie de testat pe register rezulatul la actiune se v-a vedea in fieldurile date -->
 		<!-- cu alte cuvine struts se uita ca toate action-urile sa fie oriunde dar numai nu in root-->
 		<s:textfield name="username" label="Name" value="%{username}" />

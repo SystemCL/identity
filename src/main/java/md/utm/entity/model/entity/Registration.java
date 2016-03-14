@@ -1,4 +1,4 @@
-package md.utm.entity.model.entity.impl;
+package md.utm.entity.model.entity;
 public class Registration {
 	
 	public String newUserName;

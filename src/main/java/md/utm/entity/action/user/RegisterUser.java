@@ -3,7 +3,7 @@ package md.utm.entity.action.user;
 import com.opensymphony.xwork2.Action;
 import com.opensymphony.xwork2.ModelDriven;
 
-import md.utm.entity.model.entity.impl.UserAc;
+import md.utm.entity.model.entity.UserAc;
 
 public class RegisterUser implements ModelDriven<UserAc> {
 	private final UserAc user = new UserAc();

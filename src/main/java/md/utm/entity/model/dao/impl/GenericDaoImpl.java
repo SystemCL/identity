@@ -24,30 +24,25 @@ public class GenericDaoImpl extends HibernateDaoSupport implements GenericDao {
 		return getHibernateTemplate().save(entity);
 	}
 
-	/*public <T> void saveOrUpdate(T entity) {
+	public <T> void saveOrUpdate(T entity) {
 		getHibernateTemplate().saveOrUpdate(entity);
 	}
-*/
-	/*public <T> void saveOrUpdate(Collection<T> entities) {
+
+	public <T> void saveOrUpdate(Collection<T> entities) {
 		getHibernateTemplate().saveOrUpdate(entities);
 	}
 
 	public <T> void delete(T entity) {
 		getHibernateTemplate().delete(entity);
 	}
-*/
+
 	public <T> void delete(Collection<T> entities) {
 		getHibernateTemplate().delete(entities);
 
 	}
 
-	public <T> void delete(T entity) {
-		// TODO Auto-generated method stub
-		
-	}
-
-/*	public <T> void refresh(T entity) {
+    public <T> void refresh(T entity) {
 		getHibernateTemplate().refresh(entity);
-	}*/
+	}
 
 }

@@ -22,21 +22,31 @@
 		</global-exception-mappings>
 
 		<!-- Am adaugat o pagina aparte pentru regisrarea doar in cazul aceasta 
-			actiunea pentru forme se incarca -->
-		<action name="registerButton">
+			actiunea pentru forme se incarca 
+	   <action name="registerButton">
 			<result>user/register.jsp</result>
-		</action>
+		</action> -->	
 
 		<!-- Lucreaza ambele variante -->
 		
 		<!-- <action name="registerUser" class="userAction" method="registerUser"> 
 			<result>/index.jsp</result> </action> -->
 
-		<action name="registerUser" class="md.utm.entity.action.user.RegisterUser"
+	<!-- 	<action name="registerUser" class="md.utm.entity.action.user.RegisterUser"
 			method="registerUser">
 			<result>/index.jsp</result>
-		</action>
+		</action> -->
 
+ <action name="loginauth" class="userAction1" > 	
+ <!--  <action name="loginauth" class="md.utm.entity.action.user.LoginAuthAction" method="execute"> 	 -->
+		
+			<result name="success" type="redirect">
+				<param name="location">user/entityMain.jsp</param>
+			</result>
+			<result name="error">
+				user/register.jsp
+			</result>
+		</action>
 
 
 
