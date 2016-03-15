@@ -1,16 +1,18 @@
 package md.utm.entity.model.entity;
 
-import java.util.ArrayList;
-import java.util.List;
+//import java.util.ArrayList;
+//import java.util.List;
 
-import javax.persistence.Entity;
+
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
+import javax.persistence.Entity;
+
 
 @Entity
-public class UserAc implements Person {
+public class UserAc extends Administrator{
 	
 	public Integer idAccount;
 	public String username;
@@ -18,13 +20,13 @@ public class UserAc implements Person {
 	
 	
 	
-	public List<Profile> searchKnownById(int id){ 
+/*	public List<Profile> searchKnownById(int id){ 
 		List<Profile> listPr = new ArrayList<Profile>();
 		
 		return listPr;
 		
 	}
-
+*/
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	public Integer getIdAccount() {

@@ -9,11 +9,11 @@ import md.utm.entity.model.entity.UserAc;
 
 @SuppressWarnings("unchecked")
 public class UserDAOImpl extends GenericDaoImpl implements UserDAO {
-	public UserAc findUser(String login, String password) {
+	public UserAc findUser(String username, String password) {
 		List<UserAc> find = getHibernateTemplate().find(
-				"from UserAc where username=? and password=?", login, password);
+				"from UserAc where username=? and password=?", username, password);
 		if (find.isEmpty()) {
-			throw new ObjectsNotFoundException(UserAc.class, login, password);
+			throw new ObjectsNotFoundException(UserAc.class, username, password);
 		}
 		return find.iterator().next();
 	}

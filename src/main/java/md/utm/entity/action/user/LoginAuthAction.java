@@ -63,7 +63,6 @@ public class LoginAuthAction  extends ActionSupport implements SessionAware{
 	
 	private UserAc findUser() {
 		user = userDAO.findUser(username, password);
-		//System.out.println(user);
 		return user;
 	}
 

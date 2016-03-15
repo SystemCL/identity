@@ -1,7 +1,12 @@
 
 package md.utm.entity.model.entity;
 
-public class Administrator extends UserAc {
+import javax.persistence.MappedSuperclass;
+
+import javax.persistence.Entity;
+
+@MappedSuperclass
+public class Administrator {
 
 	public boolean newAccount(int idAccount){
 		

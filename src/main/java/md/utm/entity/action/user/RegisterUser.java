@@ -3,14 +3,15 @@ package md.utm.entity.action.user;
 import com.opensymphony.xwork2.Action;
 import com.opensymphony.xwork2.ModelDriven;
 
+import md.utm.entity.model.dao.UserDAO;
 import md.utm.entity.model.entity.UserAc;
 
 public class RegisterUser implements ModelDriven<UserAc> {
 	private final UserAc user = new UserAc();
-	// private UserDAO userDAO;
+     private UserDAO userDAO;
 
 	public String registerUser() throws Exception {
-		// userDAO.save(user);
+		 userDAO.save(user);
 		if (user.getUsername() != null) {
 			return Action.SUCCESS;
 		}
