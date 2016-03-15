@@ -35,7 +35,7 @@ public class UserDAOImplTest {
 		user.setUsername("user");
 		user.setPassword("123");
 		testable.save(user);
-		Assert.assertTrue(user.getIdAccount() > 0);
+		Assert.assertTrue(user.getIdAccount() > 1);
 	}
 
 /*	@Test
@@ -99,7 +99,7 @@ public class UserDAOImplTest {
 	@Test
 	@Transactional
 	public void testFindUser() {
-	//	testCreateUser();
+		testCreateUser();
 
 		UserAc findUser = testable.findUser("user", "123");
 
