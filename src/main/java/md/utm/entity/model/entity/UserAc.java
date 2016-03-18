@@ -63,7 +63,7 @@ public class UserAc extends Administrator{
 	public void setCreatedDate(Date createdDate) {
 		this.createdDate = createdDate;
 	}
-	public boolean admin() {
+	public boolean getadmin() {
 		return admin;
 	}
 	public void setAdmin(boolean admin) {
