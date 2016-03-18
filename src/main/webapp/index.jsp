@@ -1,6 +1,8 @@
+<%@ taglib prefix="s" uri="/struts-tags"%>
+
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
-<%@ taglib prefix="s" uri="/struts-tags"%>
+
 
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -11,7 +13,6 @@
 <title>Entity</title>
 </head>
 <body>
-
 	<!-- <b><font size="9" color="#5F9EA0"><center>Entity</center></font></b> -->
 	<h2 class='retroshadow'>Identity</h2>
 </head>
@@ -22,24 +23,17 @@
 	<h1 style="text-align: center">
 		<b>Welcome. Please login. </b>
 	</h1>
-	<div id="login">
-		<a href="loginauth">Register</a><br>
-		<!-- Trebuie de testat pe register rezulatul la actiune se v-a vedea in fieldurile date -->
-		<!-- cu alte cuvine struts se uita ca toate action-urile sa fie oriunde dar numai nu in root-->
-		<s:textfield name="username" label="Name" value="%{username}" />
-		<s:textfield name="password" label="Surname" value="%{password}" />
-
-		<form action="entityMain.jsp" method="get">
+		<s:form action="loginauth">
 			<fieldset>
 				<p>
-					<input type="text" required value="Username"
+					<input s:type="text" required value="Username"
 						onBlur="if(this.value=='')this.value='Username'"
 						onFocus="if(this.value=='Username')this.value='' ">
 
 
 				</p>
 				<p>
-					<input type="password" required value="Password"
+					<input s:type="password" required value="Password"
 						onBlur="if(this.value=='')this.value='Password'"
 						onFocus="if(this.value=='Password')this.value='' ">
 
@@ -51,7 +45,7 @@
 					<input type="submit" value="Login">
 				</p>
 			</fieldset>
-		</form>
+		</s:form>
 		<p>
 			<span class="btn-round">or</span>
 		</p>
@@ -63,7 +57,7 @@
 			</h1>
 		</center>
 
-		<form action="entityMain.jsp" method="get">
+		<s:form>
 			<fieldset>
 				<p>
 					<input type="text" required value="Nume"
@@ -90,7 +84,7 @@
 					<input type="submit" value="Register">
 				</p>
 			</fieldset>
-		</form>
+		</s:form>
 
 
 		<!--  
