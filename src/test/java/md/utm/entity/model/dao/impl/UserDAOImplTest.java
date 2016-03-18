@@ -115,7 +115,7 @@ public class UserDAOImplTest {
 			findUser = testable.findUser("user", "wrong");
 		} catch (ObjectsNotFoundException e) {
 			Assert.assertEquals(
-					"Objects were not found in the database for UserAc entity, with given parameters: , user, wrong",
+					"Objects were not found in the database for UserAc entity, with given parameters: user, wrong",
 					e.getMessage());
 		}
 		Assert.assertNull(findUser);

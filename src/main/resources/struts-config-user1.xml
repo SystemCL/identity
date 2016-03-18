@@ -48,11 +48,14 @@
 			</result>
 		</action>
 
+		<action name="register">
+			<result>user/register.jsp</result>
+		</action>
+		
 		<action name="createUserAction" class="userAction" method="addUser">
 			<result name="success">user/login.jsp</result>
 			<result name="error">user/register.jsp</result>
 		</action>
-
 
 
 	</package>

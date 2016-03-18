@@ -10,10 +10,12 @@
 
 
 	<bean id="userAction" class="md.utm.entity.action.user.CrudUserAction"> 
+	<property name="userDAO" ref="userDAO" />	
 	</bean>
 	
 	<!-- <bean id="userAction1" class="md.utm.entity.action.user.LoginAuthAction"> 
 		 </bean>  -->
+		 
 
 
 </beans>

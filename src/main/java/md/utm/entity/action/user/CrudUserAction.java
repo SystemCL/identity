@@ -1,15 +1,18 @@
 package md.utm.entity.action.user;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import com.opensymphony.xwork2.Action;
 import com.opensymphony.xwork2.ActionContext;
+import com.opensymphony.xwork2.ModelDriven;
 
 import md.utm.entity.model.dao.UserDAO;
 import md.utm.entity.model.entity.UserAc;
 
-public class CrudUserAction {
+
+public class CrudUserAction implements ModelDriven<UserAc> {
 
 	private UserAc user = new UserAc();
 
@@ -48,6 +51,7 @@ public class CrudUserAction {
 	}
 
 	public String addUser() throws Exception {
+		user.setCreatedDate(new Date());
 		userDAO.save(user);
 		if (user.getUsername() != null) {
 			return Action.SUCCESS;
