@@ -17,8 +17,8 @@ public class Comment extends MessageAbstract {
 		return idMessage;
 	}
 
-	public Integer setIdMessage(Integer idMessage) {
-		return idMessage;
+	public void setIdMessage(Integer idMessage) {
+		this.idMessage= idMessage;
 	}
 
 	public int getPozitiveRating() {
