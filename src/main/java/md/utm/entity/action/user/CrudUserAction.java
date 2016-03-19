@@ -8,12 +8,19 @@ import com.opensymphony.xwork2.Action;
 import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ModelDriven;
 
+import md.utm.entity.model.dao.CommentDAO;
 import md.utm.entity.model.dao.UserDAO;
+import md.utm.entity.model.entity.Comment;
 import md.utm.entity.model.entity.UserAc;
 
 
 public class CrudUserAction implements ModelDriven<UserAc> {
 
+	//incercare comenturi
+	private CommentDAO commentDAO;
+	private List<Comment> commentList;
+	
+	
 	private UserAc user = new UserAc();
 
 	private UserDAO userDAO;
@@ -91,4 +98,15 @@ public class CrudUserAction implements ModelDriven<UserAc> {
 		}
 		return Action.SUCCESS;
 	}
+	
+	// list all comments
+		public String listAllComments() {
+			commentList = commentDAO.getAllComments();
+			if (commentList == null) {
+				commentList = new ArrayList<Comment>();
+			}
+			return Action.SUCCESS;
+		}
+	
+	
 }

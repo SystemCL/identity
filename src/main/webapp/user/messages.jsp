@@ -26,50 +26,50 @@
 
 			<tr>
 				<td><center>
-						<img src="images/menSmile.jpg" class="img_mess">
+						<img src="../images/menSmile.jpg" class="img_mess">
 					</center></td>
 				<td>Ploaia Vladisav</td>
 			</tr>
 			<tr>
 				<td><center>
-						<img src="images/menSmile.jpg" class="img_mess">
+						<img src="../images/menSmile.jpg" class="img_mess">
 					</center></td>
 				<td>Ploaia Vladisav</td>
 			</tr>
 			<tr>
 				<td><center>
-						<img src="images/menSmile.jpg" class="img_mess">
+						<img src="../images/menSmile.jpg" class="img_mess">
 					</center></td>
 				<td>Ploaia Vladisav</td>
 			</tr>
 			<tr>
 				<td><center>
-						<img src="images/menSmile.jpg" class="img_mess">
+						<img src="../images/menSmile.jpg" class="img_mess">
 					</center></td>
 				<td>Adrian Tabirta</td>
 			</tr>
 			<tr>
 				<td><center>
-						<img src="images/menSmile.jpg" class="img_mess">
+						<img src="../images/menSmile.jpg" class="img_mess">
 					</center></td>
 				<td>Dorin Turcan</td>
 
 			</tr>
 			<tr>
 				<td><center>
-						<img src="images/menSmile.jpg" class="img_mess">
+						<img src="../images/menSmile.jpg" class="img_mess">
 					</center></td>
 				<td>Ploaia Vladisav</td>
 			</tr>
 			<tr>
 				<td><center>
-						<img src="images/menSmile.jpg" class="img_mess">
+						<img src="../images/menSmile.jpg" class="img_mess">
 					</center></td>
 				<td>Adrian Tabirta</td>
 			</tr>
 			<tr>
 				<td><center>
-						<img src="images/menSmile.jpg" class="img_mess">
+						<img src="../images/menSmile.jpg" class="img_mess">
 					</center></td>
 				<td>Dorin Turcan</td>
 

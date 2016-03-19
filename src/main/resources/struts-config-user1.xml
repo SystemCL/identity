@@ -62,6 +62,15 @@
 			<result name="success">user/login.jsp</result>
 			<result name="error">user/register.jsp</result>
 		</action>
+		
+		
+			<action name="getCommentsAction" class="md.utm.entity.action.user.LoginAuthAction" method="listAllComments">
+			<result name="success">/user/login.jsp</result>
+			<result name="error">user/register.jsp</result>
+		</action>
+		
+		
+		
 
 
 	</package>

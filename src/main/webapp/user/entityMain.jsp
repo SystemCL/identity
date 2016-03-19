@@ -4,8 +4,8 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<link rel="stylesheet" type="text/css" href="css/style.css" />
-<link rel="stylesheet" type="text/css" href="css/bar.css" />
+<link rel="stylesheet" type="text/css" href="../css/style.css" />
+<link rel="stylesheet" type="text/css" href="../css/bar.css" />
 <title>Entity</title>
 </head>
 <body>
@@ -20,7 +20,7 @@
 	</center>
 
 	<center>
-		<img class="example" src="images/menSmile.jpg">
+		<img class="example" src="../images/menSmile.jpg">
 	</center>
 
 
@@ -89,6 +89,38 @@
 			</ul>
 		</div>
 	</center>
+	
+	
+	
+	<!-- 
+		public int idMessage;
+	public String message;
+	public Date dateMessage;
+	public int getIdMessage() {
+		
+	 -->
+	
+	<s:if test="commentList.size() > 0">
+	<table border="1px" cellpadding="8px">
+		<tr>
+			<th>Comment</th>
+			<th>date</th>
+			<th>up</th>
+			<th>down</th>
+			
+			
+		</tr>
+		<s:iterator value="commentList" status="">
+			<tr>
+				<td><s:property value="message" /></td>
+				<td><s:property value="dateMessage" /></td>
+				<td><s:property value="up" /></td>
+				<td><s:property value="down" /></td>
+			</tr>
+		</s:iterator>
+	</table>
+</s:if>
+	
 
 
 

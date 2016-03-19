@@ -1,0 +1,26 @@
+@CHARSET "UTF-8";
+
+
+ul#menu {
+    padding: 10;
+    position:fixed; 
+    right:0;
+     left:0;
+}
+
+ul#menu li {
+    display: inline;
+}
+
+ul#menu li a {
+    background-color: #2db5a7;
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 4px 4px 0 0;
+}
+
+ul#menu li a:hover {
+    background-color: orange;
+}
+
