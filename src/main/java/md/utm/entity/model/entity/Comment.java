@@ -7,9 +7,9 @@ import javax.persistence.Id;
 
 @Entity
 public class Comment extends MessageAbstract {
-	protected Integer idMessage;
-	public int pozitiveRating;
-	public int negativeRating;
+	private Integer idMessage;
+	private int pozitiveRating;
+	private int negativeRating;
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
