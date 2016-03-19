@@ -47,6 +47,12 @@
 				user/login.jsp
 			</result>
 		</action>
+		
+		
+		<action name="logout" class="md.utm.entity.action.user.LoginAuthAction"
+			method="logOut">
+			<result>login.jsp</result>
+		</action>
 
 		<action name="register">
 			<result>user/register.jsp</result>

@@ -50,7 +50,7 @@ window.onload = function(){
 	</center>
 
 
-	<form method="get" action="index.jsp" style="float: right;">
+	<form method="get" action="logout" style="float: right;">
 		<input type="submit" value="Log Out">
 	</form>
 
