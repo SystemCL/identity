@@ -22,24 +22,21 @@
 		</global-exception-mappings>
 
 		<!-- Am adaugat o pagina aparte pentru regisrarea doar in cazul aceasta 
-			actiunea pentru forme se incarca 
-	   <action name="registerButton">
-			<result>user/register.jsp</result>
-		</action> -->	
+			actiunea pentru forme se incarca <action name="registerButton"> <result>user/register.jsp</result> 
+			</action> -->
 
 		<!-- Lucreaza ambele variante -->
-		
+
 		<!-- <action name="registerUser" class="userAction" method="registerUser"> 
 			<result>/index.jsp</result> </action> -->
 
-	<!-- 	<action name="registerUser" class="md.utm.entity.action.user.RegisterUser"
-			method="registerUser">
-			<result>/index.jsp</result>
-		</action> -->
+		<!-- <action name="registerUser" class="md.utm.entity.action.user.RegisterUser" 
+			method="registerUser"> <result>/index.jsp</result> </action> -->
 
- <action name="loginauth" class="md.utm.entity.action.user.LoginAuthAction" > 	
- <!--  <action name="loginauth" class="md.utm.entity.action.user.LoginAuthAction" method="execute"> 	 -->
-		
+		<action name="loginauth" class="md.utm.entity.action.user.LoginAuthAction">
+			<!-- <action name="loginauth" class="md.utm.entity.action.user.LoginAuthAction" 
+				method="execute"> -->
+
 			<result name="success" type="redirect">
 				<param name="location">user/entityMain.jsp</param>
 			</result>
@@ -47,8 +44,8 @@
 				user/login.jsp
 			</result>
 		</action>
-		
-		
+
+
 		<action name="logout" class="md.utm.entity.action.user.LoginAuthAction"
 			method="logOut">
 			<result>login.jsp</result>
@@ -57,21 +54,18 @@
 		<action name="register">
 			<result>user/register.jsp</result>
 		</action>
-		
+
 		<action name="createUserAction" class="userAction" method="addUser">
 			<result name="success">user/login.jsp</result>
 			<result name="error">user/register.jsp</result>
 		</action>
-		
-		
-			<action name="getCommentsAction" class="md.utm.entity.action.user.LoginAuthAction" method="listAllComments">
-			<result name="success">/user/login.jsp</result>
+
+
+		<action name="getCommentsAction" class="md.utm.entity.action.user.CrudUserAction"
+			method="populateCommentList">
+			<result name="success">/user/entityMain.jsp</result>
 			<result name="error">user/register.jsp</result>
 		</action>
-		
-		
-		
-
 
 	</package>
 </struts>

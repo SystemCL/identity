@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
+<%@ taglib prefix="s" uri="/struts-tags"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -89,9 +90,9 @@
 			</ul>
 		</div>
 	</center>
-	
-	
-	
+
+
+
 	<!-- 
 		public int idMessage;
 	public String message;
@@ -99,28 +100,28 @@
 	public int getIdMessage() {
 		
 	 -->
-	
+
 	<s:if test="commentList.size() > 0">
-	<table border="1px" cellpadding="8px">
-		<tr>
-			<th>Comment</th>
-			<th>date</th>
-			<th>up</th>
-			<th>down</th>
-			
-			
-		</tr>
-		<s:iterator value="commentList" status="">
+		<table border="1px" cellpadding="8px">
 			<tr>
-				<td><s:property value="message" /></td>
-				<td><s:property value="dateMessage" /></td>
-				<td><s:property value="up" /></td>
-				<td><s:property value="down" /></td>
+				<th>Comment</th>
+				<th>date</th>
+				<th>up</th>
+				<th>down</th>
+
+
 			</tr>
-		</s:iterator>
-	</table>
-</s:if>
-	
+			<s:iterator value="commentList" status="">
+				<tr>
+					<td><s:property value="message" /></td>
+					<td><s:property value="creationDate"  /></td>
+					<td><s:property value="pozitiveRating" /></td>
+					<td><s:property value="negativeRating" /></td>
+				</tr>
+			</s:iterator>
+		</table>
+	</s:if>
+
 
 
 

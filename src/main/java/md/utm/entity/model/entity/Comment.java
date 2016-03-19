@@ -1,53 +1,52 @@
 package md.utm.entity.model.entity;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 
 @Entity
-public class Comment {
-	
-	public String messageContent;
-	public int up;
-	public int down;
+public class Comment extends MessageAbstract {
+	protected Integer idMessage;
+	public int pozitiveRating;
+	public int negativeRating;
 
-	public int getUp() {
-		return up;
-	}
-
-	public void setUp(int up) {
-		this.up = up;
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	public Integer getIdMessage() {
+		return idMessage;
 	}
 
-	public int getDown() {
-		return down;
+	public Integer setIdMessage(Integer idMessage) {
+		return idMessage;
 	}
 
-	public void setDown(int down) {
-		this.down = down;
+	public int getPozitiveRating() {
+		return pozitiveRating;
 	}
 
-	public String getMessageContent() {
-		return messageContent;
+	public void setPozitiveRating(int pozitiveRating) {
+		this.pozitiveRating = pozitiveRating;
 	}
 
-	public void setMessageContent(String messageContent) {
-		this.messageContent = messageContent;
-	}
-	
-	
-	public int up(int idComment){
-		
-		return 0;
-		
+	public int getNegativeRating() {
+		return negativeRating;
 	}
 
-	public int down(int idComment){
-		
-		return 0;
+	public void setNegativeRating(int negativeRating) {
+		this.negativeRating = negativeRating;
 	}
-	
-	
-	public boolean commentProfile(String comment){
-		
+
+	public int icrementRating(int idComment) {
+		return pozitiveRating++;
+	}
+
+	public int decrementRating(int idComment) {
+		return negativeRating--;
+	}
+
+	public boolean commentProfile(String comment) {
 		return false;
 	}
+
 }

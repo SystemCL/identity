@@ -13,14 +13,12 @@ import md.utm.entity.model.dao.UserDAO;
 import md.utm.entity.model.entity.Comment;
 import md.utm.entity.model.entity.UserAc;
 
-
 public class CrudUserAction implements ModelDriven<UserAc> {
 
-	//incercare comenturi
+	// incercare comenturi
 	private CommentDAO commentDAO;
 	private List<Comment> commentList;
-	
-	
+
 	private UserAc user = new UserAc();
 
 	private UserDAO userDAO;
@@ -39,6 +37,10 @@ public class CrudUserAction implements ModelDriven<UserAc> {
 
 	public UserAc getModel() {
 		return user;
+	}
+
+	public void setCommentDAO(CommentDAO commentDAO) {
+		this.commentDAO = commentDAO;
 	}
 
 	public void setUserDAO(UserDAO userDAO) {
@@ -98,15 +100,18 @@ public class CrudUserAction implements ModelDriven<UserAc> {
 		}
 		return Action.SUCCESS;
 	}
-	
+
+	public List<Comment> getCommentList() {
+		return commentList;
+	}
+
 	// list all comments
-		public String listAllComments() {
-			commentList = commentDAO.getAllComments();
-			if (commentList == null) {
-				commentList = new ArrayList<Comment>();
-			}
-			return Action.SUCCESS;
+	public String populateCommentList() {
+		commentList = commentDAO.getAllComments();
+		if (commentList == null) {
+			commentList = new ArrayList<Comment>();
 		}
-	
-	
+		return Action.SUCCESS;
+	}
+
 }
