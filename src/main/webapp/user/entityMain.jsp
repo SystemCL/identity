@@ -1,6 +1,7 @@
+<%@ taglib prefix="s" uri="/struts-tags"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
-<%@ taglib prefix="s" uri="/struts-tags"%>
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -8,6 +9,7 @@
 <link rel="stylesheet" type="text/css" href="../css/style.css" />
 <link rel="stylesheet" type="text/css" href="../css/bar.css" />
 <title>Entity</title>
+
 </head>
 <body>
 
@@ -101,7 +103,11 @@
 		
 	 -->
 
-	<s:if test="commentList.size() > 0">
+
+ 	<s:if test="commentList.size() > 0"> 
+<%--   <s:if test="%{commentList.size() > 0}">    
+ 	   <s:if test="%{not empty commentList}">  --%>
+ 	
 		<table border="1px" cellpadding="8px">
 			<tr>
 				<th>Comment</th>
@@ -111,10 +117,10 @@
 
 
 			</tr>
-			<s:iterator value="commentList" status="">
+			<s:iterator value="commentList" >
 				<tr>
 					<td><s:property value="message" /></td>
-					<td><s:property value="creationDate"  /></td>
+					<td><s:date name="creationDate" format="dd/MM/yyyy" /></td>
 					<td><s:property value="pozitiveRating" /></td>
 					<td><s:property value="negativeRating" /></td>
 				</tr>

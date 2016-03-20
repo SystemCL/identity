@@ -63,7 +63,7 @@
 
 		<action name="getCommentsAction" class="md.utm.entity.action.user.CrudUserAction"
 			method="populateCommentList">
-			<result name="success">/user/entityMain.jsp</result>
+			<result name="success">user/entityMain.jsp</result>
 			<result name="error">user/register.jsp</result>
 		</action>
 
