@@ -37,6 +37,7 @@ public class CrudUserAction implements ModelDriven<UserAc> {
 
 	public UserAc getModel() {
 		return user;
+		
 	}
 
 	public void setCommentDAO(CommentDAO commentDAO) {

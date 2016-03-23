@@ -5,13 +5,15 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 
-<link rel="stylesheet" type="text/css" href="../css/search.css" />
-<link rel="stylesheet" type="text/css" href="../css/style.css" />
-<link rel="stylesheet" type="text/css" href="../css/header.css" />
+<link rel="stylesheet" type="text/css" href="css/search.css" />
+<link rel="stylesheet" type="text/css" href="css/style.css" />
+<link rel="stylesheet" type="text/css" href="css/header.css" />
 
 
 
-<title>Insert title here</title>
+
+
+<title>Identity</title>
 </head>
 <body>
 
@@ -36,10 +38,11 @@ window.onload = function(){
 
 
 <ul id="menu" >
-  <li><a href="../user/entityMain.jsp">Identity</a></li>
+  <li><a href="getCommentsAction">Identity</a></li>
   <li><a href="../user/friends.jsp">Knowns</a></li>
   <li><a href="../user/messages.jsp">Messages</a></li>
   <li><a href="../user/entityMain.jsp">Recomandation</a></li>
+  <li><a href="../user/entityMain.jsp">Log Out</a></li>
   
 <!--   <li><a id="tfheader">
 			<form id="tfnewsearch" method="get" action="http://www.google.com">

@@ -8,22 +8,29 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <link rel="stylesheet" type="text/css" href="../css/style.css" />
 <link rel="stylesheet" type="text/css" href="../css/bar.css" />
-<title>Entity</title>
+<link rel="stylesheet" type="text/css" href="css/comments.css" />
+
+
+<title>Identity</title>
 
 </head>
 <body>
 
 	<%@include file="header.jsp"%>
+	
 	<br>
 	<br>
 
 
+	
+
+	<center>
+		<img class="example" src="images/menSmile.jpg">
+	</center>
+	
 	<center>
 		<h1>Vasile Ion Ion</h1>
-	</center>
-
-	<center>
-		<img class="example" src="../images/menSmile.jpg">
+		<input type="text" value="<%= session.getAttribute("username") %>" />
 	</center>
 
 
@@ -40,37 +47,26 @@
 
 
 	<center>
-		<table style="width: 40%">
-			<tr>
-				<td>10.10.2016<br> Nice person! Like
-					sdfasfsdfsdfssdfsfsvfvdvdfvfdvfd
-				</td>
-				<td><button type="button">UP</button></td>
-				<td><button type="button">DOWN</button></td>
-			</tr>
-			<tr>
-				<td>10.10.2016<br>Nice person! Like text texttex text text
-					text texte dasfassaffs
-				</td>
-				<td><button type="button">UP</button></td>
-				<td><button type="button">DOWN</button></td>
-			</tr>
-			<tr>
-				<td>10.10.2016<br>Some text, Some text, Some text, Some
-					text, Some text
-				</td>
-				<td><button type="button">UP</button></td>
-				<td><button type="button">DOWN</button></td>
-			</tr>
-			<tr>
-				<td>10.10.2016<br>Some text, Some text, Some text, Some
-					text, Some text
-				</td>
-				<td><button type="button">UP</button></td>
-				<td><button type="button">DOWN</button></td>
-			</tr>
+		<s:if test="commentList.size() > 0"> 
+		 	
+				<table border="1px" cellpadding="8px">
+					
+					 <tr>
+					
+					 <td colspan="3" ><center>Opinions</center></td>
+				
+	
+					</tr>
+					<s:iterator value="commentList" >
+						<tr>
+							<td><s:date name="creationDate" format="dd/MM/yyyy" /> <br> <s:property value="message" /></td>
+							<td><center><s:property value="pozitiveRating" /></center> <br> <button type="button">UP</button></td>
+							<td><center><s:property value="negativeRating" /></center> <br> <button type="button">DOWN</button></td>
 
-		</table>
+						</tr>
+					</s:iterator>
+				</table>
+			</s:if>
 	</center>
 
 
@@ -92,41 +88,6 @@
 			</ul>
 		</div>
 	</center>
-
-
-
-	<!-- 
-		public int idMessage;
-	public String message;
-	public Date dateMessage;
-	public int getIdMessage() {
-		
-	 -->
-
-
- 	<s:if test="commentList.size() > 0"> 
-<%--   <s:if test="%{commentList.size() > 0}">    
- 	   <s:if test="%{not empty commentList}">  --%>
- 	
-		<table border="1px" cellpadding="8px">
-			<tr>
-				<th>Comment</th>
-				<th>date</th>
-				<th>up</th>
-				<th>down</th>
-
-
-			</tr>
-			<s:iterator value="commentList" >
-				<tr>
-					<td><s:property value="message" /></td>
-					<td><s:date name="creationDate" format="dd/MM/yyyy" /></td>
-					<td><s:property value="pozitiveRating" /></td>
-					<td><s:property value="negativeRating" /></td>
-				</tr>
-			</s:iterator>
-		</table>
-	</s:if>
 
 
 

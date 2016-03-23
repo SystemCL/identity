@@ -1,5 +1,6 @@
 <%@ taglib prefix="s" uri="/struts-tags"%>
 
+<center>
 <h2>Register user</h2>
 <s:form>
 	<s:textfield name="username" label="Username" value="%{username}" />
@@ -12,4 +13,4 @@
 		<s:submit value="Update" action="updateUserAction"/>
 	</s:else> --%>
 </s:form>
-
+</center>

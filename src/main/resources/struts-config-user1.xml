@@ -36,6 +36,7 @@
 		<action name="loginauth" class="md.utm.entity.action.user.LoginAuthAction">
 			<!-- <action name="loginauth" class="md.utm.entity.action.user.LoginAuthAction" 
 				method="execute"> -->
+				<!-- user/entityMain.jsp -->
 
 			<result name="success" type="redirect">
 				<param name="location">user/entityMain.jsp</param>

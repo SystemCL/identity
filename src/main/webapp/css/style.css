@@ -53,23 +53,7 @@ nav {
 	height: 40px;
 }
 
-/*------------table----------------*/
-table, th, td {
-	border: 1px solid black;
-	border-collapse: collapse;
-}
 
-table tr {
-	background: #fafafa;
-}
-
-table tr:hover {
-	bagkground: #89ae37;
-}
-
-table tr:hover {
-	background: #e0e0e0;
-}
 
 li {
 	list-style-type: none;

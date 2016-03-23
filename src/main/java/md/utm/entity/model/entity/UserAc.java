@@ -8,6 +8,8 @@ package md.utm.entity.model.entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.MapsId;
+import javax.persistence.OneToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
@@ -26,8 +28,21 @@ public class UserAc extends Administrator{
 	public Date createdDate;
 	public boolean admin;
 	
+	@OneToOne @MapsId
+	Profile profile;
 	
-	
+	public Profile getProfile() {
+		return profile;
+	}
+
+	public void setProfile(Profile profile) {
+		this.profile = profile;
+	}
+
+	public boolean isAdmin() {
+		return admin;
+	}
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	public Integer getIdAccount() {

@@ -1,0 +1,24 @@
+@CHARSET "UTF-8";
+
+table{
+	
+	background-color:#ffffff;
+    		width:40%;
+    		height:50%;
+}
+
+
+table, th, td {
+	
+	border: 1px solid black;
+	border-collapse: collapse;
+}
+
+table tr {
+	background: #fafafa;
+}
+
+
+table tr:not(:first-child):hover {
+	background: #e0e0e0;
+}

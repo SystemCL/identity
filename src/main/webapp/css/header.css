@@ -13,7 +13,7 @@ ul#menu li {
 }
 
 ul#menu li a {
-    background-color: #2db5a7;
+    background-color: #28b9a7;
     color: white;
     padding: 10px 20px;
     text-decoration: none;
@@ -21,6 +21,6 @@ ul#menu li a {
 }
 
 ul#menu li a:hover {
-    background-color: orange;
+    background-color: #35caca;
 }
 
