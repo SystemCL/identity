@@ -30,6 +30,7 @@ public class UserAc extends Administrator{
 	
 	//@OneToOne @MapsId
 	//Profile profile;
+	//sss
 	
 /*	public Profile getProfile() {
 		return profile;
