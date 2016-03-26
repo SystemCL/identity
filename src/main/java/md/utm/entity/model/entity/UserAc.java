@@ -28,16 +28,16 @@ public class UserAc extends Administrator{
 	public Date createdDate;
 	public boolean admin;
 	
-	@OneToOne @MapsId
-	Profile profile;
+	//@OneToOne @MapsId
+	//Profile profile;
 	
-	public Profile getProfile() {
+/*	public Profile getProfile() {
 		return profile;
 	}
 
 	public void setProfile(Profile profile) {
 		this.profile = profile;
-	}
+	}*/
 
 	public boolean isAdmin() {
 		return admin;

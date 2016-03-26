@@ -9,18 +9,27 @@ import javax.persistence.Id;
 
 
 
-@Entity
+//@Entity
 public class Profile {
 	
+	//@Id public int idProfile;
+	public String firstName;
+	public String lastName;
+	public Date dBirthday;
+	public String location;
+	public String status;
+	public long picture;
 	
-	public int getIdProfile() {
+	
+	
+/*	public int getIdProfile() {
 		return idProfile;
 	}
 
 	public void setIdProfile(int idProfile) {
 		this.idProfile = idProfile;
 	}
-
+*/
 	public String getFirstName() {
 		return firstName;
 	}
@@ -69,14 +78,6 @@ public class Profile {
 		this.picture = picture;
 	}
 
-	@Id public int idProfile;
-	public String firstName;
-	public String lastName;
-	public Date dBirthday;
-	public String location;
-	public String status;
-	public long picture;
-	
 	
 //	public List<Message> messageList;
 //	public List<Comment> commentList;
