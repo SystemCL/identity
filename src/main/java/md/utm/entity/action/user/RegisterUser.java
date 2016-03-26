@@ -4,10 +4,10 @@ import com.opensymphony.xwork2.Action;
 import com.opensymphony.xwork2.ModelDriven;
 
 import md.utm.entity.model.dao.UserDAO;
-import md.utm.entity.model.entity.UserAc;
+import md.utm.entity.model.entity.UserAccount;
 
-public class RegisterUser implements ModelDriven<UserAc> {
-	private final UserAc user = new UserAc();
+public class RegisterUser implements ModelDriven<UserAccount> {
+	private final UserAccount user = new UserAccount();
      private UserDAO userDAO;
 
 	public String registerUser() throws Exception {
@@ -18,7 +18,7 @@ public class RegisterUser implements ModelDriven<UserAc> {
 		return Action.ERROR;
 	}
 
-	public UserAc getModel() {
+	public UserAccount getModel() {
 		// TODO Auto-generated method stub
 		return user;
 	}

@@ -7,7 +7,7 @@ import org.apache.struts2.interceptor.SessionAware;
 import com.opensymphony.xwork2.ActionSupport;
 
 import md.utm.entity.model.dao.UserDAO;
-import md.utm.entity.model.entity.UserAc;
+import md.utm.entity.model.entity.UserAccount;
 
 
 
@@ -24,7 +24,7 @@ public class LoginAuthAction  extends ActionSupport implements SessionAware{
 
 	private Boolean error;
 	private Map<String, Object> sessionMap;
-	private UserAc user;
+	private UserAccount user;
 	
 	@Override
 	public String execute() {
@@ -62,7 +62,7 @@ public class LoginAuthAction  extends ActionSupport implements SessionAware{
 		return SUCCESS;
 	}
 	
-	private UserAc findUser() {
+	private UserAccount findUser() {
 		user = userDAO.findUser(username, password);
 		return user;
 	}

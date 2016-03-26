@@ -11,31 +11,31 @@ import com.opensymphony.xwork2.ModelDriven;
 import md.utm.entity.model.dao.CommentDAO;
 import md.utm.entity.model.dao.UserDAO;
 import md.utm.entity.model.entity.Comment;
-import md.utm.entity.model.entity.UserAc;
+import md.utm.entity.model.entity.UserAccount;
 
-public class CrudUserAction implements ModelDriven<UserAc> {
+public class CrudUserAction implements ModelDriven<UserAccount> {
 
 	// incercare comenturi
 	private CommentDAO commentDAO;
 	private List<Comment> commentList;
 
-	private UserAc user = new UserAc();
+	private UserAccount user = new UserAccount();
 
 	private UserDAO userDAO;
 
-	private List<UserAc> userList;
+	private List<UserAccount> userList;
 
 	private Integer userId;
 
-	public List<UserAc> getUserList() {
+	public List<UserAccount> getUserList() {
 		return userList;
 	}
 
-	public void setUserList(List<UserAc> userList) {
+	public void setUserList(List<UserAccount> userList) {
 		this.userList = userList;
 	}
 
-	public UserAc getModel() {
+	public UserAccount getModel() {
 		return user;
 		
 	}
@@ -97,7 +97,7 @@ public class CrudUserAction implements ModelDriven<UserAc> {
 	public String listAllUsers() {
 		userList = userDAO.getAllUsers();
 		if (userList == null) {
-			userList = new ArrayList<UserAc>();
+			userList = new ArrayList<UserAccount>();
 		}
 		return Action.SUCCESS;
 	}

@@ -4,28 +4,28 @@ import java.util.List;
 
 import md.utm.entity.model.dao.UserDAO;
 import md.utm.entity.exception.ObjectsNotFoundException;
-import md.utm.entity.model.entity.UserAc;
+import md.utm.entity.model.entity.UserAccount;
 
 
 @SuppressWarnings("unchecked")
 public class UserDAOImpl extends GenericDaoImpl implements UserDAO {
-	public UserAc findUser(String username, String password) {
-		List<UserAc> find = getHibernateTemplate().find(
+	public UserAccount findUser(String username, String password) {
+		List<UserAccount> find = getHibernateTemplate().find(
 				"from UserAc where username=? and password=?", username, password);
 		if (find.isEmpty()) {
-			throw new ObjectsNotFoundException(UserAc.class, username, password);
+			throw new ObjectsNotFoundException(UserAccount.class, username, password);
 		}
 		return find.iterator().next();
 	}
 
-	public List<UserAc> getAllUsers() {
+	public List<UserAccount> getAllUsers() {
 		// TODO Auto-generated method stub
 		return getHibernateTemplate().find("from UserAc order by username asc");
 	}
 
-	public UserAc findUser(Integer idAccount) {
+	public UserAccount findUser(Integer idAccount) {
 		// TODO Auto-generated method stub
-		return get(UserAc.class, idAccount);
+		return get(UserAccount.class, idAccount);
 	}
 
 	public void deleteUser(Integer idAccount) {

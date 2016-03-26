@@ -2,16 +2,16 @@ package md.utm.entity.model.dao;
 
 import java.util.List;
 
-import md.utm.entity.model.entity.UserAc;
+import md.utm.entity.model.entity.UserAccount;
 
 public interface UserDAO extends GenericDao {
 	//List<Book> retrieveAllUploadedUserBooks(User user);
 	
-	UserAc findUser(String username, String password);
+	UserAccount findUser(String username, String password);
 
-	List<UserAc> getAllUsers();
+	List<UserAccount> getAllUsers();
 
-	UserAc findUser(Integer idAccount);
+	UserAccount findUser(Integer idAccount);
 
 	void deleteUser(Integer idAccount);
 
