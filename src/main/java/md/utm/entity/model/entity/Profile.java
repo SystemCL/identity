@@ -1,35 +1,33 @@
 package md.utm.entity.model.entity;
 
-import java.util.ArrayList;
 import java.util.Date;
-import java.util.List;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
-
-
-//@Entity
+@Entity
 public class Profile {
-	
-	//@Id public int idProfile;
+
+	public int idProfile;
 	public String firstName;
 	public String lastName;
 	public Date dBirthday;
 	public String location;
 	public String status;
 	public long picture;
-	
-	
-	
-/*	public int getIdProfile() {
+
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	public int getIdProfile() {
 		return idProfile;
 	}
 
 	public void setIdProfile(int idProfile) {
 		this.idProfile = idProfile;
 	}
-*/
+
 	public String getFirstName() {
 		return firstName;
 	}
@@ -76,45 +74,6 @@ public class Profile {
 
 	public void setPicture(long picture) {
 		this.picture = picture;
-	}
-
-	
-//	public List<Message> messageList;
-//	public List<Comment> commentList;
-//	public List<Announcement> announcementList;
-	
-	
-	public int sendKnownRequest(int id){
-		
-		return 0;
-		
-	}
-	
-	public boolean reportProfile(int id){
-		
-		return false;
-		
-	}
-	
-	public boolean deleteKnown(int id){
-		
-		return false;
-		
-	}
-	
-	public boolean getMessages(){
-		
-		return false;
-	}
-	
-	public boolean getComments(){
-		
-		return false;
-	}
-	
-	public boolean getAnnouncement(){
-		
-		return false;
 	}
 
 }
