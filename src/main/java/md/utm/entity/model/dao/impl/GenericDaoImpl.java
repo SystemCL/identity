@@ -15,6 +15,7 @@ public class GenericDaoImpl extends HibernateDaoSupport implements GenericDao {
 		return getHibernateTemplate().get(entity, id);
 	}
 
+
 	@SuppressWarnings("unchecked")
 	public <T> List<T> get(Class<T> entity) {
 		return getHibernateTemplate().find("from " + entity.getSimpleName());

@@ -39,7 +39,9 @@
 				<!-- user/entityMain.jsp -->
 
 			<result name="success" type="redirect">
-				<param name="location">user/entityMain.jsp</param>
+				<!-- <param name="location">user/entityMain.jsp</param> -->
+				<param name="location">getCommentsAction</param>
+				
 			</result>
 			<result name="error">
 				user/login.jsp
@@ -49,7 +51,10 @@
 
 		<action name="logout" class="md.utm.entity.action.user.LoginAuthAction"
 			method="logOut">
-			<result>login.jsp</result>
+			<!-- <result>login.jsp</result> -->
+			
+			<result name="success">user/login.jsp</result>
+			<result name="error">user/register.jsp</result>
 		</action>
 
 		<action name="register">

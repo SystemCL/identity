@@ -42,7 +42,7 @@ window.onload = function(){
   <li><a href="../user/friends.jsp">Knowns</a></li>
   <li><a href="../user/messages.jsp">Messages</a></li>
   <li><a href="../user/entityMain.jsp">Recomandation</a></li>
-  <li><a href="../user/entityMain.jsp">Log Out</a></li>
+  <li><a href="logout">Log Out</a></li>
   
 <!--   <li><a id="tfheader">
 			<form id="tfnewsearch" method="get" action="http://www.google.com">
