@@ -13,4 +13,12 @@ public class CommentDAOimpl extends GenericDaoImpl implements CommentDAO {
 		// TODO Auto-generated method stub
 		return getHibernateTemplate().find("from Comment order by creationDate desc");
 	}
+
+	
+	//add comment to user profile ?? dupa user
+	public void writeCommet(Comment comment) {
+		// TODO Auto-generated method stub
+		getHibernateTemplate().save(comment);
+		
+	}
 }

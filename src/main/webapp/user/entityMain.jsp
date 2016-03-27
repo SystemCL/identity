@@ -19,29 +19,50 @@
 	
 	<br>
 	<br>
+	<br>
 
+<center>
+<form style="display: inline;">
+				  <div id="element1">
+				<img class="example" src="images/menSmile.jpg">
+				</div>
+				<div id="element2">
+				<p><s:property value="#session['status']" /></p>
+				</div>
+</form>
+</center>
 
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	
+	
 	
 
+
 	<center>
-		<img class="example" src="images/menSmile.jpg">
-	</center>
-	
-	<center>
-		
-		
+		<form style="background-color: #83c5c5;   width: 30%;">
 	<h1><s:property value="#session['firstName']" /> <s:property value="#session['lastName']" /></h1> <br>
 	    Email: <s:property value="#session['email']" /> <br>
-        Data nasterii: <s:property value="#session['dBirthday']" /> <br>
+        Nascut: <s:date name="#session['dBirthday']" nice="true" /> <br>
+        Data nasterii: <s:date name="#session['dBirthday']" format="dd MMM yyyy" /> <br>
         Locatie: <s:property value="#session['location']" /> <br>
-        Status: <s:property value="#session['status']" /> <br>
-
+      <%--   Status: <s:property value="#session['status']" /> <br> --%>
+       
 		<%-- <input type="text" value="<%= session.getAttribute("picture") %>" /> --%>
-		
+		</form>
 	</center>
-
-
-
+	<br>
 
 
 	<center>
@@ -72,55 +93,43 @@
 	<br>
 	
 	
+
+	
 <center>
-<form method='post'>
+<form method='post' action ="addCommentAction">
 
   Comment:<br />
-  <textarea name='comment' id='comment'></textarea><br />
-
-  <input type='hidden' name='articleid' id='articleid' value='<? echo $_GET["id"]; ?>' />
- 
-
+  <textarea name='message' id='comment' rows="4" cols="50"></textarea><br>
+  <input type='hidden' name='message' id='articleid' value="%{message}" />
   <input type='submit' value='Post' />  
 </form>
 </center>
+
+
+
+
+<center>
+<h2>Comment</h2>
+<s:form>
+	<s:textfield name="message" label="Comentariu" value="%{message}" />
+	<s:if test="%{id==null}">
+		<s:submit value="Post" action="addCommentAction" />
+	</s:if>
+<%-- 	<s:else>
+		<s:submit value="Update" action="updateUserAction"/>
+	</s:else> --%>
+</s:form>
+</center>
+
+
+
+
+<br>
+<br>
+<br>
 	
-	
 
-<%-- 	<center>
-		<div class="test1">
-		
-			<center>
-		<s:if test="commentList.size() > 0"> 
-		 	
-				<table border="1px" cellpadding="8px">
-					
-					 <tr>
-					
-					 <td colspan="3" ><center>Opinions</center></td>
-				
-	
-					</tr>
-					<s:iterator value="commentList" >
-						<tr>
-							<td><s:date name="creationDate" format="dd/MM/yyyy" /> <br> <s:property value="message" /></td>
-							<td><center><s:property value="pozitiveRating" /></center> <br> <button type="button">UP</button></td>
-							<td><center><s:property value="negativeRating" /></center> <br> <button type="button">DOWN</button></td>
-
-						</tr>
-					</s:iterator>
-				</table>
-			</s:if>
-	</center>
-		
-		
-		
-		</div>
-	</center> --%>
-
-
-
-
+<jsp:include page="footer.jsp" />
 
 </body>
 </html>

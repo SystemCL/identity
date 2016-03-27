@@ -72,6 +72,13 @@
 			<result name="success">user/entityMain.jsp</result>
 			<result name="error">user/register.jsp</result>
 		</action>
+		
+		
+			<action name="addCommentAction" class="md.utm.entity.action.user.CrudUserAction"
+			method="addComment">
+			<result name="success">user/entityMain.jsp</result>
+			<result name="error">user/register.jsp</result>
+		</action>
 
 	</package>
 </struts>

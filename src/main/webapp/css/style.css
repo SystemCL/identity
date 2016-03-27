@@ -6,6 +6,41 @@ body {
 	line-height: 1.5em;
 }
 
+
+/*----------status box---------*/
+
+p {
+    position: relative;
+    background: #ffffff;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px; 
+    z-index: 0;
+    width: 250px; 
+    height: 150px
+}
+
+p:before{
+    content: "";
+    position: absolute;
+    top: 60px;
+    left:-28px;
+    z-index: 0;
+    border: solid 15px transparent;
+    border-right-color: #ffffff;
+}
+
+#outer {
+  position: absolute;
+  margin-left: 50%;
+ }
+ 
+ 
+#element1 {float:left; margin-left:40%; }
+#element2 {float :left; margin-left:20px; }
+
+
+
 /*---------messages---------*/
 .ora_mess {
 	font-size: 70%;

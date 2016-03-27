@@ -16,15 +16,16 @@ import md.utm.entity.model.entity.UserAccount;
 public class CrudUserAction implements ModelDriven<UserAccount> {
 
 	// incercare comenturi
-	private CommentDAO commentDAO;
-	private List<Comment> commentList;
 
 	private UserAccount user = new UserAccount();
+	private Comment comment = new Comment();
 
 	private UserDAO userDAO;
+	private CommentDAO commentDAO;
 
 	private List<UserAccount> userList;
-
+	private List<Comment> commentList;
+	
 	private Integer userId;
 
 	public List<UserAccount> getUserList() {
@@ -113,6 +114,20 @@ public class CrudUserAction implements ModelDriven<UserAccount> {
 			commentList = new ArrayList<Comment>();
 		}
 		return Action.SUCCESS;
+	}
+	
+	public String addComment(){
+		
+		comment.setCreationDate(new Date());
+		
+		//comment.setMessage("Mesajul din textbox");
+		commentDAO.save(comment);
+		
+		if (comment.getMessage() != null) {
+			return Action.SUCCESS;
+		}
+		return Action.ERROR;
+		
 	}
 
 }

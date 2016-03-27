@@ -17,7 +17,9 @@
 </head>
 <body>
 
-<!-- 	<script type="text/javascript">
+
+<!-- functia de cautare -->
+ <script type="text/javascript">
 window.onload = function(){ 
 	//Get submit button
 	var submitbutton = document.getElementById("tfq");
@@ -30,7 +32,8 @@ window.onload = function(){
 		});
 	}
 }
-</script> -->
+</script> 
+
 
 
 	<!-- <div class="rect" style="top:0px;"></div>   -->
@@ -42,6 +45,10 @@ window.onload = function(){
   <li><a href="../user/friends.jsp">Knowns</a></li>
   <li><a href="../user/messages.jsp">Messages</a></li>
   <li><a href="../user/entityMain.jsp">Recomandation</a></li>
+  
+  <li><INPUT type="text" name="userProfile" class="tftextinput3" name="q" size="21"
+					maxlength="120" value="Search knowns"> <INPUT type="submit" value="Find"></li>
+  
   <li><a href="logout">Log Out</a></li>
   
 <!--   <li><a id="tfheader">
@@ -49,9 +56,9 @@ window.onload = function(){
 				<input type="text" id="tfq" class="tftextinput3" name="q" size="21"
 					maxlength="120" value="Search knowns">
 			</form>
-			<div class="tfclear"></div>
+			
 		</a>
-		</li> -->
+		</li>  -->
   
 </ul> 
 

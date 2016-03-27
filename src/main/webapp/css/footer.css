@@ -1,11 +1,13 @@
 @CHARSET "UTF-8";
 
 
-ul#menu {
+ul#foot {
   
-    position:fixed;
-    margin:0; 
-    top:0px;
+   width: 100%;
+    overflow:hidden;
+  position:fixed static;
+ margin: 0 auto;
+    bottom: 0;
     right:0px;
     left:0px;
     width:auto;
@@ -13,24 +15,23 @@ ul#menu {
     background-color: #28b9a7;
 }
 
-ul#menu li {
+ul#foot li {
     display: inline;
       height: 30px;
     line-height: 30px;
 }
 
-ul#menu li a {
+ul#foot li a {
     background-color: #28b9a7;
     color: white;
     top:10px;
-    padding: 20px 30px;
+    padding: 0px 10px;
     text-decoration: none;
-    border-radius: 4px 4px 0 0;
      vertical-align: middle;
     text-align: center;
 }
 
-ul#menu li a:hover {
+ul#foot li a:hover {
     background-color: #35caca;
 }
 
