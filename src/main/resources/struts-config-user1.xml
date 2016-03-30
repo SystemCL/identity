@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE struts PUBLIC
-   "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
-   "http://struts.apache.org/dtds/struts-2.0.dtd">
+"-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+"http://struts.apache.org/dtds/struts-2.1.dtd">
 
 <struts>
 	<package name="default" namespace="/" extends="struts-default">
@@ -36,12 +36,12 @@
 		<action name="loginauth" class="md.utm.entity.action.user.LoginAuthAction">
 			<!-- <action name="loginauth" class="md.utm.entity.action.user.LoginAuthAction" 
 				method="execute"> -->
-				<!-- user/entityMain.jsp -->
+			<!-- user/entityMain.jsp -->
 
 			<result name="success" type="redirect">
 				<!-- <param name="location">user/entityMain.jsp</param> -->
 				<param name="location">getCommentsAction</param>
-				
+
 			</result>
 			<result name="error">
 				user/login.jsp
@@ -52,7 +52,7 @@
 		<action name="logout" class="md.utm.entity.action.user.LoginAuthAction"
 			method="logOut">
 			<!-- <result>login.jsp</result> -->
-			
+
 			<result name="success">user/login.jsp</result>
 			<result name="error">user/register.jsp</result>
 		</action>
@@ -72,12 +72,12 @@
 			<result name="success">user/entityMain.jsp</result>
 			<result name="error">user/register.jsp</result>
 		</action>
-		
-		
-			<action name="addCommentAction" class="md.utm.entity.action.user.CrudUserAction"
+
+
+		<action name="addCommentAction" class="md.utm.entity.action.user.CrudCommentAction"
 			method="addComment">
-			<result name="success">user/entityMain.jsp</result>
-			<result name="error">user/register.jsp</result>
+			<result name="success" type="redirectAction">getCommentsAction</result>
+			<result name="error" type="redirectAction">getCommentsAction</result>
 		</action>
 
 	</package>
