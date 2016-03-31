@@ -8,5 +8,7 @@ public interface CommentDAO extends GenericDao {
 	
 	List<Comment> getAllComments();
 	
-	void writeCommet(Comment comment);
+	Comment getCommentById(Integer idComment);
+	
+	
 }

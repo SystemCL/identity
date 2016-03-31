@@ -6,7 +6,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
-public class Comment extends MessageAbstract {
+public class Comment extends MessageAbstract  {
 	private Integer idMessage;
 	private int pozitiveRating;
 	private int negativeRating;
@@ -37,7 +37,7 @@ public class Comment extends MessageAbstract {
 		this.negativeRating = negativeRating;
 	}
 
-	public int icrementRating(int idComment) {
+	public int incrementRating(int idComment) {
 		return pozitiveRating++;
 	}
 

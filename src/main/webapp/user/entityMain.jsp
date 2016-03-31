@@ -8,6 +8,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <link rel="stylesheet" type="text/css" href="css/style.css" />
 <link rel="stylesheet" type="text/css" href="css/comments.css" />
+<link  type="text/javascript" href="js/scripts.js" />
 
 
 <title>Identity</title>
@@ -90,14 +91,32 @@
 					<tr>
 						<td><s:date name="creationDate" format="dd/MM/yyyy" /></td>
 						<td><s:property value="message" /></td>
-						<td><center>
-								<s:property value="pozitiveRating" />
-							</center> <br>
-							<button type="button">UP</button></td>
-						<td><center>
-								<s:property value="negativeRating" />
-							</center> <br>
-							<button type="button">DOWN</button></td>
+						<td>
+							<s:property value="pozitiveRating" />
+							
+							<s:form>
+							<s:submit id="idMessage" value="Up" action="rateUpAction"  /> 
+							</s:form> 
+							
+							
+						 <%-- 	<s:submit id="idMessage" value="Up" action="rateUpAction"/> --%>
+							 
+						<%-- 	<s:form>
+							<s:submit id="idMessage" value="Up" action="rateUpAction" onclick="setIdForRating()" /> 
+							</s:form> --%>
+							
+							
+							
+					
+							<%-- <s:submit type="button" action="rateUpAction" name="idMessage" value="idMessage">UP</s:submit> --%>
+							</td>
+						<td>
+							<s:property value="negativeRating" />
+							<s:form>
+							<s:submit id="idMessage" value="Down" action="rateDownAction"  /> 
+							</s:form> 
+							<%-- <s:submit type="button" action="rateDownAction" name="idMessage" value="idMessage">DOWN</s:submit> --%>
+						</td>
 
 					</tr>
 				</s:iterator>
@@ -108,6 +127,9 @@
 
 	<br>
 	<br>
+	
+	
+	 
 
 	<center>
 		<h2>Comment</h2>

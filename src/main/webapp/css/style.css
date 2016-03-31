@@ -31,7 +31,7 @@ p:before{
 }
 
 #outer {
-  position: absolute;
+  position: relative;
   margin-left: 50%;
  }
  

@@ -19,6 +19,8 @@ public interface GenericDao {
 	public <T> void saveOrUpdate(Collection<T> entities);
 
 	public <T> void refresh(T entity);
+	
+	public <T> void update(T entity);
 
 	public <T> void delete(T entity);
 

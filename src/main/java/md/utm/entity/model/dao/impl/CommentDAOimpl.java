@@ -5,6 +5,7 @@ import java.util.List;
 
 import md.utm.entity.model.dao.CommentDAO;
 import md.utm.entity.model.entity.Comment;
+import md.utm.entity.model.entity.UserAccount;
 
 @SuppressWarnings("unchecked")
 public class CommentDAOimpl extends GenericDaoImpl implements CommentDAO {
@@ -14,11 +15,11 @@ public class CommentDAOimpl extends GenericDaoImpl implements CommentDAO {
 		return getHibernateTemplate().find("from Comment order by creationDate desc");
 	}
 
-	
-	//add comment to user profile ?? dupa user
-	public void writeCommet(Comment comment) {
-		// TODO Auto-generated method stub
-		getHibernateTemplate().save(comment);
+	public Comment getCommentById(Integer idComment){
+		
+		return get(Comment.class, idComment);
+		//return getHibernateTemplate().find("from Comment order by creationDate desc");
 		
 	}
+
 }
