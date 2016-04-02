@@ -11,4 +11,5 @@ public interface CommentDAO extends GenericDao {
 	Comment getCommentById(Integer idComment);
 	
 	
+	
 }

@@ -1,11 +1,16 @@
 package md.utm.entity.model.entity;
 
 import java.util.Date;
+import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 
 @Entity
 public class Profile {
@@ -17,6 +22,11 @@ public class Profile {
 	public String location;
 	public String status;
 	public long picture;
+	private List<Comment> comment;
+	
+	
+	
+
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
@@ -26,6 +36,16 @@ public class Profile {
 
 	public void setIdProfile(int idProfile) {
 		this.idProfile = idProfile;
+	}
+	
+
+	@OneToMany(cascade = CascadeType.ALL)
+	public List<Comment> getComment() {
+		return comment;
+	}
+
+	public void setComment(List<Comment> comment) {
+		this.comment = comment;
 	}
 
 	public String getFirstName() {

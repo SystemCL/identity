@@ -18,6 +18,8 @@ public class RegisterUser implements ModelDriven<UserAccount> {
 		return Action.ERROR;
 	}
 
+	
+	
 	public UserAccount getModel() {
 		// TODO Auto-generated method stub
 		return user;
