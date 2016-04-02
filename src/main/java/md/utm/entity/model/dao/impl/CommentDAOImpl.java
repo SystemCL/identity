@@ -8,7 +8,7 @@ import md.utm.entity.model.entity.Comment;
 import md.utm.entity.model.entity.UserAccount;
 
 @SuppressWarnings("unchecked")
-public class CommentDAOimpl extends GenericDaoImpl implements CommentDAO {
+public class CommentDAOImpl extends GenericDaoImpl implements CommentDAO {
 
 	public List<Comment> getAllComments() {
 		// TODO Auto-generated method stub

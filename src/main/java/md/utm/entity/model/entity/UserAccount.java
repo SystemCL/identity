@@ -3,6 +3,7 @@ package md.utm.entity.model.entity;
 import java.util.Date;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 
 //import java.util.ArrayList;
 //import java.util.List;
@@ -36,7 +37,7 @@ public class UserAccount extends Administrator {
 		this.idAccount = idAccount;
 	}
 
-	@OneToOne
+	@OneToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "profile_id")
 	public Profile getProfile() {
 		return profile;
