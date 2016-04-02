@@ -83,42 +83,36 @@
 
 				<tr>
 
-					<td colspan="4"><center>Opinions</center></td>
+					<td colspan="6"><center>Opinions</center></td>
 
 
 				</tr>
 				<s:iterator value="commentList">
 					<tr>
-						<td><s:date name="creationDate" format="dd/MM/yyyy" /></td>
+						<td><s:date name="creationDate" format="dd/MM/yyyy"  /></td>
 						<td><s:property value="message" /></td>
-						<td>
-							<s:property value="pozitiveRating" />
-							
-							<s:form>
-							<s:submit id="idMessage" value="Up" action="rateUpAction"  /> 
-							</s:form> 
-							
-							
-						 <%-- 	<s:submit id="idMessage" value="Up" action="rateUpAction"/> --%>
-							 
-						<%-- 	<s:form>
-							<s:submit id="idMessage" value="Up" action="rateUpAction" onclick="setIdForRating()" /> 
-							</s:form> --%>
-							
-							
-							
-					
-							<%-- <s:submit type="button" action="rateUpAction" name="idMessage" value="idMessage">UP</s:submit> --%>
-							</td>
-						<td>
-							<s:property value="negativeRating" />
-							<s:form>
-							<s:submit id="idMessage" value="Down" action="rateDownAction"  /> 
-							</s:form> 
-							<%-- <s:submit type="button" action="rateDownAction" name="idMessage" value="idMessage">DOWN</s:submit> --%>
-						</td>
 
-					</tr>
+				   <td>
+				   
+				     <a href=<s:url action="rateUpAction">
+						<s:param name="idMessUpDown" value="%{idMessage}" />
+					 </s:url>>
+						<img alt="Up" width="25px" height="25px" src=<s:url value="/images/up.png"/>>
+				    </a>
+				    <a href=<s:url action="rateDownAction">
+						<s:param name="idMessUpDown" value="%{idMessage}" />
+					</s:url>>
+						<img alt="Down" width="25px" height="25px" src=<s:url value="/images/down.png"/>>
+				   </a>
+				   <td>
+				   <s:property value="pozitiveRating" /> Up
+				   </td>
+				   <td>
+				   <s:property value="negativeRating" /> Down
+				   </td>
+				   
+				  </td>
+				</tr>
 				</s:iterator>
 			</table>
 		</s:if>

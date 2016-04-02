@@ -18,6 +18,7 @@ public class CrudCommentAction  extends ActionSupport implements ModelDriven<Com
 	private CommentDAO commentDAO;
 	
 	
+	
 	private Boolean error;
 	private Map<String, Object> sessionMap;
 
@@ -74,7 +75,7 @@ public String execute()
 		
 	//	System.out.println("Numarul==== " + sessionMap.get("idTest") + "===================");
 		
-		Comment comment1 = commentDAO.getCommentById(1);
+		Comment comment1 = commentDAO.getCommentById(idMessUpDown);
 		comment1.incrementRating(comment1.getIdMessage());//id comment trebuie de adus aici
 	     commentDAO.update(comment1);
 		
@@ -97,7 +98,7 @@ public String execute()
 	
 	public String rateDownComment(){
 		
-		Comment comment1 = commentDAO.getCommentById(1);
+		Comment comment1 = commentDAO.getCommentById(idMessUpDown);
 		comment1.decrementRating(comment1.getIdMessage());//id comment trebuie de adus aici
 	     commentDAO.update(comment1);
 		
