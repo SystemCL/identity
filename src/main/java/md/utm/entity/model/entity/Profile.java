@@ -55,7 +55,7 @@ public class Profile {
 		this.firstName = firstName;
 	}
 
-	@Column(nullable = false)
+	//@Column(nullable = false)
 	public String getLastName() {
 		return lastName;
 	}

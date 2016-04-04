@@ -7,15 +7,21 @@ import org.apache.struts2.interceptor.SessionAware;
 import org.dom4j.Document;
 
 import com.opensymphony.xwork2.Action;
+import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.ModelDriven;
 
 import md.utm.entity.model.dao.CommentDAO;
+import md.utm.entity.model.dao.ProfileDAO;
+import md.utm.entity.model.dao.UserDAO;
 import md.utm.entity.model.entity.Comment;
+import md.utm.entity.model.entity.Profile;
+import md.utm.entity.model.entity.UserAccount;
 
 public class CrudCommentAction  extends ActionSupport implements ModelDriven<Comment>, SessionAware {
 	private final Comment comment = new Comment();
 	private CommentDAO commentDAO;
+	private UserDAO userDAO;
 	
 	
 	
@@ -33,24 +39,7 @@ public class CrudCommentAction  extends ActionSupport implements ModelDriven<Com
 
 	public void setIdMessUpDown(int idMessUpDown) {
 		this.idMessUpDown = idMessUpDown;
-	}
-
-	
-	
-	
-	
-	
-@Override
-public String execute()
-{
-	
-	System.out.println("Date is  : " + this.idMessUpDown  + "Using S.O.P Method");
-	sessionMap.put("idCommentToRate", 0);
-
- return SUCCESS;
-// return null;	
-}
-	
+	}	
 	
 
 	public Comment getModel() {
@@ -62,8 +51,45 @@ public String execute()
 	}
 
 	public String addComment() {
+		
+		// sessionMap.get("profile_id");
+//		Profile profile = new Profile();
+//		profile.setFirstName("First name");
+//		profile.setLastName("Last name");
+//		testable.save(profile);
+//
+//		UserAccount account = new UserAccount();
+//		account.setAdmin(true);
+//		account.setProfile(profile);
+//		testable.save(account);
+//
+//		Comment comment = new Comment();
+//		comment.setMessage("message");
+//		// comment.setProfile(profile);
+//		testable.save(comment);
+//
+
+		// merge
+		Integer test;
+        Map session = ActionContext.getContext().getSession(); 
+        test = (Integer)session.get("profile_id"); 
+        System.out.println("id-ul pentru profil din sesiune = " + test);
+		
+        Profile profile = new Profile();
+        //profile = userDAO.getUserProfile(1);
+        System.out.println("informatieeeee = " + userDAO.getUserProfile(1));
+	
+		
 		comment.setCreationDate(new Date());
+		comment.setProfile(profile);
 		commentDAO.save(comment);
+		
+		profile.getComment().add(comment);
+		userDAO.update(profile);
+		
+		//comment.setCreationDate(new Date());
+		//commentDAO.save(comment);
+		
 		if (comment.getIdMessage() != null) {
 			return Action.SUCCESS;
 		}
@@ -73,21 +99,10 @@ public String execute()
 	
 	public String rateUpComment(){
 		
-	//	System.out.println("Numarul==== " + sessionMap.get("idTest") + "===================");
-		
 		Comment comment1 = commentDAO.getCommentById(idMessUpDown);
 		comment1.incrementRating(comment1.getIdMessage());//id comment trebuie de adus aici
 	     commentDAO.update(comment1);
-		
-		
-		
-		//int numarC = Integer.parseInt("idM"); 
-//		comment.setIdMessage(1);
-//		comment.setMessage("treb sa fie tot acelasi");
-//		comment.setCreationDate(new Date());
-//		comment.incrementRating(1);//id comment trebuie de adus aici
-//	     commentDAO.update(comment);
-	   //  System.out.println("Ceva: " + this.idMessUpDown  + "dadadadadadadadad");
+
 		
 	     if (comment1.getIdMessage() != null) {
 				return Action.SUCCESS;

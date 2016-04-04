@@ -11,6 +11,7 @@ import com.opensymphony.xwork2.ModelDriven;
 import md.utm.entity.model.dao.CommentDAO;
 import md.utm.entity.model.dao.UserDAO;
 import md.utm.entity.model.entity.Comment;
+import md.utm.entity.model.entity.Profile;
 import md.utm.entity.model.entity.UserAccount;
 
 public class CrudUserAction implements ModelDriven<UserAccount> {
@@ -62,8 +63,19 @@ public class CrudUserAction implements ModelDriven<UserAccount> {
 	}
 
 	public String addUser() throws Exception {
+		
+		Profile profile = new Profile();
+		profile.setFirstName("Adrian");
+		profile.setLastName("Tabirta");
+		profile.setLocation("Chisinau");
+		profile.setStatus("Life is like a bicycle, to keep your balance go ahead.");
+		profile.setdBirthday(new Date());
+		userDAO.save(profile);
+			
 		user.setCreatedDate(new Date());
+		user.setProfile(profile);
 		userDAO.save(user);
+		
 		if (user.getUsername() != null) {
 			return Action.SUCCESS;
 		}
