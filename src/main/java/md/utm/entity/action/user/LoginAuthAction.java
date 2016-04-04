@@ -50,6 +50,8 @@ public class LoginAuthAction  extends ActionSupport implements SessionAware{
 			Profile profileUser = user.getProfile(); 
 			
 			sessionMap.put("profile_id", profileUser.getIdProfile());
+		//	sessionMap.put("user_id", user.getIdAccount());
+			
 			sessionMap.put("firstName", profileUser.getFirstName());
 			sessionMap.put("lastName", profileUser.getLastName());
 			sessionMap.put("email", user.getEmail());
@@ -58,7 +60,7 @@ public class LoginAuthAction  extends ActionSupport implements SessionAware{
 			sessionMap.put("status", profileUser.getStatus());
 			//sessionMap.put("picture", profileUser.getPicture());
 			
-			sessionMap.get("profile_id");
+		
 		}
 
 		if (error) {

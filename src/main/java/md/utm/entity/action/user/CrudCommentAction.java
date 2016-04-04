@@ -19,10 +19,10 @@ import md.utm.entity.model.entity.Profile;
 import md.utm.entity.model.entity.UserAccount;
 
 public class CrudCommentAction  extends ActionSupport implements ModelDriven<Comment>, SessionAware {
+	
 	private final Comment comment = new Comment();
 	private CommentDAO commentDAO;
 	private UserDAO userDAO;
-	
 	
 	
 	private Boolean error;
@@ -51,44 +51,21 @@ public class CrudCommentAction  extends ActionSupport implements ModelDriven<Com
 	}
 
 	public String addComment() {
-		
-		// sessionMap.get("profile_id");
-//		Profile profile = new Profile();
-//		profile.setFirstName("First name");
-//		profile.setLastName("Last name");
-//		testable.save(profile);
-//
-//		UserAccount account = new UserAccount();
-//		account.setAdmin(true);
-//		account.setProfile(profile);
-//		testable.save(account);
-//
-//		Comment comment = new Comment();
-//		comment.setMessage("message");
-//		// comment.setProfile(profile);
-//		testable.save(comment);
-//
 
-		// merge
+		// id profil din sesiune
 		Integer test;
         Map session = ActionContext.getContext().getSession(); 
         test = (Integer)session.get("profile_id"); 
-        System.out.println("id-ul pentru profil din sesiune = " + test);
+        //System.out.println("id-ul pentru profil din sesiune = " + test);
 		
+ 
         Profile profile = new Profile();
-        //profile = userDAO.getUserProfile(1);
-        System.out.println("informatieeeee = " + userDAO.getUserProfile(1));
-	
-		
+        profile.setIdProfile(test); // se poate de schimbat in int nu Profile
+   
 		comment.setCreationDate(new Date());
 		comment.setProfile(profile);
 		commentDAO.save(comment);
 		
-		profile.getComment().add(comment);
-		userDAO.update(profile);
-		
-		//comment.setCreationDate(new Date());
-		//commentDAO.save(comment);
 		
 		if (comment.getIdMessage() != null) {
 			return Action.SUCCESS;
