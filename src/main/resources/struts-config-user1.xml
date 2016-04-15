@@ -72,6 +72,24 @@
 			<result name="success">user/entityMain.jsp</result>
 			<result name="error">user/register.jsp</result>
 		</action>
+		
+		<action name="getMessagesAction">
+			<result name="success">user/messages.jsp</result>
+			<result name="error">user/entityMain.jsp</result>
+		</action>
+		
+		<action name="getFriendsAction">
+			<result name="success">user/friends.jsp</result>
+			<result name="error">user/entityMain.jsp</result>
+		</action>
+		
+		<action name="getRecomandationsAction">
+			<result name="success">user/recomandations.jsp</result>
+			<result name="error">user/entityMain.jsp</result>
+		</action>
+		
+		
+		
 
 
 		<action name="addCommentAction" class="md.utm.entity.action.user.CrudCommentAction"

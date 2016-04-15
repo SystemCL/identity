@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
+	<%@ taglib prefix="s" uri="/struts-tags"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -39,12 +40,18 @@ window.onload = function(){
 	<!-- <div class="rect" style="top:0px;"></div>   -->
 	<!--<li><a href="../About/index.html"> ABOUT</a></li>  -->
 
+<!-- /////////// 15.04.2016 Aici am modificat cu if/else session.logged == true ////  
+
+<li><a href="getCommentsAction">Identity</a></li>
+
+-->
+
 
 <ul id="menu" >
   <li><a href="getCommentsAction">Identity</a></li>
-  <li><a href="../user/friends.jsp">Knowns</a></li>
-  <li><a href="../user/messages.jsp">Messages</a></li>
-  <li><a href="../user/entityMain.jsp">Recomandation</a></li>
+  <li><a href="getFriendsAction">Knowns</a></li>
+  <li><a href="getMessagesAction">Messages</a></li>
+  <li><a href="getRecomandationsAction">Recomandation</a></li>
   
   <li><INPUT type="text" name="userProfile" class="tftextinput3" name="q" size="21"
 					maxlength="120" value="Search knowns"> <INPUT type="submit" value="Find"></li>
