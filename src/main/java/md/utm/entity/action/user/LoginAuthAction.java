@@ -58,7 +58,7 @@ public class LoginAuthAction  extends ActionSupport implements SessionAware{
 			sessionMap.put("dBirthday", profileUser.getdBirthday());
 			sessionMap.put("location", profileUser.getLocation());
 			sessionMap.put("status", profileUser.getStatus());
-			//sessionMap.put("picture", profileUser.getPicture());
+			sessionMap.put("picture", profileUser.getPicture());
 			
 		
 		}

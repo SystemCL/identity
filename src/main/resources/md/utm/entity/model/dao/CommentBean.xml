@@ -7,5 +7,6 @@
 	<bean id="commentDAO" class="md.utm.entity.model.dao.impl.CommentDAOImpl">
 		<property name="sessionFactory" ref="sessionFactory" />
 	</bean>
+	
 
 </beans>

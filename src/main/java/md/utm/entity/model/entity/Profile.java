@@ -1,5 +1,6 @@
 package md.utm.entity.model.entity;
 
+import java.sql.Blob;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -12,6 +13,9 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
+
+
+
 @Entity
 public class Profile {
 
@@ -21,7 +25,11 @@ public class Profile {
 	public Date dBirthday;
 	public String location;
 	public String status;
-	public long picture;
+	public Blob picture;
+
+
+
+
 	private List<Comment> comment;
 
 	@Id
@@ -86,13 +94,17 @@ public class Profile {
 	public void setStatus(String status) {
 		this.status = status;
 	}
-
-	public long getPicture() {
+	
+	public Blob getPicture() {
 		return picture;
 	}
 
-	public void setPicture(long picture) {
+	public void setPicture(Blob picture) {
 		this.picture = picture;
 	}
+
+
+
+
 
 }

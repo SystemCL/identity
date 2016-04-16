@@ -111,6 +111,19 @@
 			<result name="error" type="redirectAction">getCommentsAction</result>
 		</action>
 		
+		<action name="editProfileAction">
+			<result name="success">user/editProfile.jsp</result>
+			<result name="error">user/entityMain.jsp</result>
+		</action>
+		
+		<action name="saveProfileAction" class="md.utm.entity.action.user.CrudProfileAction"
+			method="saveProfile">
+			<result name="success">user/entityMain.jsp</result>
+			<result name="error" type="redirectAction">user/editProfile.jsp</result>
+		</action>
+		
 
 	</package>
+	
+	
 </struts>

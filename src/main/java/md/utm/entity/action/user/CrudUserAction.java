@@ -1,8 +1,13 @@
 package md.utm.entity.action.user;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.sql.Blob;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+
+import org.hibernate.Hibernate;
 
 import com.opensymphony.xwork2.Action;
 import com.opensymphony.xwork2.ActionContext;
@@ -65,6 +70,23 @@ public class CrudUserAction implements ModelDriven<UserAccount> {
 	public String addUser() throws Exception {
 		
 		Profile profile = new Profile();
+		
+		/*String photoFilePath = "C:/Users/Vlad/Desktop/nn.jpg";
+
+        
+        File file = new File(photoFilePath);
+        FileInputStream inputStream = new FileInputStream(file);
+       // Blob blob = Hibernate.getLobCreator(session).createBlob(inputStream, file.length());
+  
+        Blob blob = Hibernate.createBlob(inputStream, file.length());
+        profile.setFirstName("Incercareee");
+        profile.setPicture(blob);
+       // session.save(profile);
+        blob.free();
+        */
+		
+		
+		
 		profile.setFirstName("Adrian");
 		profile.setLastName("Tabirta");
 		profile.setLocation("Chisinau");

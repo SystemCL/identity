@@ -25,13 +25,14 @@
 	<center>
 		<form style="display: inline;">
 			<div id="element1">
-				<img class="example" src="images/menSmile.jpg">
+				<s:property value="#session['picture']" />
 			</div>
 			<div id="element2">
 				<p>
 					<s:property value="#session['status']" />
 				</p>
 			</div>
+			<s:submit><a href="editProfileAction">EditProfile</a></s:submit>
 		</form>
 	</center>
 
