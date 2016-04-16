@@ -11,7 +11,7 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
+import javax.persistence.MapsId;
 import javax.persistence.OneToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -38,7 +38,7 @@ public class UserAccount extends Administrator {
 	}
 
 	@OneToOne(fetch = FetchType.EAGER)
-	@JoinColumn(name = "profile_id")
+	@MapsId
 	public Profile getProfile() {
 		return profile;
 	}
