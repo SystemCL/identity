@@ -20,7 +20,7 @@ public class CommentDAOImpl extends GenericDAOImpl implements CommentDAO {
         idProf = (Integer)session.get("profile_id"); 
         //System.out.println("id-ul pentru profil din sesiune = " + test);
 		
-		return getHibernateTemplate().find("from Comment where profile_idProfile=? order by creationDate desc", idProf);
+		return getHibernateTemplate().find("from Comment where profile_id=? order by creationDate desc", idProf);
 		
 		//("from Profile where idProfile=?",idProfile 
 	}

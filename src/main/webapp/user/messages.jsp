@@ -15,6 +15,36 @@
 	<br>
 	<br>
 	<br>
+	
+	
+		<s:if test="listMessages.size() > 0">
+
+			<table border="1px" cellpadding="8px">
+
+				<tr>
+
+					<td colspan="6"><center>Messages</center></td>
+
+
+				</tr>
+				<s:iterator value="listMessages">
+					<tr>
+						<td><s:date name="message" format="text"  /></td>
+						<td><s:property value="message" /></td>
+
+				</tr>
+				</s:iterator>
+			</table>
+		</s:if>
+		
+		
+		
+		<br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
 
 	<a style="margin-left: 20px;">Conversations</a>
 	<br>

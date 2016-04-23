@@ -12,24 +12,14 @@ import md.utm.entity.model.entity.Message;
 
 public class MessageDAOImpl extends GenericDAOImpl implements MessageDAO {
 
-	public List<Message> getMessagesBySenderId(Integer idSender) {
+	public List<Message> getMessagesBySenderId() {
 		Integer idProf; 
 		Map session = ActionContext.getContext().getSession(); 
 		idProf = (Integer)session.get("profile_id");
-		return getHibernateTemplate().find("from Message where idSender=?" +idSender+ "AND idMessage=(Select from profile_messages where profile_id ="+idProf+")");
+		// trebuie de adus din sesiune id-ul la sender !!!!!!!!!!!!!!!!!!!
+		return getHibernateTemplate().find("from Message where idSender=1 AND idMessage in (Select idMessage from profile_messages where profile_id=1)");
+				//getHibernateTemplate().find("from Message where idSender=?" +idSender+ "AND idMessage in (Select idMessage from profile_messages where profile_id=1)");
+		/*?"+idProf+")"); */
 	}
 	
-public List<Comment> getAllComments() {
-		
-		Integer idProf;
-        Map session = ActionContext.getContext().getSession(); 
-        idProf = (Integer)session.get("profile_id"); 
-        //System.out.println("id-ul pentru profil din sesiune = " + test);
-		
-		return getHibernateTemplate().find("from Comment where profile_idProfile=? order by creationDate desc", idProf);
-		
-		//("from Profile where idProfile=?",idProfile 
-	}
-	
-
 }

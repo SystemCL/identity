@@ -7,8 +7,8 @@ import md.utm.entity.model.entity.Message;
 
 public interface MessageDAO extends GenericDAO {
 	
-	List<Message> getMessagesBySenderId(Integer idSender);
+	List<Message> getMessagesBySenderId();
 	
-	//Comment getCommentById(Integer idComment);
+	Message getCommentById(Integer idComment);
 
 }

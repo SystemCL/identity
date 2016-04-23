@@ -118,6 +118,11 @@
 			<result name="error" type="redirectAction">user/editProfile.jsp</result>
 		</action>
 		
+	    <action name="getMessagesById" class="md.utm.entity.action.user.CrudMessageAction"
+	    method="getMessagesBySenderId">
+			<result name="success">user/messages.jsp</result>
+			<result name="error">#</result>
+		</action>	
 
 	</package>
 	

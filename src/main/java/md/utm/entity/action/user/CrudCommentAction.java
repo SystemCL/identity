@@ -27,7 +27,7 @@ public class CrudCommentAction  extends ActionSupport implements ModelDriven<Com
 	private final Comment comment = new Comment();
 	private CommentDAO commentDAO;
 	private UserDAO userDAO;
-	private MessageDAO messageDAO;
+	List<Message> listMessages;
 	
 	
 	private Boolean error;
@@ -115,17 +115,6 @@ public class CrudCommentAction  extends ActionSupport implements ModelDriven<Com
 		
 	}
 	
-	public String getMessagesBySenderId(int idSender)  {
-		List<Message> listMessages = messageDAO.getMessagesBySenderId(1);
-		
-		if (listMessages == null) {
-			listMessages = new ArrayList<Message>();
-		}
-		
-		return Action.SUCCESS;
-		
-		
-		
-	}
+
 	
 }
