@@ -4,7 +4,7 @@ import java.util.Collection;
 import java.util.List;
 
 
-public interface GenericDao {
+public interface GenericDAO {
 
 	//asta co o interfata
 	

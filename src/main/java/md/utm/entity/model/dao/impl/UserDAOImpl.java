@@ -8,7 +8,7 @@ import md.utm.entity.model.entity.Profile;
 import md.utm.entity.model.entity.UserAccount;
 
 @SuppressWarnings("unchecked")
-public class UserDAOImpl extends GenericDaoImpl implements UserDAO {
+public class UserDAOImpl extends GenericDAOImpl implements UserDAO {
 	public UserAccount findUser(String username, String password) {
 		List<UserAccount> find = getHibernateTemplate().find("from UserAccount where username=? and password=?",
 				username, password);

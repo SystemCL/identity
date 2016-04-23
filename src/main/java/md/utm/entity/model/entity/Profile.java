@@ -107,7 +107,9 @@ public class Profile {
 	// mappedBy="message")
 
 	@ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-	@JoinTable(name = "profile_messages", joinColumns = @JoinColumn(name = "profile_id"), inverseJoinColumns = @JoinColumn(name = "message_id"))
+	@JoinTable(name = "profile_messages",
+	joinColumns = @JoinColumn(name = "profile_id"), 
+	inverseJoinColumns = @JoinColumn(name = "message_id"))
 	public Set<Message> getMessages() {
 		return messages;
 	}

@@ -5,7 +5,7 @@ import java.util.List;
 import md.utm.entity.model.entity.Profile;
 import md.utm.entity.model.entity.UserAccount;
 
-public interface UserDAO extends GenericDao {
+public interface UserDAO extends GenericDAO {
 	//List<Book> retrieveAllUploadedUserBooks(User user);
 	
 	

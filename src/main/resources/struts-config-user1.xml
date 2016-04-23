@@ -87,10 +87,6 @@
 			<result name="success">user/recomandations.jsp</result>
 			<result name="error">user/entityMain.jsp</result>
 		</action>
-		
-		
-		
-
 
 		<action name="addCommentAction" class="md.utm.entity.action.user.CrudCommentAction"
 			method="addComment">

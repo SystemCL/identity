@@ -1,6 +1,8 @@
 package md.utm.entity.action.user;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 import java.util.Map;
 
 import org.apache.struts2.interceptor.SessionAware;
@@ -12,9 +14,11 @@ import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.ModelDriven;
 
 import md.utm.entity.model.dao.CommentDAO;
+import md.utm.entity.model.dao.MessageDAO;
 import md.utm.entity.model.dao.ProfileDAO;
 import md.utm.entity.model.dao.UserDAO;
 import md.utm.entity.model.entity.Comment;
+import md.utm.entity.model.entity.Message;
 import md.utm.entity.model.entity.Profile;
 import md.utm.entity.model.entity.UserAccount;
 
@@ -23,6 +27,7 @@ public class CrudCommentAction  extends ActionSupport implements ModelDriven<Com
 	private final Comment comment = new Comment();
 	private CommentDAO commentDAO;
 	private UserDAO userDAO;
+	private MessageDAO messageDAO;
 	
 	
 	private Boolean error;
@@ -107,6 +112,19 @@ public class CrudCommentAction  extends ActionSupport implements ModelDriven<Com
 
 	public void setSession(Map<String, Object> arg0) {
 		// TODO Auto-generated method stub
+		
+	}
+	
+	public String getMessagesBySenderId(int idSender)  {
+		List<Message> listMessages = messageDAO.getMessagesBySenderId(1);
+		
+		if (listMessages == null) {
+			listMessages = new ArrayList<Message>();
+		}
+		
+		return Action.SUCCESS;
+		
+		
 		
 	}
 	

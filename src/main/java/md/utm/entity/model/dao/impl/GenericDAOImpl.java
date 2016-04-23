@@ -7,9 +7,9 @@ import java.util.List;
 
 import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
 
-import md.utm.entity.model.dao.GenericDao;
+import md.utm.entity.model.dao.GenericDAO;
 
-public class GenericDaoImpl extends HibernateDaoSupport implements GenericDao {
+public class GenericDAOImpl extends HibernateDaoSupport implements GenericDAO {
 
 	public <T> T get(Class<T> entity, Serializable id) {
 		return getHibernateTemplate().get(entity, id);
