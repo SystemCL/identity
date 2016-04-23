@@ -1,17 +1,23 @@
 package md.utm.entity.model.entity;
 
+
 import java.sql.Blob;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import javax.persistence.CascadeType;
-import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinTable;
 import javax.persistence.OneToMany;
+import javax.persistence.ManyToMany;
+//import md.utm.entity.model.entity.Message;
 
 
 
@@ -26,12 +32,13 @@ public class Profile {
 	public String location;
 	public String status;
 	public Blob picture;
+	public Set<Message> messages;
 
-
-
+	
 
 	private List<Comment> comment;
-
+	
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	public int getIdProfile() {
@@ -102,6 +109,23 @@ public class Profile {
 	public void setPicture(Blob picture) {
 		this.picture = picture;
 	}
+	
+	//@ManyToMany(targetEntity=md.utm.entity.model.entity.Message.class, mappedBy="message")
+	
+	@ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+	@JoinTable(name = "profile_messages", 
+	joinColumns = @JoinColumn(name = "profile_id") , 
+	inverseJoinColumns = @JoinColumn(name = "message_id") )
+	public Set<Message> getMessages() {
+		return messages;
+	}
+
+	public void setMessages(Set<Message> messages) {
+		this.messages = messages;
+	}
+
+
+
 
 
 
