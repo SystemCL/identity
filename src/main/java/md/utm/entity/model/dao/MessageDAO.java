@@ -4,11 +4,13 @@ import java.util.List;
 
 import md.utm.entity.model.entity.Comment;
 import md.utm.entity.model.entity.Message;
+import md.utm.entity.model.entity.UserAccount;
 
 public interface MessageDAO extends GenericDAO {
 	
 	List<Message> getMessagesBySenderId();
 	
-	Message getCommentById(Integer idComment);
+	Message getMessageById(Integer idMessage);
 
 }
+

@@ -10,6 +10,7 @@ import com.opensymphony.xwork2.Action;
 import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.ModelDriven;
 
+import javassist.bytecode.Descriptor.Iterator;
 import md.utm.entity.model.dao.MessageDAO;
 import md.utm.entity.model.entity.Comment;
 import md.utm.entity.model.entity.Message;
@@ -25,7 +26,7 @@ public class CrudMessageAction extends ActionSupport implements ModelDriven<Mess
 	
 public String getMessagesBySenderId()  {
 		
-		// to do get sender id
+		// to do--> get sender id
 	    listMessages = messageDAO.getMessagesBySenderId();
 		
 	    System.out.println(listMessages);
@@ -35,9 +36,10 @@ public String getMessagesBySenderId()  {
 		
 		return Action.SUCCESS;
 		
+		
 	}
 
-	public List<Message> getCommentList() {
+	public List<Message> getMessageList() {
 		return listMessages;
 	}
 	

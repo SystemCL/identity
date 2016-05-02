@@ -36,7 +36,7 @@ public class UserDAOImpl extends GenericDAOImpl implements UserDAO {
 	public Profile getUserProfile(Integer idProfile) {
 		// TODO Auto-generated method stub
 		
-		 List find = getHibernateTemplate().find("from Profile where idProfile=?",idProfile );
+		 List find = getHibernateTemplate().find("from Profile where idProfile=?",idProfile);
 		// System.out.println("info hibernate adusa = " + find.iterator().next());
 		 Profile profile=null;
 		 if(!find.isEmpty()){
