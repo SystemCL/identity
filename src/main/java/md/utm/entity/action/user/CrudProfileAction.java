@@ -5,29 +5,88 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.sql.Blob;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
 
+import org.apache.struts2.interceptor.SessionAware;
 import org.hibernate.Hibernate;
 import org.hibernate.Session;
 
 import com.opensymphony.xwork2.Action;
+import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.ModelDriven;
 
 import md.utm.entity.model.dao.ProfileDAO;
+import md.utm.entity.model.entity.Comment;
+import md.utm.entity.model.entity.Message;
 import md.utm.entity.model.entity.Profile;
 
 
-
-public class CrudProfileAction implements ModelDriven<Profile> {
+public class CrudProfileAction extends ActionSupport implements ModelDriven<Profile>, SessionAware {
 	
 	Profile profile = new Profile();
+	private List<Profile> profileConversations;
 	ProfileDAO profileDAO;
     private static Session session;
 	
 	
+	public Profile getProfile() {
+		return profile;
+	}
+
+
+	public void setProfile(Profile profile) {
+		this.profile = profile;
+	}
+
+
+	public List<Profile> getProfileConversations() {
+		return profileConversations;
+	}
+
+
+	public void setProfileConversations(List<Profile> profileConversations) {
+		this.profileConversations = profileConversations;
+	}
+
+
+	public ProfileDAO getProfileDAO() {
+		return profileDAO;
+	}
+
+
+	public void setProfileDAO(ProfileDAO profileDAO) {
+		this.profileDAO = profileDAO;
+	}
+
+
+	public static Session getSession() {
+		return session;
+	}
+
+
+	public static void setSession(Session session) {
+		CrudProfileAction.session = session;
+	}
+
+
 	public String loadEditProfile(){
 		return Action.SUCCESS;
 	}
 
+	
+	public String getConversationUsersProfiles()
+	{
+		profileConversations = profileDAO.getProfilesWhoConversedWithMe();
+		if (profileConversations == null) {
+			profileConversations = new ArrayList<Profile>();
+		}
+		
+		return Action.SUCCESS;
+		
+	}
+	
 
 	public Profile getModel() {
 		// TODO Auto-generated method stub
@@ -66,6 +125,13 @@ public class CrudProfileAction implements ModelDriven<Profile> {
          
         return fileBytes;
     }
+
+
+
+	public void setSession(Map<String, Object> arg0) {
+		// TODO Auto-generated method stub
+		
+	}
 	
 	/*private static ServiceRegistry serviceRegistry;
     private static Session session;

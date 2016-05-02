@@ -137,17 +137,5 @@ public class CrudUserAction implements ModelDriven<UserAccount> {
 		return Action.SUCCESS;
 	}
 
-	public List<Comment> getCommentList() {
-		return commentList;
-	}
-
-	// list all comments
-	public String populateCommentList() {
-		commentList = commentDAO.getAllComments();
-		if (commentList == null) {
-			commentList = new ArrayList<Comment>();
-		}
-		return Action.SUCCESS;
-	}
 
 }

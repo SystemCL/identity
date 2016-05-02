@@ -23,7 +23,34 @@ public class CrudMessageAction extends ActionSupport implements ModelDriven<Mess
 	private Map<String, Object> sessionMap;
 	
 	
-	
+public MessageDAO getMessageDAO() {
+		return messageDAO;
+	}
+
+	public void setMessageDAO(MessageDAO messageDAO) {
+		this.messageDAO = messageDAO;
+	}
+
+	public List<Message> getListMessages() {
+		return listMessages;
+	}
+
+	public void setListMessages(List<Message> listMessages) {
+		this.listMessages = listMessages;
+	}
+
+	public Map<String, Object> getSessionMap() {
+		return sessionMap;
+	}
+
+	public void setSessionMap(Map<String, Object> sessionMap) {
+		this.sessionMap = sessionMap;
+	}
+
+	public Message getMessage() {
+		return message;
+	}
+
 public String getMessagesBySenderId()  {
 		
 		// to do--> get sender id
@@ -34,24 +61,18 @@ public String getMessagesBySenderId()  {
 			listMessages = new ArrayList<Message>();
 		}
 		
-		return Action.SUCCESS;
-		
-		
+		return Action.SUCCESS;	
 	}
 
-	public List<Message> getMessageList() {
-		return listMessages;
-	}
 	
-	
-	
-	public void setSession(Map<String, Object> session) {
-		// TODO Auto-generated method stub
-		
-	}
 	public Message getModel() {
 		// TODO Auto-generated method stub
 		return message;
+	}
+
+	public void setSession(Map<String, Object> arg0) {
+		// TODO Auto-generated method stub
+		
 	}
 
 }

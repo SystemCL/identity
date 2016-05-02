@@ -15,5 +15,7 @@ http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
   	
 	<import resource="md/utm/entity/model/dao/UserBean.xml" />
 	<import resource="md/utm/entity/model/dao/CommentBean.xml" />
+	<import resource="md/utm/entity/model/dao/MessageBean.xml" />
+	<import resource="md/utm/entity/model/dao/ProfileBean.xml" />
 
 </beans>

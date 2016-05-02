@@ -26,8 +26,11 @@ public class CrudCommentAction  extends ActionSupport implements ModelDriven<Com
 	
 	private final Comment comment = new Comment();
 	private CommentDAO commentDAO;
+	private List<Comment> commentList;
+	
 	private UserDAO userDAO;
 	List<Message> listMessages;
+	
 	
 	
 	private Boolean error;
@@ -109,6 +112,21 @@ public class CrudCommentAction  extends ActionSupport implements ModelDriven<Com
 	}
 
 
+	
+	public List<Comment> getCommentList() {
+		return commentList;
+	}
+
+	// list all comments
+	public String populateCommentList() {
+		commentList = commentDAO.getAllComments();
+		if (commentList == null) {
+			commentList = new ArrayList<Comment>();
+		}
+		return Action.SUCCESS;
+	}
+
+	
 
 	public void setSession(Map<String, Object> arg0) {
 		// TODO Auto-generated method stub

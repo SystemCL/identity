@@ -10,15 +10,19 @@ import md.utm.entity.model.dao.UserDAO;
 import md.utm.entity.model.entity.Comment;
 import md.utm.entity.model.entity.Message;
 
+@SuppressWarnings("unchecked")
 public class MessageDAOImpl extends GenericDAOImpl implements MessageDAO {
 
 	public List<Message> getMessagesBySenderId() {
+		
 		Integer idProf;
 		Map session = ActionContext.getContext().getSession(); 
 		idProf = (Integer)session.get("profile_id");
 		
 		// trebuie de adus din sesiune id-ul la sender !!!!!!!!!!!!!!!!!!!
-		return getHibernateTemplate().find("from Message where idSender=1 AND idMessage in (Select idMessage from profile_messages where profile_id=?)",idProf);
+		return getHibernateTemplate().find("from Message");
+				
+				//getHibernateTemplate().find("from Message where idSender=1 AND idMessage in (Select idMessage from profile_messages where profile_id=?)",idProf);
 		/*return getHibernateTemplate().find("from Message where idSender=1 AND idMessage in (Select idMessage from profile_messages where profile_id="+idProf+")");*/
 				//getHibernateTemplate().find("from Message where idSender=?" +idSender+ "AND idMessage in (Select idMessage from profile_messages where profile_id=1)");
 		/*?"+idProf+")"); */

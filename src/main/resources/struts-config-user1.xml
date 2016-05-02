@@ -67,7 +67,7 @@
 		</action>
 
 
-		<action name="getCommentsAction" class="md.utm.entity.action.user.CrudUserAction"
+		<action name="getCommentsAction" class="md.utm.entity.action.user.CrudCommentAction"
 			method="populateCommentList">
 			<result name="success">user/entityMain.jsp</result>
 			<result name="error">user/register.jsp</result>
@@ -118,11 +118,26 @@
 			<result name="error" type="redirectAction">user/editProfile.jsp</result>
 		</action>
 		
+		<action name="getConversation" class="md.utm.entity.action.user.CrudProfileAction"
+			method="getConversationUsersProfiles">
+			<result name="success">user/messages.jsp</result>
+			<result name="error" type="redirectAction">user/entityMain.jsp</result>
+		</action>
+		
+		
+		
 	    <action name="getMessagesById" class="md.utm.entity.action.user.CrudMessageAction"
 	    method="getMessagesBySenderId">
-			<result name="success">user/messages.jsp</result>
-			<result name="error">#</result>
+			
+			<result name="success" type="redirectAction">getConversation</result>
+			<result name="error" type="redirectAction">#</result>
+			
+			
+			
 		</action>	
+		
+		
+		
 
 	</package>
 	
