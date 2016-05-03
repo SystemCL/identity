@@ -10,6 +10,8 @@ public interface MessageDAO extends GenericDAO {
 	
 	List<Message> getMessagesBySenderId();
 	
+	List<Message> getMessagesForConversation(Integer idProfile);
+	
 	Message getMessageById(Integer idMessage);
 
 }

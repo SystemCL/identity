@@ -32,5 +32,18 @@ public class MessageDAOImpl extends GenericDAOImpl implements MessageDAO {
 		// TODO Auto-generated method stub
 		return get(Message.class, idMessage);
 	}
+
+	public List<Message> getMessagesForConversation(Integer idProfile) {
+		
+		Integer idProf;
+		Map session = ActionContext.getContext().getSession(); 
+		idProf = (Integer)session.get("profile_id");
+		
+		//select * from Message where idSender=? and where idMessage=
+		//         ( message_id from profile_message where profile_id = [profilul meu])
+		// aduc doate mesajele de la senderul dat unde se contine in tabela intermediara 
+		// id- pentru meu - adica mesajele destinate mie
+		return getHibernateTemplate().find("from Message where idSender=?", idProfile);
+	}
 	
 }

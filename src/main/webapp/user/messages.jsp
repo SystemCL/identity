@@ -1,10 +1,13 @@
+<%@ taglib prefix="s" uri="/struts-tags"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Insert title here</title>
+<link rel="stylesheet" type="text/css" href="css/conversationTable.css" />
+
+<title>Messages</title>
 </head>
 <body>
 
@@ -12,26 +15,30 @@
 	<br>
 	<br>
 	<br>
-	<br>
-	<br>
-	<br>
-	
-	
+
 			<s:if test="profileConversations.size() > 0">
-			<table border="1px" cellpadding="8px">
+			<table border="1px" id="example">
 				<tr>
 					<td colspan="6"><center>Conversations</center></td>
 				</tr>
 				<s:iterator value="profileConversations">
 					<tr>
-					<%-- profile image	<td><s:date name="message" format="text"  /></td>
-						<td><s:property value="message" /></td> --%>
 						
-						<td><s:date name="fname" format="text"  /></td>
-						<td><s:property value="firstname" /></td>
+						  <td >
+	 					<a href=<s:url action="getMessagesForConversation">
+			 			<s:param name="idProfileOfConversation" value="%{idProfile}" />
+						 </s:url>>
+						 <img alt="Up" width="50" height="50px" src=<s:url value="/images/menSmile.jpg"/>> 
+						 </a>
+						 </td>
+						<td><s:property value="LastName" /></td>
+						<td><s:property value="firstName " /></td>
 						
-						<td><s:date name="lname" format="text"  /></td>
-						<td><s:property value="lastname" /></td>
+			
+	
+				<%-- ultima data cind a fost online		<td><s:date name="lname" format="text"  /></td>
+						<td><s:property value="lastname" /></td> --%>
+						
 				</tr>
 				</s:iterator>
 			</table>
@@ -46,7 +53,7 @@
 	
 	
 		<s:if test="listMessages.size() > 0">
-			<table border="1px" cellpadding="8px">
+			<center><table border="1px" cellpadding="8px">
 				<tr>
 					<td colspan="6"><center>Messages</center></td>
 				</tr>
@@ -56,16 +63,39 @@
 						<td><s:property value="message" /></td>
 				</tr>
 				</s:iterator>
-			</table>
+			</table></center>
 		</s:if>
-		
 		
 		<br>
         <br>
         <br>
+        
+     <center>
+			<form
+				style="display: inline-block; margin-left: 20px; margin-top: 20px;"
+				method="post" name="msg_form" action="entityMain.jsp">
+				<textarea name="mess" style="overflow:hidden" maxlength="150" rows="4" cols="50"  placeholder="Scrie un mesaj..."></textarea>
+				<br>
+				<br> <input style="float: right;" type="submit" value="Send">
+			</form>
+	</center>
+        
         <br>
         <br>
         <br>
+        <br>
+		<br>
+		<br>
+	
+
+
+
+
+
+
+
+
+<!-- nu trebuie de sters - exemplu  -->
 
 	<a style="margin-left: 20px;">Conversations</a>
 	<br>
@@ -176,20 +206,6 @@
 	</div>
 	<br>
 	<br>
-
-	<center>
-		<form
-			style="display: inline-block; margin-left: 20px; margin-top: 20px;"
-			method="post" name="msg_form" action="entityMain.jsp">
-			<textarea name="mess" rows="4" cols="50"></textarea>
-			<br>
-			<br> <input style="float: right;" type="submit" value="Send">
-		</form>
-	</center>
-
-
-
-
 	<br>
 	<br>
 

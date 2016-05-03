@@ -21,7 +21,7 @@ public class CrudMessageAction extends ActionSupport implements ModelDriven<Mess
 	List<Message> listMessages;
 	private final Message message = new Message();
 	private Map<String, Object> sessionMap;
-	
+	int idProfileOfConversation;
 	
 public MessageDAO getMessageDAO() {
 		return messageDAO;
@@ -51,10 +51,22 @@ public MessageDAO getMessageDAO() {
 		return message;
 	}
 
+	
+   public int getIdProfileOfConversation() {
+		return idProfileOfConversation;
+	}
+
+	public void setIdProfileOfConversation(int idProfileOfConversation) {
+		this.idProfileOfConversation = idProfileOfConversation;
+	}
+
 public String getMessagesBySenderId()  {
 		
 		// to do--> get sender id
-	    listMessages = messageDAO.getMessagesBySenderId();
+	   // listMessages = messageDAO.getMessagesBySenderId();
+	   System.out.println("Id-ul senderului pentru mesaje"+this.idProfileOfConversation);
+	     listMessages = messageDAO.getMessagesForConversation(this.getIdProfileOfConversation());
+	     System.out.println(listMessages.toString());
 		
 	    System.out.println(listMessages);
 		if (listMessages == null) {
