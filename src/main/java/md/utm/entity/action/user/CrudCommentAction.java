@@ -70,6 +70,7 @@ public class CrudCommentAction  extends ActionSupport implements ModelDriven<Com
         Profile profile = new Profile();
         profile.setIdProfile(test); // se poate de schimbat in int nu Profile
    
+     
 		comment.setCreationDate(new Date());
 		comment.setProfile(profile);
 		commentDAO.save(comment);

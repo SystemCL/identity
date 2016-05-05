@@ -53,14 +53,32 @@
 	
 	
 		<s:if test="listMessages.size() > 0">
-			<center><table border="1px" cellpadding="8px">
+			<center><table border="1px" cellpadding="8px" id="example">
 				<tr>
 					<td colspan="6"><center>Messages</center></td>
 				</tr>
 				<s:iterator value="listMessages">
 					<tr>
-						<td><s:date name="message" format="text"  /></td>
-						<td><s:property value="message" /></td>
+					
+						
+						<s:if test="idSender != #session['profile_id']">
+						
+						<!-- Mesajele mele vor fi pe dreapta  -->
+									<td align="right">
+									<s:property value="message" /><br>
+									<font class="ora_mess"><s:date name="creationDate" nice="true"  /></font>
+									</td>
+							
+						</s:if>
+						<s:else>
+								<td align="left">
+									<s:property value="message" /><br>
+									<font class="ora_mess"><s:date name="creationDate" nice="true"  /></font>
+									</td>
+						</s:else> 
+
+						<%-- <td><s:date name="message" format="text"  /></td>
+						<td><s:property value="message" /></td> --%>
 				</tr>
 				</s:iterator>
 			</table></center>
@@ -73,10 +91,12 @@
      <center>
 			<form
 				style="display: inline-block; margin-left: 20px; margin-top: 20px;"
-				method="post" name="msg_form" action="entityMain.jsp">
-				<textarea name="mess" style="overflow:hidden" maxlength="150" rows="4" cols="50"  placeholder="Scrie un mesaj..."></textarea>
+				method="post" name="msg_form" >
+				<textarea name="message" style="overflow:hidden" maxlength="150" rows="4" cols="50"  placeholder="Scrie un mesaj..."></textarea>
 				<br>
-				<br> <input style="float: right;" type="submit" value="Send">
+				<br>
+					<s:submit value="Trimite" action="sendMessageAction" />
+				<!-- <br> <input style="float: right;" type="submit" value="Send"> -->
 			</form>
 	</center>
         

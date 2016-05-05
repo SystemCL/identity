@@ -43,7 +43,9 @@ public class MessageDAOImpl extends GenericDAOImpl implements MessageDAO {
 		//         ( message_id from profile_message where profile_id = [profilul meu])
 		// aduc doate mesajele de la senderul dat unde se contine in tabela intermediara 
 		// id- pentru meu - adica mesajele destinate mie
-		return getHibernateTemplate().find("from Message where idSender=?", idProfile);
+		
+		//return getHibernateTemplate().find("from Message where idSender=?", idProfile);
+		return getHibernateTemplate().find("from Message ");
 	}
 	
 }

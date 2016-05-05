@@ -23,10 +23,10 @@ public class Message extends MessageAbstract {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	public int getIdMessage() {
+	public Integer getIdMessage() {
 		return idMessage;
 	}
-	public void setIdMessage(int idMessage) {
+	public void setIdMessage(Integer idMessage) {
 		this.idMessage = idMessage;
 	}
 	

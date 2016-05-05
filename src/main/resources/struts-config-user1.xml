@@ -72,11 +72,39 @@
 			<result name="success">user/entityMain.jsp</result>
 			<result name="error">user/register.jsp</result>
 		</action>
+
+
 		
+<!-- =============MESSAGES ACTIONS======================  -->
+       <action name="sendMessageAction" class="md.utm.entity.action.user.CrudMessageAction"
+	      method="sendMessageToProfile">
+			<result name="success" type="redirectAction">getConversation</result>
+			<result name="error">#</result>
+		</action>
+       
+
 		<action name="getMessagesAction">
 			<result name="success">user/messages.jsp</result>
 			<result name="error">user/entityMain.jsp</result>
 		</action>
+		
+		
+		 <action name="getMessagesById" class="md.utm.entity.action.user.CrudMessageAction"
+	      method="getMessagesBySenderId">
+			<result name="success" type="redirectAction">getConversation</result>
+			<result name="error" type="redirectAction">#</result>
+		</action>	
+		
+		
+		
+		  <action name="getMessagesForConversation" class="md.utm.entity.action.user.CrudMessageAction"
+	    method="getMessagesBySenderId">
+			<result name="success" >user/messages.jsp</result>
+			<result name="error" type="redirectAction">#</result>
+		</action>
+		
+		
+		
 		
 		<action name="getFriendsAction">
 			<result name="success">user/friends.jsp</result>
@@ -125,19 +153,7 @@
 		</action>
 		
 		
-	    <action name="getMessagesById" class="md.utm.entity.action.user.CrudMessageAction"
-	    method="getMessagesBySenderId">
-			<result name="success" type="redirectAction">getConversation</result>
-			<result name="error" type="redirectAction">#</result>
-		</action>	
 		
-		
-		
-		  <action name="getMessagesForConversation" class="md.utm.entity.action.user.CrudMessageAction"
-	    method="getMessagesBySenderId">
-			<result name="success" >user/messages.jsp</result>
-			<result name="error" type="redirectAction">#</result>
-		</action>	
 		
 		
 

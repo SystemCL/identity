@@ -1,12 +1,14 @@
 package md.utm.entity.action.user;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
 import org.apache.struts2.interceptor.SessionAware;
 
 import com.opensymphony.xwork2.Action;
+import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.ModelDriven;
 
@@ -14,6 +16,7 @@ import javassist.bytecode.Descriptor.Iterator;
 import md.utm.entity.model.dao.MessageDAO;
 import md.utm.entity.model.entity.Comment;
 import md.utm.entity.model.entity.Message;
+import md.utm.entity.model.entity.Profile;
 
 public class CrudMessageAction extends ActionSupport implements ModelDriven<Message>, SessionAware {
 	
@@ -75,6 +78,36 @@ public String getMessagesBySenderId()  {
 		
 		return Action.SUCCESS;	
 	}
+
+
+
+public String sendMessageToProfile(){
+	
+	Integer idProf = null;
+    Map session = ActionContext.getContext().getSession(); 
+    idProf = (Integer)session.get("profile_id"); 
+    //System.out.println("id-ul pentru profil din sesiune = " + test);
+   
+    
+    // aducem id-ul din sesiune a celui caruia ii trimitem mesajul
+    Profile profile = new Profile();
+    profile.setIdProfile(2);  // setam
+    
+    List<Profile> lp = new ArrayList<Profile>();
+    lp.add(profile);
+    
+    message.setCreationDate(new Date());
+    message.setIdSender(idProf);
+  //  message.profiles.add(profile);
+	messageDAO.save(message);
+	
+	
+	if (message.getIdMessage() != null) {
+		return Action.SUCCESS;
+	}
+	return Action.ERROR;
+    
+}
 
 	
 	public Message getModel() {
