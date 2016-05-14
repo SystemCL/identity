@@ -50,7 +50,7 @@ window.onload = function(){
 <ul id="menu" >
   <li><a href="getCommentsAction">Identity</a></li>
   <li><a href="getFriendsAction">Knowns</a></li>
-  <li><a href="getMessagesById">Messages</a></li>
+  <li><a href="getMessages">Messages</a></li>
   <li><a href="getRecomandationsAction">Recomandation</a></li>
   
   <li><INPUT type="text" name="userProfile" class="tftextinput3" name="q" size="21"

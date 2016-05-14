@@ -25,7 +25,7 @@
 					<tr>
 						
 						  <td >
-	 					<a href=<s:url action="getMessagesForConversation">
+	 					<a href=<s:url action="getMessages">
 			 			<s:param name="idProfileOfConversation" value="%{idProfile}" />
 						 </s:url>>
 						 <img alt="Up" width="50" height="50px" src=<s:url value="/images/menSmile.jpg"/>> 

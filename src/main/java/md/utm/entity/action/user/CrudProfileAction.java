@@ -23,9 +23,10 @@ import md.utm.entity.model.entity.Message;
 import md.utm.entity.model.entity.Profile;
 
 
-public class CrudProfileAction extends ActionSupport implements ModelDriven<Profile>, SessionAware {
+public class CrudProfileAction extends ActionSupport implements ModelDriven<Profile>,  SessionAware {
 	
 	Profile profile = new Profile();
+	//User user = new User(); 
 	private List<Profile> profileConversations;
 	ProfileDAO profileDAO;
     private static Session session;
@@ -94,6 +95,16 @@ public class CrudProfileAction extends ActionSupport implements ModelDriven<Prof
 	}
 	
 	public String saveProfile() throws IOException, SQLException{
+		
+		
+		profile.getIdProfile();
+		profile.setFirstName("%{username}");
+		profile.setLastName("%d{password}");
+		//profile.setdBirthday(%{datepicker});
+		profile.setLocation("%d{location}");
+		profile.setStatus("%d{status}");
+		
+		profileDAO.save(profile);
 		
 		
 		//profile.picture = fotografia 

@@ -67,7 +67,7 @@ public String getMessagesBySenderId()  {
 		
 		// to do--> get sender id
 	   // listMessages = messageDAO.getMessagesBySenderId();
-	   System.out.println("Id-ul senderului pentru mesaje"+this.idProfileOfConversation);
+	  //System.out.println("Id-ul senderului pentru mesaje"+this.idProfileOfConversation);
 	     listMessages = messageDAO.getMessagesForConversation(this.getIdProfileOfConversation());
 	     System.out.println(listMessages.toString());
 		
@@ -90,14 +90,14 @@ public String sendMessageToProfile(){
    
     
     // aducem id-ul din sesiune a celui caruia ii trimitem mesajul
-    Profile profile = new Profile();
-    profile.setIdProfile(2);  // setam
+   //Profile profile = new Profile();
+   // profile.setIdProfile(2);  // setam
     
-    List<Profile> lp = new ArrayList<Profile>();
-    lp.add(profile);
+    //List<Profile> lp = new ArrayList<Profile>();
+    //lp.add(profile);
     
     message.setCreationDate(new Date());
-    message.setIdSender(idProf);
+    message.setIdSender(2);
   //  message.profiles.add(profile);
 	messageDAO.save(message);
 	

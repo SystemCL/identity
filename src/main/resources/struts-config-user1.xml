@@ -76,9 +76,18 @@
 
 		
 <!-- =============MESSAGES ACTIONS======================  -->
+       <action name="getMessages" class="md.utm.entity.action.user.DefaultAction"
+        method="getMessagesByIdProfile">
+			<result name="success" >user/messages.jsp</result>
+			
+			<result name="error">#</result>
+       </action>
+     
+     
+     
        <action name="sendMessageAction" class="md.utm.entity.action.user.CrudMessageAction"
 	      method="sendMessageToProfile">
-			<result name="success" type="redirectAction">getConversation</result>
+			<result name="success" type="redirectAction">getMessages</result>
 			<result name="error">#</result>
 		</action>
        
@@ -103,8 +112,7 @@
 			<result name="error" type="redirectAction">#</result>
 		</action>
 		
-		
-		
+	<!--  |||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||| -->
 		
 		<action name="getFriendsAction">
 			<result name="success">user/friends.jsp</result>
