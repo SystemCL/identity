@@ -42,12 +42,14 @@ public class LoginAuthAction extends ActionSupport implements SessionAware {
 			error = false;
 			sessionMap.put("username", user.getUsername());
 			sessionMap.put("logged", true);
+			sessionMap.put("user_id", user.getIdAccount());
 
 			Profile profileUser = user.getProfile();
-			if (profileUser != null) {
+			if (profileUser == null) {
+				return "createProfile";
+			} else {
 				sessionMap.put("profile_id", profileUser.getIdProfile());
 			}
-			sessionMap.put("user_id", user.getIdAccount());
 		}
 
 		if (error) {

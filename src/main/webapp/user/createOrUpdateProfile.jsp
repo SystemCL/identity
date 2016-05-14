@@ -20,8 +20,8 @@
 </head>
 <body>
 	<%@include file="header.jsp"%>
-	<img src="<s:url action="imageAction"><s:param name="userProfileId" value="%{idProfile}" /></s:url>" />
 	<br/><br/><br/>
+	<img src="<s:url action="imageAction"><s:param name="userProfileId" value="%{idProfile}" /></s:url>" />
 	<s:form method="POST" enctype="multipart/form-data">
 		<s:textfield name="firstName" label="Nume" value="%{firstName}" />
 		<s:textfield name="lastName" label="Prenume" value="%{lastName}" />

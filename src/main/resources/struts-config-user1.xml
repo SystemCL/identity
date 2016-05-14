@@ -39,7 +39,8 @@
 			method="registerUser"> <result>/index.jsp</result> </action> -->
 
 		<action name="loginauth" class="md.utm.entity.action.user.LoginAuthAction">
-			<result name="success" type="redirectAction">getProfile	</result>
+			<result name="success" type="redirectAction">getCommentsAction	</result>
+			<result name="createProfile" type="redirectAction">getProfile	</result>
 			<result name="error">user/login.jsp</result>
 		</action>
 

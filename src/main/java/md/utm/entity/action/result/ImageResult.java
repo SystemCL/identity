@@ -18,8 +18,10 @@ public class ImageResult implements Result {
 		HttpServletResponse response = ServletActionContext.getResponse();
 
 		response.setContentType(action.getContentType());
-
-		response.getOutputStream().write(action.loadImage());
+		byte[] image = action.loadImage();
+		if (image != null) {
+			response.getOutputStream().write(image);
+		}
 		response.getOutputStream().flush();
 	}
 
