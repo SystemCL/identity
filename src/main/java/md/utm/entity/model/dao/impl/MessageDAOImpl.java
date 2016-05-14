@@ -18,8 +18,9 @@ public class MessageDAOImpl extends GenericDAOImpl implements MessageDAO {
 		idProf = (Integer) session.get("profile_id");
 
 		// trebuie de adus din sesiune id-ul la sender !!!!!!!!!!!!!!!!!!!
-		// select us from User us where us not in (select u from User u join
-		// u.projects p where p.id=?)
+		// select ms from Message ms where ms not in (select u from Message u
+		// join
+		// u.profile_messages p where p.id=?)
 		return getHibernateTemplate()
 				.find("from Message m join m.profile_messages pm where pm.profile_id=? and m.idSender=?", idProf, 2);
 
