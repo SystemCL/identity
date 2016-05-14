@@ -45,9 +45,9 @@ public class MessageDAOImpl extends GenericDAOImpl implements MessageDAO {
 
 	public List<Message> getMessagesForConversation(Integer idProfile) {
 
-		Integer idProf;
+		Integer myId;
 		Map session = ActionContext.getContext().getSession();
-		idProf = (Integer) session.get("profile_id");
+		myId = (Integer) session.get("profile_id");
 
 		// select * from Message where idSender=? and where idMessage=
 		// ( message_id from profile_message where profile_id = [profilul meu])
@@ -57,7 +57,13 @@ public class MessageDAOImpl extends GenericDAOImpl implements MessageDAO {
 
 		// return getHibernateTemplate().find("from Message where idSender=?",
 		// idProfile);
-		return getHibernateTemplate().find("from Message ");
+		
+		//return getHibernateTemplate().find("from Message ");
+		
+		return getHibernateTemplate()
+				.find("from Message m join m.profile_messages pm where pm.profile_id=? and m.idSender=?", myId, idProfile);
+
+		
 	}
 
 }
