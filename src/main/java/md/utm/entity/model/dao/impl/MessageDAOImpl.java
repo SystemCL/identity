@@ -1,14 +1,15 @@
 package md.utm.entity.model.dao.impl;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
-import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.opensymphony.xwork2.ActionContext;
 
+import md.utm.entity.exception.NullProfileException;
 import md.utm.entity.model.dao.MessageDAO;
 import md.utm.entity.model.dao.ProfileDAO;
 import md.utm.entity.model.entity.Message;
@@ -18,11 +19,13 @@ public class MessageDAOImpl extends GenericDAOImpl implements MessageDAO {
 	@Autowired
 	private ProfileDAO profileDAO;
 
+	@Override
 	public List<Message> getMessagesBySenderId() {
 
-		Integer idProf;
-		Map session = ActionContext.getContext().getSession();
-		idProf = (Integer) session.get("profile_id");
+		Integer idProf = (Integer) ActionContext.getContext().getSession().get("profile_id");
+		if (idProf == null) {
+			throw new NullProfileException();
+		}
 
 		// trebuie de adus din sesiune id-ul la sender !!!!!!!!!!!!!!!!!!!
 		// select ms from Message ms where ms not in (select u from Message u
@@ -45,16 +48,19 @@ public class MessageDAOImpl extends GenericDAOImpl implements MessageDAO {
 		/* ?"+idProf+")"); */
 	}
 
+	@Override
 	public Message getMessageById(Integer idMessage) {
 		// TODO Auto-generated method stub
 		return get(Message.class, idMessage);
 	}
 
+	@Override
 	public List<Message> getMessagesForConversation(Integer idProfile) {
 
-		Integer myId;
-		Map session = ActionContext.getContext().getSession();
-		myId = (Integer) session.get("profile_id");
+		Integer myId = (Integer) ActionContext.getContext().getSession().get("profile_id");
+		if (myId == null) {
+			return new ArrayList<Message>();
+		}
 
 		// select * from Message where idSender=? and where idMessage=
 		// ( message_id from profile_message where profile_id = [profilul meu])
@@ -72,6 +78,7 @@ public class MessageDAOImpl extends GenericDAOImpl implements MessageDAO {
 
 	}
 
+	@Override
 	@Transactional
 	public Message createAMessage(Message message) {
 		message.setCreationDate(new Date());

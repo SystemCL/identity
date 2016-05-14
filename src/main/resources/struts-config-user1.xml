@@ -9,7 +9,7 @@
 			<result-type name="imageResult"
 				class="md.utm.entity.action.result.ImageResult" />
 		</result-types>
-		
+
 		<interceptors>
 			<interceptor-stack name="appDefaultStack">
 				<interceptor-ref name="defaultStack">
@@ -39,18 +39,8 @@
 			method="registerUser"> <result>/index.jsp</result> </action> -->
 
 		<action name="loginauth" class="md.utm.entity.action.user.LoginAuthAction">
-			<!-- <action name="loginauth" class="md.utm.entity.action.user.LoginAuthAction" 
-				method="execute"> -->
-			<!-- user/entityMain.jsp -->
-
-			<result name="success" type="redirect">
-				<!-- <param name="location">user/entityMain.jsp</param> -->
-				<param name="location">getCommentsAction</param>
-
-			</result>
-			<result name="error">
-				user/login.jsp
-			</result>
+			<result name="success" type="redirectAction">getProfile	</result>
+			<result name="error">user/login.jsp</result>
 		</action>
 
 
@@ -172,6 +162,10 @@
 
 		<action name="saveProfileActionNew" class="md.utm.entity.action.user.ProfileAction"
 			method="saveProfile">
+			<interceptor-ref name="defaultStack">
+				<param name="fileUpload.allowedTypes">image/jpeg,image/png,image/gif</param>
+				<param name="fileUpload.maximumSize">4194304</param>
+			</interceptor-ref>
 			<result name="success" type="redirectAction">getProfile</result>
 		</action>
 

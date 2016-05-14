@@ -1,13 +1,8 @@
 package md.utm.entity.action.user;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.sql.Blob;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
-
-import org.hibernate.Hibernate;
 
 import com.opensymphony.xwork2.Action;
 import com.opensymphony.xwork2.ActionContext;
@@ -16,7 +11,6 @@ import com.opensymphony.xwork2.ModelDriven;
 import md.utm.entity.model.dao.CommentDAO;
 import md.utm.entity.model.dao.UserDAO;
 import md.utm.entity.model.entity.Comment;
-import md.utm.entity.model.entity.Profile;
 import md.utm.entity.model.entity.UserAccount;
 
 public class CrudUserAction implements ModelDriven<UserAccount> {
@@ -42,6 +36,7 @@ public class CrudUserAction implements ModelDriven<UserAccount> {
 		this.userList = userList;
 	}
 
+	@Override
 	public UserAccount getModel() {
 		return user;
 
@@ -68,36 +63,9 @@ public class CrudUserAction implements ModelDriven<UserAccount> {
 	}
 
 	public String addUser() throws Exception {
-		
-		Profile profile = new Profile();
-		
-		/*String photoFilePath = "C:/Users/Vlad/Desktop/nn.jpg";
-
-        
-        File file = new File(photoFilePath);
-        FileInputStream inputStream = new FileInputStream(file);
-       // Blob blob = Hibernate.getLobCreator(session).createBlob(inputStream, file.length());
-  
-        Blob blob = Hibernate.createBlob(inputStream, file.length());
-        profile.setFirstName("Incercareee");
-        profile.setPicture(blob);
-       // session.save(profile);
-        blob.free();
-        */
-		
-		
-		
-		profile.setFirstName("Adrian");
-		profile.setLastName("Tabirta");
-		profile.setLocation("Chisinau");
-		profile.setStatus("Life is like a bicycle, to keep your balance go ahead.");
-		profile.setdBirthday(new Date());
-		userDAO.save(profile);
-			
 		user.setCreatedDate(new Date());
-		user.setProfile(profile);
 		userDAO.save(user);
-		
+
 		if (user.getUsername() != null) {
 			return Action.SUCCESS;
 		}
@@ -136,6 +104,5 @@ public class CrudUserAction implements ModelDriven<UserAccount> {
 		}
 		return Action.SUCCESS;
 	}
-
 
 }

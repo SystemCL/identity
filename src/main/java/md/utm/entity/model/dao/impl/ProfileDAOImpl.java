@@ -1,13 +1,13 @@
 package md.utm.entity.model.dao.impl;
 
 import java.util.List;
-import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.opensymphony.xwork2.ActionContext;
 
+import md.utm.entity.exception.NullProfileException;
 import md.utm.entity.model.dao.ProfileDAO;
 import md.utm.entity.model.dao.UserDAO;
 import md.utm.entity.model.entity.Profile;
@@ -20,9 +20,10 @@ public class ProfileDAOImpl extends GenericDAOImpl implements ProfileDAO {
 	@Override
 	public List<Profile> getProfilesWhoConversedWithMe() {
 
-		Integer idProf;
-		Map session = ActionContext.getContext().getSession();
-		idProf = (Integer) session.get("profile_id");
+		Integer idProf = (Integer) ActionContext.getContext().getSession().get("profile_id");
+		if (idProf == null) {
+			throw new NullProfileException();
+		}
 		// System.out.println("id-ul pentru profil din sesiune = " + test);
 
 		/*------ in implementat subquery pentru hibernate ------
@@ -38,7 +39,11 @@ public class ProfileDAOImpl extends GenericDAOImpl implements ProfileDAO {
 
 	@Override
 	public Profile getSesionProfile() {
-		return get(Profile.class, (Integer) ActionContext.getContext().getSession().get("profile_id"));
+		Integer profileId = (Integer) ActionContext.getContext().getSession().get("profile_id");
+		Profile profile = null;
+		if (profileId != null)
+			profile = get(Profile.class, profileId);
+		return profile;
 	}
 
 	@Override
@@ -47,6 +52,7 @@ public class ProfileDAOImpl extends GenericDAOImpl implements ProfileDAO {
 		save(profile);
 		UserAccount findUser = userDAO.findUser((Integer) ActionContext.getContext().getSession().get("user_id"));
 		findUser.setProfile(profile);
+		ActionContext.getContext().getSession().put("profile_id", profile.getIdProfile());
 		userDAO.update(findUser);
 	}
 

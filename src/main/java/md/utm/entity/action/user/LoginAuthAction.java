@@ -44,18 +44,10 @@ public class LoginAuthAction extends ActionSupport implements SessionAware {
 			sessionMap.put("logged", true);
 
 			Profile profileUser = user.getProfile();
-
-			sessionMap.put("profile_id", profileUser.getIdProfile());
+			if (profileUser != null) {
+				sessionMap.put("profile_id", profileUser.getIdProfile());
+			}
 			sessionMap.put("user_id", user.getIdAccount());
-
-			sessionMap.put("firstName", profileUser.getFirstName());
-			sessionMap.put("lastName", profileUser.getLastName());
-			sessionMap.put("email", user.getEmail());
-			sessionMap.put("dBirthday", profileUser.getdBirthday());
-			sessionMap.put("location", profileUser.getLocation());
-			sessionMap.put("status", profileUser.getStatus());
-			sessionMap.put("picture", profileUser.getPicture());
-
 		}
 
 		if (error) {
@@ -69,6 +61,8 @@ public class LoginAuthAction extends ActionSupport implements SessionAware {
 	public String logOut() {
 		if (sessionMap.containsKey("username")) {
 			sessionMap.remove("username");
+			sessionMap.remove("user_id");
+			sessionMap.remove("profile_id");
 			sessionMap.put("logged", false);
 			sessionMap.put("admin", false);
 		}
