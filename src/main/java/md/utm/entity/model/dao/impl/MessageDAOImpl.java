@@ -73,9 +73,9 @@ public class MessageDAOImpl extends GenericDAOImpl implements MessageDAO {
 	}
 
 	@Transactional
-	public Message createAMessage(Integer idProf, Message message) {
+	public Message createAMessage(Message message) {
 		message.setCreationDate(new Date());
-		message.getProfiles().add(profileDAO.getProfileById(idProf));
+		message.getProfiles().add(profileDAO.getSesionProfile());
 		save(message);
 		return message;
 	}

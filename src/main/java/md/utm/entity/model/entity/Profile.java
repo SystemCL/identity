@@ -1,6 +1,7 @@
 package md.utm.entity.model.entity;
 
-import java.sql.Blob;
+import java.io.File;
+import java.io.FileInputStream;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -14,32 +15,57 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
+import javax.persistence.Lob;
 import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 //import md.utm.entity.model.entity.Message;
+import javax.persistence.Transient;
+
+import org.apache.struts2.StrutsException;
 
 @Entity
 public class Profile {
 
-	public int idProfile;
-	public String firstName;
-	public String lastName;
-	public Date dBirthday;
-	public String location;
-	public String status;
-	public Blob picture;
-	public Set<Message> messages;
+	private Integer idProfile;
+	private String firstName;
+	private String lastName;
+	private Date dBirthday;
+	private String location;
+	private String status;
+	private byte[] picture;
+	private String email;
+	private File profileImage;
+	private Set<Message> messages;
 
 	private List<Comment> comment;
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	public int getIdProfile() {
+	public Integer getIdProfile() {
 		return idProfile;
 	}
 
-	public void setIdProfile(int idProfile) {
+	public void setIdProfile(Integer idProfile) {
 		this.idProfile = idProfile;
+	}
+
+	public void setProfileImage(File profileImage) {
+		this.profileImage = profileImage;
+		if (profileImage != null) {
+			picture = new byte[(int) profileImage.length()];
+			try {
+				FileInputStream fileInputStream = new FileInputStream(profileImage);
+				fileInputStream.read(picture);
+				fileInputStream.close();
+			} catch (Exception e) {
+				throw new StrutsException(e.getMessage(), e);
+			}
+		}
+	}
+
+	@Transient
+	public File getProfileImage() {
+		return profileImage;
 	}
 
 	@OneToMany(cascade = CascadeType.ALL, mappedBy = "profile")
@@ -95,21 +121,27 @@ public class Profile {
 		this.status = status;
 	}
 
-	public Blob getPicture() {
+	@Lob
+	public byte[] getPicture() {
 		return picture;
 	}
 
-	public void setPicture(Blob picture) {
+	public void setPicture(byte[] picture) {
 		this.picture = picture;
 	}
 
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	public String getEmail() {
+		return email;
+	}
 	// @ManyToMany(targetEntity=md.utm.entity.model.entity.Message.class,
 	// mappedBy="message")
 
 	@ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-	@JoinTable(name = "profile_messages",
-	joinColumns = @JoinColumn(name = "profile_id"), 
-	inverseJoinColumns = @JoinColumn(name = "message_id"))
+	@JoinTable(name = "profile_messages", joinColumns = @JoinColumn(name = "profile_id"), inverseJoinColumns = @JoinColumn(name = "message_id"))
 	public Set<Message> getMessages() {
 		return messages;
 	}

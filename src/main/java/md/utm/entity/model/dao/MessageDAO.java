@@ -12,6 +12,6 @@ public interface MessageDAO extends GenericDAO {
 
 	Message getMessageById(Integer idMessage);
 
-	Message createAMessage(Integer idProf, Message idMessageSender);
+	Message createAMessage(Message idMessageSender);
 
 }

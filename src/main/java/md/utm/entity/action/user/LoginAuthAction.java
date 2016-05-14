@@ -1,6 +1,5 @@
 package md.utm.entity.action.user;
 
-import java.util.Date;
 import java.util.Map;
 
 import org.apache.struts2.interceptor.SessionAware;
@@ -11,10 +10,7 @@ import md.utm.entity.model.dao.UserDAO;
 import md.utm.entity.model.entity.Profile;
 import md.utm.entity.model.entity.UserAccount;
 
-
-
-
-public class LoginAuthAction  extends ActionSupport implements SessionAware{
+public class LoginAuthAction extends ActionSupport implements SessionAware {
 
 	/**
 	 * 
@@ -28,7 +24,7 @@ public class LoginAuthAction  extends ActionSupport implements SessionAware{
 	private Boolean error;
 	private Map<String, Object> sessionMap;
 	private UserAccount user;
-	
+
 	@Override
 	public String execute() {
 		if (username.equals("")) {
@@ -46,12 +42,12 @@ public class LoginAuthAction  extends ActionSupport implements SessionAware{
 			error = false;
 			sessionMap.put("username", user.getUsername());
 			sessionMap.put("logged", true);
-			
-			Profile profileUser = user.getProfile(); 
-			
+
+			Profile profileUser = user.getProfile();
+
 			sessionMap.put("profile_id", profileUser.getIdProfile());
-		//	sessionMap.put("user_id", user.getIdAccount());
-			
+			sessionMap.put("user_id", user.getIdAccount());
+
 			sessionMap.put("firstName", profileUser.getFirstName());
 			sessionMap.put("lastName", profileUser.getLastName());
 			sessionMap.put("email", user.getEmail());
@@ -59,8 +55,7 @@ public class LoginAuthAction  extends ActionSupport implements SessionAware{
 			sessionMap.put("location", profileUser.getLocation());
 			sessionMap.put("status", profileUser.getStatus());
 			sessionMap.put("picture", profileUser.getPicture());
-			
-		
+
 		}
 
 		if (error) {
@@ -70,7 +65,7 @@ public class LoginAuthAction  extends ActionSupport implements SessionAware{
 		}
 
 	}
-	
+
 	public String logOut() {
 		if (sessionMap.containsKey("username")) {
 			sessionMap.remove("username");
@@ -79,7 +74,7 @@ public class LoginAuthAction  extends ActionSupport implements SessionAware{
 		}
 		return SUCCESS;
 	}
-	
+
 	private UserAccount findUser() {
 		user = userDAO.findUser(username, password);
 		return user;
@@ -97,9 +92,9 @@ public class LoginAuthAction  extends ActionSupport implements SessionAware{
 		this.userDAO = userDAO;
 	}
 
+	@Override
 	public void setSession(Map<String, Object> session) {
 		this.sessionMap = session;
 	}
-	
 
 }

@@ -14,6 +14,7 @@ import md.utm.entity.model.entity.Profile;
 
 public class DefaultAction extends ActionSupport {
 
+	private static final long serialVersionUID = 1L;
 	private final Profile profile = new Profile();
 	private final Message message = new Message();
 
@@ -106,9 +107,7 @@ public class DefaultAction extends ActionSupport {
 		if (profileConversations == null) {
 			profileConversations = new ArrayList<Profile>();
 		}
-
 		return Action.SUCCESS;
-
 	}
 
 }

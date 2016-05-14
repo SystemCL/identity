@@ -7,7 +7,6 @@ import java.util.Map;
 import org.apache.struts2.interceptor.SessionAware;
 
 import com.opensymphony.xwork2.Action;
-import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.ModelDriven;
 
@@ -96,19 +95,7 @@ public class CrudMessageAction extends ActionSupport implements ModelDriven<Mess
 
 	public String sendMessageToProfile() {
 
-		Integer idProf = null;
-		Map session = ActionContext.getContext().getSession();
-		idProf = (Integer) session.get("profile_id");
-		// System.out.println("id-ul pentru profil din sesiune = " + test);
-
-		// aducem id-ul din sesiune a celui caruia ii trimitem mesajul
-		// Profile profile = new Profile();
-		// profile.setIdProfile(2); // setam
-
-		// List<Profile> lp = new ArrayList<Profile>();
-		// lp.add(profile);
-
-		message = messageDAO.createAMessage(idProf, message);
+		message = messageDAO.createAMessage(message);
 
 		if (message.getIdMessage() != null) {
 			return Action.SUCCESS;
@@ -117,11 +104,13 @@ public class CrudMessageAction extends ActionSupport implements ModelDriven<Mess
 
 	}
 
+	@Override
 	public Message getModel() {
 		// TODO Auto-generated method stub
 		return message;
 	}
 
+	@Override
 	public void setSession(Map<String, Object> arg0) {
 		// TODO Auto-generated method stub
 

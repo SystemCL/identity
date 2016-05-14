@@ -11,6 +11,10 @@ public interface ProfileDAO extends GenericDAO {
 	 */
 	List<Profile> getProfilesWhoConversedWithMe();
 
-	Profile getProfileById(Integer idProfile);
+	Profile getSesionProfile();
+
+	void createProfile(Profile profile);
+
+	Profile findProfileById(Integer userProfileId);
 
 }

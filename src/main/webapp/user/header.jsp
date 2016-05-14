@@ -52,6 +52,7 @@ window.onload = function(){
   <li><a href="getFriendsAction">Knowns</a></li>
   <li><a href="getConversation">Messages</a></li> <!-- getMessages -->
   <li><a href="getRecomandationsAction">Recomandation</a></li>
+  <li><a href="getProfile">Edit your profie</a></li>
   
   <li><INPUT type="text" name="userProfile" class="tftextinput3" name="q" size="21"
 					maxlength="120" value="Search knowns"> <INPUT type="submit" value="Find"></li>

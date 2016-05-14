@@ -5,6 +5,11 @@
 
 <struts>
 	<package name="default" namespace="/" extends="struts-default">
+		<result-types>
+			<result-type name="imageResult"
+				class="md.utm.entity.action.result.ImageResult" />
+		</result-types>
+		
 		<interceptors>
 			<interceptor-stack name="appDefaultStack">
 				<interceptor-ref name="defaultStack">
@@ -74,50 +79,51 @@
 		</action>
 
 
-		
-<!-- =============MESSAGES ACTIONS======================  -->
-       <action name="getMessages" class="md.utm.entity.action.user.DefaultAction"
-        method="getMessagesByIdProfile">
-			<result name="success" >user/messages.jsp</result>
-			
+
+		<!-- =============MESSAGES ACTIONS====================== -->
+		<action name="getMessages" class="md.utm.entity.action.user.DefaultAction"
+			method="getMessagesByIdProfile">
+			<result name="success">user/messages.jsp</result>
+
 			<result name="error">#</result>
-       </action>
-     
-     
-     
-       <action name="sendMessageAction" class="md.utm.entity.action.user.CrudMessageAction"
-	      method="sendMessageToProfile">
+		</action>
+
+
+
+		<action name="sendMessageAction" class="md.utm.entity.action.user.CrudMessageAction"
+			method="sendMessageToProfile">
 			<result name="success" type="redirectAction">getMessages</result>
 			<result name="error">#</result>
 		</action>
-       
+
 
 		<action name="getMessagesAction">
 			<result name="success">user/messages.jsp</result>
 			<result name="error">user/entityMain.jsp</result>
 		</action>
-		
-		
-		 <action name="getMessagesBySenderId" class="md.utm.entity.action.user.DefaultAction"    method="getMessagesByIdProfile">
+
+
+		<action name="getMessagesBySenderId" class="md.utm.entity.action.user.DefaultAction"
+			method="getMessagesByIdProfile">
 			<result name="success">user/messages.jsp</result>
 			<result name="error" type="redirectAction">#</result>
-		</action>	
-		
-		
-		
-		  <action name="getMessagesForConversation" class="md.utm.entity.action.user.CrudMessageAction"
-	    method="getMessagesBySenderId">
-			<result name="success" >user/messages.jsp</result>
+		</action>
+
+
+
+		<action name="getMessagesForConversation" class="md.utm.entity.action.user.CrudMessageAction"
+			method="getMessagesBySenderId">
+			<result name="success">user/messages.jsp</result>
 			<result name="error" type="redirectAction">#</result>
 		</action>
-		
-	<!--  |||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||| -->
-		
+
+		<!-- |||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||| -->
+
 		<action name="getFriendsAction">
 			<result name="success">user/friends.jsp</result>
 			<result name="error">user/entityMain.jsp</result>
 		</action>
-		
+
 		<action name="getRecomandationsAction">
 			<result name="success">user/recomandations.jsp</result>
 			<result name="error">user/entityMain.jsp</result>
@@ -128,43 +134,61 @@
 			<result name="success" type="redirectAction">getCommentsAction</result>
 			<result name="error" type="redirectAction">getCommentsAction</result>
 		</action>
-		
-		
+
+
 		<action name="rateUpAction" class="md.utm.entity.action.user.CrudCommentAction"
 			method="rateUpComment">
 			<result name="success" type="redirectAction">getCommentsAction</result>
 			<result name="error" type="redirectAction">getCommentsAction</result>
 		</action>
-		
-			<action name="rateDownAction" class="md.utm.entity.action.user.CrudCommentAction"
+
+		<action name="rateDownAction" class="md.utm.entity.action.user.CrudCommentAction"
 			method="rateDownComment">
 			<result name="success" type="redirectAction">getCommentsAction</result>
 			<result name="error" type="redirectAction">getCommentsAction</result>
 		</action>
-		
+
 		<action name="editProfileAction">
 			<result name="success">user/editProfile.jsp</result>
 			<result name="error">user/entityMain.jsp</result>
 		</action>
-		
+
 		<action name="saveProfileAction" class="md.utm.entity.action.user.CrudProfileAction"
 			method="saveProfile">
 			<result name="success">user/entityMain.jsp</result>
 			<result name="error" type="redirectAction">user/editProfile.jsp</result>
 		</action>
-		
+
 		<action name="getConversation" class="md.utm.entity.action.user.CrudProfileAction"
 			method="getConversationUsersProfiles">
 			<result name="success">user/messages.jsp</result>
 			<result name="error" type="redirectAction">user/entityMain.jsp</result>
 		</action>
-		
-		
-		
-		
-		
 
+		<action name="getProfile" class="md.utm.entity.action.user.ProfileAction"
+			method="getUserProfile">
+			<result name="success">user/createOrUpdateProfile.jsp</result>
+		</action>
+
+		<action name="saveProfileActionNew" class="md.utm.entity.action.user.ProfileAction"
+			method="saveProfile">
+			<result name="success" type="redirectAction">getProfile</result>
+		</action>
+
+		<action name="updateProfileActionNew" class="md.utm.entity.action.user.ProfileAction"
+			method="updateProfile">
+			<interceptor-ref name="defaultStack">
+				<param name="fileUpload.allowedTypes">image/jpeg,image/png,image/gif</param>
+				<param name="fileUpload.maximumSize">4194304</param>
+			</interceptor-ref>
+			<result name="success" type="redirectAction">getProfile</result>
+		</action>
+
+		<action name="imageAction" class="md.utm.entity.action.user.ImageAction">
+			<result name="success" type="imageResult">
+			</result>
+		</action>
 	</package>
-	
-	
+
+
 </struts>
