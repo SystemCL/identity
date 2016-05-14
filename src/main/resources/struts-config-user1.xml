@@ -98,9 +98,8 @@
 		</action>
 		
 		
-		 <action name="getMessagesById" class="md.utm.entity.action.user.CrudMessageAction"
-	      method="getMessagesBySenderId">
-			<result name="success" type="redirectAction">getConversation</result>
+		 <action name="getMessagesBySenderId" class="md.utm.entity.action.user.DefaultAction"    method="getMessagesByIdProfile">
+			<result name="success">user/messages.jsp</result>
 			<result name="error" type="redirectAction">#</result>
 		</action>	
 		

@@ -1,15 +1,22 @@
 package md.utm.entity.model.dao.impl;
 
+import java.util.Date;
 import java.util.List;
 import java.util.Map;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.opensymphony.xwork2.ActionContext;
 
 import md.utm.entity.model.dao.MessageDAO;
+import md.utm.entity.model.dao.ProfileDAO;
 import md.utm.entity.model.entity.Message;
 
 @SuppressWarnings("unchecked")
 public class MessageDAOImpl extends GenericDAOImpl implements MessageDAO {
+	@Autowired
+	private ProfileDAO profileDAO;
 
 	public List<Message> getMessagesBySenderId() {
 
@@ -21,8 +28,8 @@ public class MessageDAOImpl extends GenericDAOImpl implements MessageDAO {
 		// select ms from Message ms where ms not in (select u from Message u
 		// join
 		// u.profile_messages p where p.id=?)
-		return getHibernateTemplate()
-				.find("from Message m join m.profile_messages pm where pm.profile_id=? and m.idSender=?", idProf, 2);
+		return getHibernateTemplate().find("from Message m join m.profiles pm where pm.profile_id=? and m.idSender=?",
+				idProf, 2);
 
 		// getHibernateTemplate().find("from Message where idSender=1 AND
 		// idMessage in (Select idMessage from profile_messages where
@@ -57,13 +64,20 @@ public class MessageDAOImpl extends GenericDAOImpl implements MessageDAO {
 
 		// return getHibernateTemplate().find("from Message where idSender=?",
 		// idProfile);
-		
-		//return getHibernateTemplate().find("from Message ");
-		
-		return getHibernateTemplate()
-				.find("from Message m join m.profile_messages pm where pm.profile_id=? and m.idSender=?", myId, idProfile);
 
-		
+		// return getHibernateTemplate().find("from Message ");
+
+		return getHibernateTemplate().find(
+				"select m from Message m join m.profiles pm where pm.idProfile=? and m.idSender=?", myId, idProfile);
+
+	}
+
+	@Transactional
+	public Message createAMessage(Integer idProf, Message message) {
+		message.setCreationDate(new Date());
+		message.getProfiles().add(profileDAO.getProfileById(idProf));
+		save(message);
+		return message;
 	}
 
 }

@@ -93,6 +93,7 @@
 				style="display: inline-block; margin-left: 20px; margin-top: 20px;"
 				method="post" name="msg_form" >
 				<textarea name="message" style="overflow:hidden" maxlength="150" rows="4" cols="50"  placeholder="Scrie un mesaj..."></textarea>
+				<s:hidden name="idSender" value="%{idSender}"/>
 				<br>
 				<br>
 					<s:submit value="Trimite" action="sendMessageAction" />
