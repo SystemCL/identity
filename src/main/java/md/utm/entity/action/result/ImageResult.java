@@ -12,7 +12,7 @@ import md.utm.entity.action.user.ImageAction;
 public class ImageResult implements Result {
 	private static final long serialVersionUID = 1L;
 
-	@Override
+	
 	public void execute(ActionInvocation invocation) throws Exception {
 		ImageAction action = (ImageAction) invocation.getAction();
 		HttpServletResponse response = ServletActionContext.getResponse();

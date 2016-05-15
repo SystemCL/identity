@@ -88,7 +88,7 @@ public class LoginAuthAction extends ActionSupport implements SessionAware {
 		this.userDAO = userDAO;
 	}
 
-	@Override
+	
 	public void setSession(Map<String, Object> session) {
 		this.sessionMap = session;
 	}

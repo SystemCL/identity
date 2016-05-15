@@ -70,7 +70,7 @@ public class CrudProfileAction extends ActionSupport implements ModelDriven<Prof
 
 	}
 
-	@Override
+	
 	public Profile getModel() {
 		// TODO Auto-generated method stub
 		return profile;
@@ -107,7 +107,7 @@ public class CrudProfileAction extends ActionSupport implements ModelDriven<Prof
 		return Action.SUCCESS;
 	}
 
-	@Override
+	
 	public void setSession(Map<String, Object> arg0) {
 		// TODO Auto-generated method stub
 

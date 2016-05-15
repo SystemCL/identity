@@ -1,10 +1,10 @@
 <%@ taglib prefix="s" uri="/struts-tags"%>
-
-<body bgcolor=''>
+<html>
+<body background="images/background-wallpaper.jpg" style="background-size: cover;" ><!-- bgcolor='' -->
 <s:form action="loginauth" theme="simple">
 	<center>
 		<table width="200">
-			<tr height="30">
+			<tr height="130">
 				<td width="200" colspan="2"><s:if test="hasActionErrors()">
 						<div class="errors">
 							<s:actionerror />
@@ -13,12 +13,12 @@
 
 			</tr>
 			<tr>
-				<td colspan="2" width="200" align="left" style="background: #D3D3D3"><b>Login
+				<td colspan="2" width="100" align="left" style="background: #D3D3D3"><b>Login
 					Here</b></td>
 			</tr>
 			<tr>
 				<td align="left">Username:</td>
-				<td align="left"><s:textfield name="username" /></td>
+				<td align="left"><s:textfield name="username" size="20" /></td>
 			</tr>
 			<tr>
 				<td align="left">Password:</td>
@@ -38,3 +38,5 @@
 		</table>
 	</center>
 </s:form>
+</body>
+</html>

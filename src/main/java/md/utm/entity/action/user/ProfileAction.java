@@ -17,7 +17,7 @@ public class ProfileAction extends ActionSupport implements ModelDriven<Profile>
 		this.profileDAO = profileDAO;
 	}
 
-	@Override
+	
 	public Profile getModel() {
 		profile = profileDAO.getSesionProfile();
 		if (profile == null) {

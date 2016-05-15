@@ -17,7 +17,7 @@ public class ProfileDAOImpl extends GenericDAOImpl implements ProfileDAO {
 	@Autowired(required = true)
 	private UserDAO userDAO;
 
-	@Override
+	
 	public List<Profile> getProfilesWhoConversedWithMe() {
 
 		Integer idProf = (Integer) ActionContext.getContext().getSession().get("profile_id");
@@ -37,7 +37,7 @@ public class ProfileDAOImpl extends GenericDAOImpl implements ProfileDAO {
 
 	}
 
-	@Override
+	
 	public Profile getSesionProfile() {
 		Integer profileId = (Integer) ActionContext.getContext().getSession().get("profile_id");
 		Profile profile = null;
@@ -46,7 +46,7 @@ public class ProfileDAOImpl extends GenericDAOImpl implements ProfileDAO {
 		return profile;
 	}
 
-	@Override
+	
 	@Transactional
 	public void createProfile(Profile profile) {
 		save(profile);
@@ -56,7 +56,7 @@ public class ProfileDAOImpl extends GenericDAOImpl implements ProfileDAO {
 		userDAO.update(findUser);
 	}
 
-	@Override
+	
 	public Profile findProfileById(Integer userProfileId) {
 		return get(Profile.class, userProfileId);
 

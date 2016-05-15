@@ -19,7 +19,7 @@ public class MessageDAOImpl extends GenericDAOImpl implements MessageDAO {
 	@Autowired
 	private ProfileDAO profileDAO;
 
-	@Override
+	
 	public List<Message> getMessagesBySenderId() {
 
 		Integer idProf = (Integer) ActionContext.getContext().getSession().get("profile_id");
@@ -48,13 +48,13 @@ public class MessageDAOImpl extends GenericDAOImpl implements MessageDAO {
 		/* ?"+idProf+")"); */
 	}
 
-	@Override
+	
 	public Message getMessageById(Integer idMessage) {
 		// TODO Auto-generated method stub
 		return get(Message.class, idMessage);
 	}
 
-	@Override
+	
 	public List<Message> getMessagesForConversation(Integer idProfile) {
 
 		Integer myId = (Integer) ActionContext.getContext().getSession().get("profile_id");
@@ -78,7 +78,7 @@ public class MessageDAOImpl extends GenericDAOImpl implements MessageDAO {
 
 	}
 
-	@Override
+	
 	@Transactional
 	public Message createAMessage(Message message) {
 		message.setCreationDate(new Date());

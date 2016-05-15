@@ -36,7 +36,7 @@ public class CrudUserAction implements ModelDriven<UserAccount> {
 		this.userList = userList;
 	}
 
-	@Override
+	
 	public UserAccount getModel() {
 		return user;
 
