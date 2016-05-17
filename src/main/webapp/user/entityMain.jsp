@@ -32,7 +32,7 @@
 					<s:property value="#session['status']" />
 				</p>
 			</div>
-			<s:submit><a href="editProfileAction">EditProfile</a></s:submit>
+			
 		</form>
 	</center>
 

@@ -11,12 +11,13 @@ ul#menu {
     width:auto;
 	height:50px;
     background-color: #28b9a7;
+    
 }
 
 ul#menu li {
     display: inline;
-      height: 30px;
-    line-height: 30px;
+      height: 10px;
+    line-height: 10px;
 }
 
 ul#menu li a {

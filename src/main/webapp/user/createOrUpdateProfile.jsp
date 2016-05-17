@@ -21,12 +21,22 @@
 <body>
 	<%@include file="header.jsp"%>
 	<br/><br/><br/>
-	<img src="<s:url action="imageAction"><s:param name="userProfileId" value="%{idProfile}" /></s:url>" />
-	<s:form method="POST" enctype="multipart/form-data">
+	
+	
+	<s:if test="%{picture==null}">
+		 <center><img class="example" height="200" width="200"  src="images/holder.png"></center>
+	</s:if>
+	 <s:else>
+		<center><img  height="200" width="200" src="<s:url  action="imageAction" ><s:param name="userProfileId" value="%{idProfile}" /></s:url>" /></center>
+	</s:else> 
+	
+	<%-- <center><img  height="200" width="200" src="<s:url  action="imageAction" ><s:param name="userProfileId" value="%{idProfile}" /></s:url>" /></center> --%>
+	<br/><br/>
+	<center><s:form method="POST" enctype="multipart/form-data">
 		<s:textfield name="firstName" label="Nume" value="%{firstName}" />
 		<s:textfield name="lastName" label="Prenume" value="%{lastName}" />
 		<s:date name="dBirthday" var="%{dBirthday}" />
-		<s:textfield name="email" label="Email:" value="%{email}" />
+<%-- 		<s:textfield name="email" label="Email:" value="%{email}" /> --%>
 		<s:textfield name="location" label="Oras" value="%{location}" />
 		<s:textfield name="status" label="Status" value="%{status}" />
 		<s:file name="profileImage" label="Image" value="%{profileImage}" />
@@ -36,6 +46,6 @@
 		<s:else>
 			<s:submit value="Update" action="updateProfileActionNew" />
 		</s:else>
-	</s:form>
+	</s:form></center>
 </body>
 </html>

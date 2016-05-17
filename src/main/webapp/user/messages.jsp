@@ -14,10 +14,23 @@
 	<%@include file="header.jsp"%>
 	<br>
 	<br>
-	<br>
+	
 
+
+<!-- id="example" -->
+<center><a>
+						<s:property value="#session['firstName']" />
+	  					<s:property value=" " />
+						<s:property value="#session['lastName']" />
+</a></center>
+
+
+<br/>
+
+
+<center><div>
 			<s:if test="profileConversations.size() > 0">
-			<table border="1px" id="example">
+			<table border="1px"  style="float:left; width:20%; margin-left:20px; margin-right:40px;">
 				<tr>
 					<td colspan="6"><center>Conversations</center></td>
 				</tr>
@@ -28,10 +41,11 @@
 	 					<a href=<s:url action="getMessagesBySenderId">
 			 			<s:param name="idProfileOfConversation" value="%{idProfile}" />
 						 </s:url>>
-						 <img alt="Up" width="50" height="50px" src=<s:url value="/images/menSmile.jpg"/>> 
+						<!--  <img alt="Up" width="50" height="50px" src=<s:url value="%{image}"/>>  -->
+						 <img  height="70" width="70" src="<s:url  action="imageAction" ><s:param name="userProfileId" value="%{idProfile}" /></s:url>" />
 						 </a>
 						 </td>
-						<td><s:property value="LastName" /></td>
+						<td><s:property value="lastName" /></td>
 						<td><s:property value="firstName " /></td>
 						
 			
@@ -44,51 +58,44 @@
 			</table>
 		</s:if>
 	
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
+
 	
 	
 		<s:if test="listMessages.size() > 0">
-			<center><table border="1px" cellpadding="8px" id="example">
+			<table  border="1px" cellpadding="8px" style="float:left; width:40%;     background-color: #fff; ">
 				<tr>
 					<td colspan="6"><center>Messages</center></td>
 				</tr>
 				<s:iterator value="listMessages">
 					<tr>
-					
-						
 						<s:if test="idSender != #session['profile_id']">
-						
 						<!-- Mesajele mele vor fi pe dreapta  -->
-									<td align="right">
-									<s:property value="message" /><br>
-									<font class="ora_mess"><s:date name="creationDate" nice="true"  /></font>
-									</td>
-							
+							<td align="right">
+							<s:property value="message" /><br>
+							<font class="ora_mess"><s:date name="creationDate" nice="true"  /></font>
+							</td>
 						</s:if>
 						<s:else>
-								<td align="left">
-									<s:property value="message" /><br>
-									<font class="ora_mess"><s:date name="creationDate" nice="true"  /></font>
-									</td>
+							<td align="left">
+							<s:property value="message" /><br>
+							<font class="ora_mess"><s:date name="creationDate" nice="true"  /></font>
+							</td>
 						</s:else> 
 
 						<%-- <td><s:date name="message" format="text"  /></td>
 						<td><s:property value="message" /></td> --%>
 				</tr>
 				</s:iterator>
-			</table></center>
+			</table>
 		</s:if>
+		
+</div></center>
 		
 		<br>
         <br>
-        <br>
+      
         
-     <center>
+     <center><div style="clear:both;">
 			<form
 				style="display: inline-block; margin-left: 20px; margin-top: 20px;"
 				method="post" name="msg_form" >
@@ -99,140 +106,17 @@
 					<s:submit value="Trimite" action="sendMessageAction" />
 				<!-- <br> <input style="float: right;" type="submit" value="Send"> -->
 			</form>
-	</center>
+	</div></center>
         
         <br>
         <br>
         <br>
         <br>
-		<br>
-		<br>
-	
-
-
-
-
-
-
-
-
-<!-- nu trebuie de sters - exemplu  -->
-
-	<a style="margin-left: 20px;">Conversations</a>
-	<br>
-
-	<div>
-
-		<table
-			style="width: 25%; hieght: 200px; margin-left: 20px; float: left;">
-
-			<tr>
-				<td><center>
-						<img src="../images/menSmile.jpg" class="img_mess">
-					</center></td>
-				<td>Ploaia Vladisav</td>
-			</tr>
-			<tr>
-				<td><center>
-						<img src="../images/menSmile.jpg" class="img_mess">
-					</center></td>
-				<td>Ploaia Vladisav</td>
-			</tr>
-			<tr>
-				<td><center>
-						<img src="../images/menSmile.jpg" class="img_mess">
-					</center></td>
-				<td>Ploaia Vladisav</td>
-			</tr>
-			<tr>
-				<td><center>
-						<img src="../images/menSmile.jpg" class="img_mess">
-					</center></td>
-				<td>Adrian Tabirta</td>
-			</tr>
-			<tr>
-				<td><center>
-						<img src="../images/menSmile.jpg" class="img_mess">
-					</center></td>
-				<td>Dorin Turcan</td>
-
-			</tr>
-			<tr>
-				<td><center>
-						<img src="../images/menSmile.jpg" class="img_mess">
-					</center></td>
-				<td>Ploaia Vladisav</td>
-			</tr>
-			<tr>
-				<td><center>
-						<img src="../images/menSmile.jpg" class="img_mess">
-					</center></td>
-				<td>Adrian Tabirta</td>
-			</tr>
-			<tr>
-				<td><center>
-						<img src="../images/menSmile.jpg" class="img_mess">
-					</center></td>
-				<td>Dorin Turcan</td>
-
-			</tr>
-
-		</table>
-	</div>
-
-	<div>
-		<table
-			style="width: 50%; margin-left: 20px; float: left; background-color: #00FF00;">
-
-			<tr>
-				<td align="left">Noroc, cmf?<br>
-				<font class="ora_mess">[10:07]</font></td>
-			</tr>
-			<tr>
-				<td align="right">Salut, bine <br>
-				<font class="ora_mess">[10:08]</font></td>
-			</tr>
-			<tr>
-				<td align="left">Ai facut lab la APPOO? <br>
-				<font class="ora_mess">[10:09]</font></td>
-			</tr>
-			<tr>
-				<td align="right">Da, oleaca )<br>
-				<font class="ora_mess">[10:10]</font></td>
-			</tr>
-			<tr>
-				<td align="left"><form>
-						Text text text Text text text Text text text Text text textText
-						text text Text text text Text text text Text text text <br>
-						<font class="ora_mess">[10:11]</font>
-					</form></td>
-			</tr>
-			<tr>
-				<td align="right">Da da da da da da da da da <br>
-				<font class="ora_mess">[10:12]</font></td>
-			</tr>
-			<tr>
-				<td align="left">1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 <br>
-				<font class="ora_mess">[10:13]</font></td>
-			</tr>
-			<tr>
-				<td align="right">Laborator Laborator Laborator Laborator
-					Laborator <br>
-				<font class="ora_mess">[10:14]</font>
-				</td>
-			</tr>
-
-
-		</table>
-	</div>
-	<br>
-	<br>
-	<br>
-	<br>
-
-
-
-
+        <br>
+        <br>
+        
+       
+	<jsp:include page="footer.jsp" />
 
 </body>
 </html>

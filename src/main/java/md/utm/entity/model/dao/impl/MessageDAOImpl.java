@@ -31,7 +31,7 @@ public class MessageDAOImpl extends GenericDAOImpl implements MessageDAO {
 		// select ms from Message ms where ms not in (select u from Message u
 		// join
 		// u.profile_messages p where p.id=?)
-		return getHibernateTemplate().find("from Message m join m.profiles pm where pm.profile_id=? and m.idSender=?",
+		return getHibernateTemplate().find("from Message m join m.profiles pm where pm.profile_id=? and m.idSender=? limit 2",
 				idProf, 2);
 
 		// getHibernateTemplate().find("from Message where idSender=1 AND

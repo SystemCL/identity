@@ -183,7 +183,17 @@
 			<result name="success" type="imageResult">
 			</result>
 		</action>
+		
+		
+		<action name="loadMainPage" class="md.utm.entity.action.user.DefaultAction"
+		method="loadMainPage">
+			<result name="success">user/createOrUpdateProfile.jsp</result>
+			<result name="error" type="redirectAction">user/login.jsp</result>
+		</action>
+		
 	</package>
+	
+	
 
 
 </struts>

@@ -4,15 +4,19 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
+import org.apache.struts2.interceptor.SessionAware;
+
 import com.opensymphony.xwork2.Action;
 import com.opensymphony.xwork2.ActionSupport;
 
+import md.utm.entity.model.dao.CommentDAO;
 import md.utm.entity.model.dao.MessageDAO;
 import md.utm.entity.model.dao.ProfileDAO;
+import md.utm.entity.model.entity.Comment;
 import md.utm.entity.model.entity.Message;
 import md.utm.entity.model.entity.Profile;
 
-public class DefaultAction extends ActionSupport {
+public class DefaultAction extends ActionSupport implements SessionAware {
 
 	private static final long serialVersionUID = 1L;
 	private final Profile profile = new Profile();
@@ -20,10 +24,16 @@ public class DefaultAction extends ActionSupport {
 
 	private MessageDAO messageDAO;
 	private ProfileDAO profileDAO;
+	private CommentDAO commentDAO;
 	private Integer idSender;
 
 	private List<Profile> profileConversations;
 	private List<Message> listMessages;
+	private List<Comment>commentList;
+	
+	Integer idProfileOfConversation;
+	private Map<String, Object> sessionMap;
+
 
 	public MessageDAO getMessageDAO() {
 		return messageDAO;
@@ -73,13 +83,6 @@ public class DefaultAction extends ActionSupport {
 		this.idProfileOfConversation = idProfileOfConversation;
 	}
 
-	public Map<String, Object> getSessionMap() {
-		return sessionMap;
-	}
-
-	public void setSessionMap(Map<String, Object> sessionMap) {
-		this.sessionMap = sessionMap;
-	}
 
 	public Profile getProfile() {
 		return profile;
@@ -89,8 +92,7 @@ public class DefaultAction extends ActionSupport {
 		return message;
 	}
 
-	Integer idProfileOfConversation;
-	private Map<String, Object> sessionMap;
+	
 
 	public String getMessagesByIdProfile() {
 		idSender = idProfileOfConversation;
@@ -108,6 +110,42 @@ public class DefaultAction extends ActionSupport {
 			profileConversations = new ArrayList<Profile>();
 		}
 		return Action.SUCCESS;
+		
 	}
+	
+	
+	/*
+	 * Load main page, user info with photo & comments
+	 * */
+	public String loadMainPage()
+	{
+		
+		sessionMap.put("firstName", "Adrian");
+		sessionMap.put("lastName", "Tabirta");
+		
+	//	sessionMap.put("logged", true);
+	//	sessionMap.put("user_id", user.getIdAccount());
+
+	/*	Profile profileUser = user.getProfile();
+		if (profileUser == null) {
+			return "createProfile";
+		} else {
+			sessionMap.put("profile_id", profileUser.getIdProfile());
+		}
+		*/
+		
+//		commentList = commentDAO.getAllComments();
+//		if (commentList == null) {
+//			commentList = new ArrayList<Comment>();
+//		}
+		return Action.SUCCESS;
+		
+	}
+
+	public void setSession(Map<String, Object> session) {
+		this.sessionMap = session;
+	}
+
+
 
 }
