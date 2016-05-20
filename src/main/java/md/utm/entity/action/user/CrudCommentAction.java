@@ -124,6 +124,7 @@ public class CrudCommentAction  extends ActionSupport implements ModelDriven<Com
 		if (commentList == null) {
 			commentList = new ArrayList<Comment>();
 		}
+		
 		return Action.SUCCESS;
 	}
 

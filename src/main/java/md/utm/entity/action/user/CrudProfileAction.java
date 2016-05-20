@@ -21,6 +21,7 @@ public class CrudProfileAction extends ActionSupport implements ModelDriven<Prof
 	Profile profile = new Profile();
 	// User user = new User();
 	private List<Profile> profileConversations;
+	private List<Profile> profileSearchList;
 	ProfileDAO profileDAO;
 	private static Session session;
 
@@ -68,6 +69,16 @@ public class CrudProfileAction extends ActionSupport implements ModelDriven<Prof
 
 		return Action.SUCCESS;
 
+	}
+	
+	public String getProfilesSearch(){
+		profileSearchList = profileDAO.getAllProfilesBySearch();
+		if(profileSearchList == null){
+			profileSearchList = new ArrayList<Profile>();
+		}
+		
+		return Action.SUCCESS;
+		
 	}
 
 	

@@ -49,13 +49,13 @@ window.onload = function(){
 getCommentsAction -->
 
 	<ul id="menu" >
-	  <li><a href="loadMainPage">Identity</a></li>
+	  <li><a href="getCommentsAction">Identity</a></li> <!-- loadMainPage -->
 	  <li><a href="getFriendsAction">Knowns</a></li>
 	  <li><a href="getConversation">Messages</a></li> <!-- getMessages -->
 	  <li><a href="getRecomandationsAction">Recomandation</a></li>
 	  <li><a href="getProfile">Edit your profie</a></li>
 	  
-	  <li><INPUT type="text" name="userProfile" class="tftextinput3" name="q" size="21"
+	  <li><INPUT type="text" name="userProfile" class="getProfilesSearch" name="q" size="21"
 						maxlength="120" value="Search knowns"> <INPUT type="submit" value="Find"></li>
 	  
 	  <li><a>Logged as:

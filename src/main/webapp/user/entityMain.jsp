@@ -21,8 +21,14 @@
 	<br>
 	<br>
 	<br>
-
-	<center>
+    
+	<s:if test="%{picture==null}">
+		 <center><img class="example" height="200" width="200"  src="images/holder.png"></center>
+	</s:if>
+	 <s:else>
+		<center><img  height="200" width="200" src="<s:url  action="imageAction" ><s:param name="userProfileId" value="%{idProfile}" /></s:url>" /></center>
+	</s:else> 
+	<%-- <center>
 		<form style="display: inline;">
 			<div id="element1">
 				<s:property value="#session['picture']" />
@@ -34,45 +40,37 @@
 			</div>
 			
 		</form>
-	</center>
+	</center> --%>
 
 	<br>
 	<br>
 	<br>
 	<br>
 	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-
-
 
 
 
 	<center>
-		<form style="background-color: #83c5c5; width: 30%;">
+		<s:form style="background-color: #83c5c5; width: 30%;" method="POST" enctype="multipart/form-data">
 			<h1>
-				<s:property value="#session['firstName']" />
-				<s:property value="#session['lastName']" />
+				<s:property value="%{firstName}" />
+				<s:property value="%{lastName}" />
 			</h1>
 			<br> Email:
-			<s:property value="#session['email']" />
+			<s:property value="%{email}" />
 			<br> Nascut:
-			<s:date name="#session['dBirthday']" nice="true" />
+			<s:date name="%{dBirthday}" nice="true" />
 			<br> Data nasterii:
-			<s:date name="#session['dBirthday']" format="dd MMM yyyy" />
+			<s:date name="%{dBirthday}" format="dd MMM yyyy" />
 			<br> Locatie:
-			<s:property value="#session['location']" />
+			<s:property value="%{location}" />
+			<br> Status:
+			<s:property value="%{status}" />
 			<br>
 			<%--   Status: <s:property value="#session['status']" /> <br> --%>
 
 			<%-- <input type="text" value="<%= session.getAttribute("picture") %>" /> --%>
-		</form>
+		</s:form>
 	</center>
 	<br>
 
@@ -119,6 +117,36 @@
 		</s:if>
 	</center>
 
+
+<!--  Trebuie de modificat pentru ca sa afiseze lista de profile pe pagina entityMain.jsp -->
+<center>
+		<s:if test="profileSearchList.size() > 0">
+
+			<table border="1px" cellpadding="8px">
+
+				<tr>
+
+					<td colspan="6"><center>Profiles</center></td>
+
+
+				</tr>
+				<s:iterator value="profileSearchList">
+					<tr>
+						<td><s:property value="idProfile" /></td>
+						<td><s:property value="firstName " /></td>
+						<td><s:property value="lastName " /></td>
+						<td><s:property value="location " /></td>
+						
+<!-- 				   <td>
+				   
+
+				   
+				  </td> -->
+				</tr>
+				</s:iterator>
+			</table>
+		</s:if>
+	</center>
 
 	<br>
 	<br>

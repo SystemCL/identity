@@ -10,7 +10,8 @@ public interface ProfileDAO extends GenericDAO {
 	 * Returneaza o lista de profile in care a conversat cu profilul nostru.
 	 */
 	List<Profile> getProfilesWhoConversedWithMe();
-
+	List<Profile> getAllProfilesBySearch();
+ 
 	Profile getSesionProfile();
 
 	void createProfile(Profile profile);

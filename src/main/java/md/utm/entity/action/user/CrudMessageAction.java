@@ -92,6 +92,7 @@ public class CrudMessageAction extends ActionSupport implements ModelDriven<Mess
 
 		return Action.SUCCESS;
 	}
+	
 
 	public String sendMessageToProfile() {
 

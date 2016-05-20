@@ -38,6 +38,8 @@ public class Profile {
 	private Set<Message> messages;
 
 	private List<Comment> comment;
+	private List<Profile> friendsList;
+
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
@@ -148,6 +150,21 @@ public class Profile {
 
 	public void setMessages(Set<Message> messages) {
 		this.messages = messages;
+	}
+	
+	
+	@ManyToMany
+	@JoinTable(name="profile_friends",
+	 joinColumns=@JoinColumn(name="person_id"),
+	 inverseJoinColumns=@JoinColumn(name="friend_id")
+	)
+	public List<Profile> getFriendsList() {
+		return friendsList;
+	}
+
+
+	public void setFriendsList(List<Profile> friendsList) {
+		this.friendsList = friendsList;
 	}
 
 }

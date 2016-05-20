@@ -61,5 +61,11 @@ public class ProfileDAOImpl extends GenericDAOImpl implements ProfileDAO {
 		return get(Profile.class, userProfileId);
 
 	}
+	
+
+	public List<Profile> getAllProfilesBySearch() {
+		// TODO Auto-generated method stub
+		return get(Profile.class);
+	}
 
 }
