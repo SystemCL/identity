@@ -170,7 +170,7 @@ public class DefaultAction extends ActionSupport implements SessionAware {
 		this.commentList = commentList;
 	}
 
-	@Override
+	
 	public void setSession(Map<String, Object> session) {
 		this.sessionMap = session;
 	}

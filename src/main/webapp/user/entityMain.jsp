@@ -22,15 +22,16 @@
 	<br>
 	<br>
     
-	<s:if test="%{picture==null}">
+	<s:if test="%{profileImage==null}">
 		 <center><img class="example" height="200" width="200"  src="images/holder.png"></center>
 	</s:if>
 	 <s:else>
-		<center><img  height="200" width="200" src="<s:url  action="imageAction" ><s:param name="userProfileId" value="#session['idProfile']" /></s:url>" /></center>
+		<center><img  height="200" width="200" src="<s:url  action="imageAction" ><s:param name="userProfileId" value="%{profile.idProfile}"/></s:url>" /></center>
+		<%-- <center><img  height="200" width="200" src="<s:url  action="imageAction" ><s:param name="userProfileId" value="%{profile.idProfile}"/></s:url>" /></center> --%>
 	</s:else> 
 	<div id="element2">
 				<p>
-					<s:property value="#session['status']" />
+					<s:property value="%{profile.status}" />
 				</p>
 	</div>
 	<%-- <center>
@@ -151,7 +152,7 @@
 	<center>
 		<h2>Comment</h2>
 		<s:form>
-			<s:textfield name="message" label="Comentariu" value="%{message}" />
+			<s:textfield name="message" label="Comentariu" value=" " />
 			<s:if test="%{id==null}">
 				<s:submit value="Create comment" action="addCommentAction" />
 			</s:if>

@@ -36,7 +36,7 @@
 		<s:textfield name="firstName" label="Nume" value="%{firstName}" />
 		<s:textfield name="lastName" label="Prenume" value="%{lastName}" />
 		<s:date name="dBirthday" var="%{dBirthday}" />
-<%-- 		<s:textfield name="email" label="Email:" value="%{email}" /> --%>
+        <s:textfield name="email" label="Email:" value="%{email}" /> 
 		<s:textfield name="location" label="Oras" value="%{location}" />
 		<s:textfield name="status" label="Status" value="%{status}" />
 		<s:file name="profileImage" label="Image" value="%{profileImage}" />

@@ -53,10 +53,13 @@ getCommentsAction -->
 	  <li><a href="getFriendsAction">Knowns</a></li>
 	  <li><a href="getConversation">Messages</a></li> <!-- getMessages -->
 	  <li><a href="getRecomandationsAction">Recomandation</a></li>
-	  <li><a href="getProfile">Edit your profie</a></li>
+	  <li><a href="getProfile">Edit your profile</a></li>
 	  
-	  <li><INPUT type="text" name="userProfile" class="getProfilesSearch" name="q" size="21"
+	  <li><INPUT type="text" name="userProfile" class="getFriendsSearch" name="q" size="21"
 						maxlength="120" value="Search knowns"> <INPUT type="submit" value="Find"></li>
+	  
+	  <li><a href="getFriendsSearch">Search</a> </li>
+	  
 	  
 	  <li><a>Logged as:
 	  					<s:property value="#session['firstName']" />

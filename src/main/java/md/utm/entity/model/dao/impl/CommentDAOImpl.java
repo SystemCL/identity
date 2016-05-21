@@ -14,7 +14,7 @@ import md.utm.entity.model.entity.Comment;
 @SuppressWarnings("unchecked")
 public class CommentDAOImpl extends GenericDAOImpl implements CommentDAO {
 
-	@Override
+	
 	public List<Comment> getAllComments() {
 		Integer idProf = (Integer) ActionContext.getContext().getSession().get("profile_id");
 		if (idProf == null) {
@@ -28,7 +28,7 @@ public class CommentDAOImpl extends GenericDAOImpl implements CommentDAO {
 		return createQuery.list();
 	}
 
-	@Override
+	
 	public Comment getCommentById(Integer idComment) {
 
 		return get(Comment.class, idComment);

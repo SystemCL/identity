@@ -110,10 +110,7 @@
 
 		<!-- |||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||| -->
 
-		<action name="getFriendsAction">
-			<result name="success">user/friends.jsp</result>
-			<result name="error">user/entityMain.jsp</result>
-		</action>
+
 
 		<action name="getRecomandationsAction">
 			<result name="success">user/recomandations.jsp</result>
@@ -122,7 +119,7 @@
 
 		<action name="addCommentAction" class="md.utm.entity.action.user.CrudCommentAction"
 			method="addComment">
-			<result name="success" type="redirectAction">getCommentsAction</result>
+			<result name="success" type="redirectAction">loadMainPage</result>
 			<result name="error" type="redirectAction">getCommentsAction</result>
 		</action>
 
@@ -190,6 +187,16 @@
 			<result name="success">user/entityMain.jsp</result> <!-- user/createOrUpdateProfile.jsp -->
 			<result name="error" type="redirectAction">user/login.jsp</result>
 		</action>
+		
+		<action name="getFriendsSearch" class="md.utm.entity.action.user.CrudProfileAction"
+		method="getProfilesSearch">
+			<result name="success">user/search.jsp</result>
+			<result name="error">user/entityMain.jsp</result>
+		</action>
+		
+		
+		
+
 		
 	</package>
 	

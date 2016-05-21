@@ -29,6 +29,39 @@ alertCV()
 	<br>
 
 
+
+<center>
+		<s:if test="profileSearchList.size() > 0">
+
+			<table border="1px" cellpadding="8px">
+
+				<tr>
+
+					<td colspan="6"><center>Profiles</center></td>
+
+
+				</tr>
+				<s:iterator value="profileSearchList">
+					<tr>
+						<td><s:property value="idProfile" /></td>
+						<td><s:property value="firstName " /></td>
+						<td><s:property value="lastName " /></td>
+						<td><s:property value="location " /></td>
+						
+<!-- 				   <td>
+				   
+
+				   
+				  </td> -->
+				</tr>
+				</s:iterator>
+			</table>
+		</s:if>
+	</center>
+
+	<br>
+	<br>
+
 	<center>
 		<table style="width: 50%; height: 50px; overflow-y: scroll;">
 

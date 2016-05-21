@@ -1,6 +1,6 @@
 <%@ taglib prefix="s" uri="/struts-tags"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+	pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -9,29 +9,41 @@
 </head>
 <body>
 
-<s:if test="listProfiles.size() > 0"> <!-- listProfile  -->
-			<center><table border="1px" cellpadding="8px" id="example">
-				<tr>
-					<td colspan="6"><center>Profiles</center></td>
-				</tr>
-				<s:iterator value="listProfiles"> 
+	<%@include file="header.jsp"%>
+	<center>
+		<s:if test="profileSearchList.size() > 0">
+			<!-- listProfile  -->
+			<center>
+				<br> <br> <br> <br>
+				<table border="1px" cellpadding="8px" width=50%>
 					<tr>
-					
-						
-					<td align="center">
-					                <img alt="Image" width="50" height="50px" value="/images/menSmile.jpg"/> 
-									
-									<s:property value="firstName" /><br>
-									<s:property value="lastName" /><br>
-									<s:submit value="Find" action="addFriend" />
-		
-					</td>
-							
-					
-				</tr>
-				</s:iterator>
-			</table></center>
-		</s:if>
+						<td colspan="6"><center>Profiles</center></td>
+					</tr>
+					<s:iterator value="profileSearchList">
 
+
+						<td align="left"><s:if test="%{profile.idProfile==null}">
+								<left> 
+								   <img class="example" height="50" width="50" src="images/holder.png"> 
+								</left>
+							</s:if> <s:else>
+								<left> 
+								   <img height="50" width="50" src="<s:url  action="imageAction" >
+									<s:param name="userProfileId" value="%{profile.idProfile}"/></s:url>" />
+								</left>
+								
+							</s:else> 
+							<s:property value="firstName" /> 
+							<s:property value="lastName" />
+							<s:submit value="Add Friend" action="addFriend" />
+						</td>
+
+
+
+					</s:iterator>
+				</table>
+			</center>
+		</s:if>
+	</center>
 </body>
 </html>

@@ -2,6 +2,7 @@ package md.utm.entity.model.dao.impl;
 
 import java.util.List;
 
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -64,8 +65,25 @@ public class ProfileDAOImpl extends GenericDAOImpl implements ProfileDAO {
 	
 
 	public List<Profile> getAllProfilesBySearch() {
-		// TODO Auto-generated method stub
-		return get(Profile.class);
+		
+		System.out.println("In profileDAOImpl");
+		//Integer idProf = (Integer) ActionContext.getContext().getSession().get("profile_id");
+		//if (idProf == null) {
+		//	throw new NullProfileException();
+		//}
+		
+/*		Query createQuery = getSession()
+				.createQuery(" * from Profile"); //trebuie de adus profilurile, unde numele este introdus in textbox la search
+		
+	//	createQuery.setInteger("profileId", idProf);
+		// createQuery.setMaxResults(1);
+		createQuery.list();
+		
+		System.out.println(createQuery);
+		return createQuery.list();*/
+		
+		return getHibernateTemplate().find("from Profile");
+		
 	}
 
 }

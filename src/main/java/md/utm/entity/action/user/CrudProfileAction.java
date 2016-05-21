@@ -18,12 +18,13 @@ import md.utm.entity.model.entity.Profile;
 
 public class CrudProfileAction extends ActionSupport implements ModelDriven<Profile>, SessionAware {
 
-	Profile profile = new Profile();
+	Profile profile ;//= new Profile();
 	// User user = new User();
 	private List<Profile> profileConversations;
-	private List<Profile> profileSearchList;
+
 	ProfileDAO profileDAO;
 	private static Session session;
+	private List<Profile> profileSearchList;
 
 	public Profile getProfile() {
 		return profile;
@@ -49,13 +50,7 @@ public class CrudProfileAction extends ActionSupport implements ModelDriven<Prof
 		this.profileDAO = profileDAO;
 	}
 
-	public static Session getSession() {
-		return session;
-	}
-
-	public static void setSession(Session session) {
-		CrudProfileAction.session = session;
-	}
+	
 
 	public String loadEditProfile() {
 		return Action.SUCCESS;
@@ -73,6 +68,7 @@ public class CrudProfileAction extends ActionSupport implements ModelDriven<Prof
 	
 	public String getProfilesSearch(){
 		profileSearchList = profileDAO.getAllProfilesBySearch();
+		System.out.println("AAAAAAAAAAAAAAAAAAAAAAAAAAA "+profileSearchList);
 		if(profileSearchList == null){
 			profileSearchList = new ArrayList<Profile>();
 		}
@@ -95,90 +91,35 @@ public class CrudProfileAction extends ActionSupport implements ModelDriven<Prof
 		// profile.setdBirthday(%{datepicker});
 		profile.setLocation("%d{location}");
 		profile.setStatus("%d{status}");
-
 		profileDAO.save(profile);
-
-		// profile.picture = fotografia
-		/*
-		 * String photoFilePath = "C:/Users/Vlad/Desktop/nn.jpg";
-		 * 
-		 * 
-		 * File file = new File(photoFilePath); FileInputStream inputStream =
-		 * new FileInputStream(file); // Blob blob =
-		 * Hibernate.getLobCreator(session).createBlob(inputStream,
-		 * file.length());
-		 * 
-		 * Blob blob = Hibernate.createBlob(inputStream, file.length());
-		 * profile.setFirstName("Incercareee"); profile.setPicture(blob); //
-		 * session.save(profile); blob.free();
-		 * 
-		 * profileDAO.save(profile);
-		 */
-
+		
 		return Action.SUCCESS;
 	}
 
+	
+	public List<Profile> getProfileSearchList() {
+		return profileSearchList;
+	}
+
+	public void setProfileSearchList(List<Profile> profileSearchList) {
+		this.profileSearchList = profileSearchList;
+	}
+
+	public static Session getSession() {
+		return session;
+	}
+
+	public static void setSession(Session session) {
+		CrudProfileAction.session = session;
+	}
+
+	
 	
 	public void setSession(Map<String, Object> arg0) {
 		// TODO Auto-generated method stub
 
 	}
 
-	/*
-	 * private static ServiceRegistry serviceRegistry; private static Session
-	 * session;
-	 * 
-	 * public static void main(String[] args) throws IOException {
-	 * initSession();
-	 * 
-	 * String photoFilePathToRead = "e:/Test/Photo/Puppy.jpg";
-	 * savePersonWithPhoto(photoFilePathToRead);
-	 * 
-	 * int personId = 1; String photoFilePathToSave =
-	 * "e:/Test/Photo/MyPuppy.jpg"; readPhotoOfPerson(personId,
-	 * photoFilePathToSave);
-	 * 
-	 * endSession(); }
-	 * 
-	 * private static void savePersonWithPhoto(String photoFilePath) throws
-	 * IOException { Person person = new Person("Tom"); byte[] photoBytes =
-	 * readBytesFromFile(photoFilePath); person.setPhoto(photoBytes);
-	 * session.save(person); }
-	 * 
-	 * private static void readPhotoOfPerson(int personId, String photoFilePath)
-	 * throws IOException { Person person = (Person) session.get(Person.class,
-	 * personId); byte[] photoBytes = person.getPhoto();
-	 * saveBytesToFile(photoFilePath, photoBytes); }
-	 * 
-	 * private static byte[] readBytesFromFile(String filePath) throws
-	 * IOException { File inputFile = new File(filePath); FileInputStream
-	 * inputStream = new FileInputStream(inputFile);
-	 * 
-	 * byte[] fileBytes = new byte[(int) inputFile.length()];
-	 * inputStream.read(fileBytes); inputStream.close();
-	 * 
-	 * return fileBytes; }
-	 * 
-	 * private static void saveBytesToFile(String filePath, byte[] fileBytes)
-	 * throws IOException { FileOutputStream outputStream = new
-	 * FileOutputStream(filePath); outputStream.write(fileBytes);
-	 * outputStream.close(); }
-	 * 
-	 * 
-	 * private static void initSession() { Configuration configuration = new
-	 * Configuration().configure(); serviceRegistry = new
-	 * StandardServiceRegistryBuilder()
-	 * .applySettings(configuration.getProperties()).build();
-	 * 
-	 * SessionFactory sessionFactory =
-	 * configuration.buildSessionFactory(serviceRegistry);
-	 * 
-	 * session = sessionFactory.openSession(); session.beginTransaction(); }
-	 * 
-	 * private static void endSession() { session.getTransaction().commit();
-	 * session.close();
-	 * 
-	 * StandardServiceRegistryBuilder.destroy(serviceRegistry); }
-	 */
+
 
 }
