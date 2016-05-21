@@ -49,7 +49,7 @@ window.onload = function(){
 getCommentsAction -->
 
 	<ul id="menu" >
-	  <li><a href="getCommentsAction">Identity</a></li> <!-- loadMainPage -->
+	  <li><a href="loadMainPage">Identity</a></li> <!-- loadMainPage --> <!-- getCommentsAction -->
 	  <li><a href="getFriendsAction">Knowns</a></li>
 	  <li><a href="getConversation">Messages</a></li> <!-- getMessages -->
 	  <li><a href="getRecomandationsAction">Recomandation</a></li>
@@ -64,7 +64,7 @@ getCommentsAction -->
 						<s:property value="#session['lastName']" />
 	  </a>					
 	  </li>
-	  <li><a href="logout">Log Out</a></li>
+	   <li><a href="logout">Log Out</a></li> 
 	 
 	</ul> 
 

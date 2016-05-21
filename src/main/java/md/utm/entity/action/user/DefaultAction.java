@@ -15,6 +15,7 @@ import md.utm.entity.model.dao.ProfileDAO;
 import md.utm.entity.model.entity.Comment;
 import md.utm.entity.model.entity.Message;
 import md.utm.entity.model.entity.Profile;
+import md.utm.entity.model.entity.UserAccount;
 
 public class DefaultAction extends ActionSupport implements SessionAware {
 
@@ -25,11 +26,13 @@ public class DefaultAction extends ActionSupport implements SessionAware {
 	private MessageDAO messageDAO;
 	private ProfileDAO profileDAO;
 	private CommentDAO commentDAO;
+
+	private UserAccount user;
 	private Integer idSender;
 
 	private List<Profile> profileConversations;
 	private List<Message> listMessages;
-	private List<Comment>commentList;
+	private List<Comment> commentList;
 	
 	Integer idProfileOfConversation;
 	private Map<String, Object> sessionMap;
@@ -120,8 +123,29 @@ public class DefaultAction extends ActionSupport implements SessionAware {
 	public String loadMainPage()
 	{
 		
-		sessionMap.put("firstName", "Adrian");
-		sessionMap.put("lastName", "Tabirta");
+		Profile profileUser = new Profile();
+		profileUser = profileDAO.getSesionProfile();
+		if (profileUser == null) {
+			return "createProfile";
+		} else {
+			sessionMap.put("profile_id", profileUser.getIdProfile());
+			sessionMap.put("firstName", profileUser.getFirstName());
+			sessionMap.put("lastName", profileUser.getLastName());
+			sessionMap.put("email", profileUser.getEmail());
+			sessionMap.put("dBirthday", profileUser.getdBirthday());
+		
+			System.out.println(profile.getFirstName() + " " + profile.getLastName() + " "+ profile.getEmail());
+			commentList = commentDAO.getAllComments();
+			if (commentList == null) {
+				commentList = new ArrayList<Comment>();
+			}
+			
+			
+	
+		}
+		
+	//	sessionMap.put("firstName", "Adrian");
+	//	sessionMap.put("lastName", "Tabirta");
 		
 	//	sessionMap.put("logged", true);
 	//	sessionMap.put("user_id", user.getIdAccount());
@@ -140,6 +164,22 @@ public class DefaultAction extends ActionSupport implements SessionAware {
 //		}
 		return Action.SUCCESS;
 		
+	}
+	
+	public CommentDAO getCommentDAO() {
+		return commentDAO;
+	}
+
+	public void setCommentDAO(CommentDAO commentDAO) {
+		this.commentDAO = commentDAO;
+	}
+
+	public List<Comment> getCommentList() {
+		return commentList;
+	}
+
+	public void setCommentList(List<Comment> commentList) {
+		this.commentList = commentList;
 	}
 
 	public void setSession(Map<String, Object> session) {

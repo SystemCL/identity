@@ -39,8 +39,8 @@
 			method="registerUser"> <result>/index.jsp</result> </action> -->
 
 		<action name="loginauth" class="md.utm.entity.action.user.LoginAuthAction">
-			<result name="success" type="redirectAction">getCommentsAction	</result>
-			<result name="createProfile" type="redirectAction">getProfile	</result>
+			<result name="success" type="redirectAction">loadMainPage</result> <!-- getCommentsAction -->
+			<result name="createProfile" type="redirectAction">getProfile</result>
 			<result name="error">user/login.jsp</result>
 		</action>
 
@@ -187,7 +187,7 @@
 		
 		<action name="loadMainPage" class="md.utm.entity.action.user.DefaultAction"
 		method="loadMainPage">
-			<result name="success">user/createOrUpdateProfile.jsp</result>
+			<result name="success">user/entityMain.jsp</result> <!-- user/createOrUpdateProfile.jsp -->
 			<result name="error" type="redirectAction">user/login.jsp</result>
 		</action>
 		

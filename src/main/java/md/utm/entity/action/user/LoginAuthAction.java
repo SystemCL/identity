@@ -27,6 +27,15 @@ public class LoginAuthAction extends ActionSupport implements SessionAware {
 
 	@Override
 	public String execute() {
+				 
+/*			sessionMap.remove("username");
+			sessionMap.remove("user_id");
+			sessionMap.remove("profile_id");
+			sessionMap.put("logged", false);
+			sessionMap.put("admin", false);
+*/
+		  
+		
 		if (username.equals("")) {
 			addActionError("Please Enter username.");
 			error = true;

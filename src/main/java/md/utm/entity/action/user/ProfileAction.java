@@ -27,6 +27,9 @@ public class ProfileAction extends ActionSupport implements ModelDriven<Profile>
 	}
 
 	public String getUserProfile() {
+		
+		//if()
+		
 		return Action.SUCCESS;
 	}
 
