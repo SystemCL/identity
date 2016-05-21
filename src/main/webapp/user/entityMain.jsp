@@ -52,26 +52,19 @@
 
 
 	<center>
-		<s:form style="background-color: #83c5c5; width: 30%;" method="POST" enctype="multipart/form-data">
 			<h1>
-				<s:property value="#session['firstName']" />
-				<s:property value="#session['lastName']"  />
+				<s:property value="%{profile.firstName}" />
+				<s:property value="%{profile.lastName}"  />
 			</h1>
 			<br> Email:
-			<s:property value="#session['email']" />
+			<s:property value="%{profile.email}" />
 			<br> Data nasterii:
-			<s:date name="#session['dBirthday']" format="dd MMM yyyy" />
+			<s:date name="%{profile.dBirthday}" format="dd MMM yyyy" />
 			<br> Locatie:
-			<s:property value="#session['location']" />
+			<s:property value="%{profile.location}" />
 			<br> Status:
-			<s:property value="#session['status']" />
+			<s:property value="%{profile.status}" />
 			<br>
-			
-			value="#session['lastName']"
-			<%--   Status: <s:property value="#session['status']" /> <br> --%>
-
-			<%-- <input type="text" value="<%= session.getAttribute("picture") %>" /> --%>
-		</s:form>
 	</center>
 	<br>
 
