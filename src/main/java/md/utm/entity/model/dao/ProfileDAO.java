@@ -17,5 +17,11 @@ public interface ProfileDAO extends GenericDAO {
 	void createProfile(Profile profile);
 
 	Profile findProfileById(Integer userProfileId);
+	
+	String addFriendWithId(Integer idProfile);
+	
+	Profile createFriend(Profile idFriend);
+	
+	Profile createFriend();
 
 }

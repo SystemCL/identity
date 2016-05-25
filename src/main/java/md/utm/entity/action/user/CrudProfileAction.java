@@ -14,6 +14,7 @@ import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.ModelDriven;
 
 import md.utm.entity.model.dao.ProfileDAO;
+import md.utm.entity.model.entity.Message;
 import md.utm.entity.model.entity.Profile;
 
 public class CrudProfileAction extends ActionSupport implements ModelDriven<Profile>, SessionAware {
@@ -22,9 +23,21 @@ public class CrudProfileAction extends ActionSupport implements ModelDriven<Prof
 	// User user = new User();
 	private List<Profile> profileConversations;
 
+	private Profile friend = new Profile();
+	
 	ProfileDAO profileDAO;
 	private static Session session;
 	private List<Profile> profileSearchList;
+
+	private Integer idFriend;
+	
+	public Integer getIdFriend() {
+		return idFriend;
+	}
+
+	public void setIdFriend(Integer idFriend) {
+		this.idFriend = idFriend;
+	}
 
 	public Profile getProfile() {
 		return profile;
@@ -76,6 +89,8 @@ public class CrudProfileAction extends ActionSupport implements ModelDriven<Prof
 		return Action.SUCCESS;
 		
 	}
+	
+	
 
 	
 	public Profile getModel() {
@@ -96,6 +111,7 @@ public class CrudProfileAction extends ActionSupport implements ModelDriven<Prof
 		return Action.SUCCESS;
 	}
 
+	
 	
 	public List<Profile> getProfileSearchList() {
 		return profileSearchList;
@@ -121,5 +137,18 @@ public class CrudProfileAction extends ActionSupport implements ModelDriven<Prof
 	}
 
 
-
+   public String addFriend(){
+	/*   friend = profileDAO.createFriend(profileDAO);
+	   if(friend.getIdProfile() != null){
+		   return Action.SUCCESS;
+	   }
+	   return Action.ERROR;
+*/
+	  // profileDAO.createFriend();
+	   profileDAO.addFriendWithId(1);
+	   
+	   return Action.SUCCESS;
+		
+    }
+	   
 }

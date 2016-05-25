@@ -61,12 +61,12 @@ getCommentsAction -->
 	  <li><a href="getFriendsSearch">Search</a> </li>
 	  
 	  
-	  <li><a>Logged as:
+<%-- 	  <li><a>Logged as:
 	  					<s:property value="#session['firstName']" />
 	  					<s:property value=" " />
 						<s:property value="#session['lastName']" />
 	  </a>					
-	  </li>
+	  </li> --%>
 	   <li><a href="logout">Log Out</a></li> 
 	 
 	</ul> 

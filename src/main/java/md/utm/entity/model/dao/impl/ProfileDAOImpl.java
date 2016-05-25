@@ -2,10 +2,11 @@ package md.utm.entity.model.dao.impl;
 
 import java.util.List;
 
-
+import org.hibernate.Query;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.opensymphony.xwork2.Action;
 import com.opensymphony.xwork2.ActionContext;
 
 import md.utm.entity.exception.NullProfileException;
@@ -17,6 +18,8 @@ import md.utm.entity.model.entity.UserAccount;
 public class ProfileDAOImpl extends GenericDAOImpl implements ProfileDAO {
 	@Autowired(required = true)
 	private UserDAO userDAO;
+	private ProfileDAO profileDAO;
+
 
 	
 	public List<Profile> getProfilesWhoConversedWithMe() {
@@ -85,5 +88,60 @@ public class ProfileDAOImpl extends GenericDAOImpl implements ProfileDAO {
 		return getHibernateTemplate().find("from Profile");
 		
 	}
+	
+	public String addFriendWithId(Integer idProfile){
+		
+		Integer myId = (Integer) ActionContext.getContext().getSession().get("profile_id");
+		if (myId == null) {
+			throw new NullProfileException();
+		}
+		
+		
+		Query createQuery = getSession().createQuery("insert into profile_friends (1 ,1)");
+		//Query createQuery = getSession().createQuery("insert into profile_friends (idProfile,idProfile) select Profile.idProfile from Profile where idProfile =:myId, select Profile.idProfile from Profile where idProfile =:idProfile ");
+		 
+		//Query createQuery = getSession().createQuery("insert into profile_friends values (myId,friendId)");
+		
+		createQuery.setInteger("myId", myId);
+	//	createQuery.setInteger("friendId", idProfile);
+		int result = createQuery.executeUpdate();
+		
+		if(result!=0){
+		 return Action.ERROR;	
+		}
+		
+		return Action.SUCCESS;	
+		
+	}
+
+
+	public Profile createFriend(Profile friend) {
+		//friend.getProfiles().add(profileDAO.getSesionProfile());
+		//friend.getFriendsList().add(profileDAO.getSesionProfile());
+		//save(friend);
+		Profile friendp = new Profile();
+		friendp.setFirstName("ION");
+		friendp.setLastName("TRTRRR");
+		
+		save(friendp);
+		friend.getFriendsList().add(friendp);
+		save(friend);
+		
+		return friend;
+	}
+
+
+	public Profile createFriend() {
+		Profile friendp = new Profile();
+		friendp.setFirstName("Vlad");
+		friendp.setLastName("TRTRRR");
+		
+		save(friendp);
+		friendp.getFriendsList().add(friendp);
+		save(friendp);
+		return null;
+	}
+	
+	
 
 }

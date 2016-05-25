@@ -28,4 +28,11 @@
 .tfclear {
 	clear: both;
 }
+
+td a{
+	width:100%; 
+	display:block;
+}
+
+
 /*-------------------*/

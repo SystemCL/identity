@@ -79,7 +79,6 @@
 
 					<td colspan="6"><center>Opinions</center></td>
 
-
 				</tr>
 				<s:iterator value="commentList">
 					<tr>
@@ -105,7 +104,7 @@
 				   <s:property value="negativeRating" /> Down
 				   </td>
 				   
-				  </td>
+				   </td> 
 				</tr>
 				</s:iterator>
 			</table>

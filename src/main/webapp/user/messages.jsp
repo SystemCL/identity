@@ -44,6 +44,7 @@
 						<!--  <img alt="Up" width="50" height="50px" src=<s:url value="%{image}"/>>  -->
 						 <img  height="70" width="70" src="<s:url  action="imageAction" ><s:param name="userProfileId" value="%{idProfile}" /></s:url>" />
 						 </a>
+ 
 						 </td>
 						<td><s:property value="lastName" /></td>
 						<td><s:property value="firstName " /></td>

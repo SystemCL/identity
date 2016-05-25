@@ -195,6 +195,11 @@
 		</action>
 		
 		
+		<action name="addFriendAction" class="md.utm.entity.action.user.CrudProfileAction"
+		method="addFriend">
+			<result name="success">user/friends.jsp</result>
+			<result name="error">user/entityMain.jsp</result>
+		</action>
 		
 
 		

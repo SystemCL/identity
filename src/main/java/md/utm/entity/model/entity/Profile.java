@@ -4,10 +4,13 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
 import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -26,6 +29,7 @@ import org.apache.struts2.StrutsException;
 @Entity
 public class Profile {
 
+
 	private Integer idProfile;
 	private String firstName;
 	private String lastName;
@@ -40,17 +44,54 @@ public class Profile {
 	private List<Comment> comment;
 	private List<Profile> friendsList;
 
-
+	
 	@Id
+	@Column(name="idProfile")
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	public Integer getIdProfile() {
 		return idProfile;
 	}
 
+	// @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER, targetEntity = Role.class
+	
+	/*@ManyToMany(cascade={CascadeType.ALL}, targetEntity = Profile.class)
+    @JoinTable(name="profile_friends",  joinColumns={@JoinColumn(name="idProfile")}, inverseJoinColumns={@JoinColumn(name="idFriend")})
+	private Set<Profile> friends = new HashSet<Profile>(); 
+
+	
+	@ManyToMany(mappedBy="persons")
+	private List<Profile> person = new ArrayList<Profile>();*/
+	
+	
+	
+	
+
+
+
+	/*public Set<Profile> getFriends() {
+		return friends;
+	}
+
+	public void setFriends(Set<Profile> friends) {
+		this.friends = friends;
+	}
+
+	public List<Profile> getPerson() {
+		return person;
+	}
+
+	public void setPerson(List<Profile> person) {
+		this.person = person;
+	}*/
+
 	public void setIdProfile(Integer idProfile) {
 		this.idProfile = idProfile;
 	}
-
+	
+	public Profile(){
+		
+	}
+	
 	public void setProfileImage(File profileImage) {
 		this.profileImage = profileImage;
 		if (profileImage != null) {
@@ -151,9 +192,13 @@ public class Profile {
 	public void setMessages(Set<Message> messages) {
 		this.messages = messages;
 	}
+
+
+
 	
 	
-	@ManyToMany
+	
+	@ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
 	@JoinTable(name="profile_friends",
 	 joinColumns=@JoinColumn(name="person_id"),
 	 inverseJoinColumns=@JoinColumn(name="friend_id")
