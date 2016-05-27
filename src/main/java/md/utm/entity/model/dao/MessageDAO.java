@@ -8,10 +8,10 @@ public interface MessageDAO extends GenericDAO {
 
 	List<Message> getMessagesBySenderId();
 
-	List<Message> getMessagesForConversation(Integer idProfile);
+	List<Message> getMessagesForConversation(Integer idReceiver);
 
 	Message getMessageById(Integer idMessage);
 
-	Message createAMessage(Message idMessageSender);
+	Message createAMessage(Message idMessageSender, Integer idReceiver);
 
 }

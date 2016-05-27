@@ -20,7 +20,7 @@ public abstract class MessageAbstract {
 		this.message = message;
 	}
 
-	@Temporal(TemporalType.DATE)
+	@Temporal(TemporalType.TIMESTAMP)
 	public Date getCreationDate() {
 		return creationDate;
 	}

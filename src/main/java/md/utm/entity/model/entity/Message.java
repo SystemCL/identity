@@ -18,6 +18,8 @@ public class Message extends MessageAbstract {
 
 	private int idMessage;
 	private Integer idSender;
+	private Integer idReceiver;
+
 	private Set<Profile> profiles;
 
 	@Id
@@ -52,4 +54,14 @@ public class Message extends MessageAbstract {
 		this.idSender = idSender;
 	}
 
+	
+	public Integer getIdReceiver() {
+		return idReceiver;
+	}
+
+	public void setIdReceiver(Integer idReceiver) {
+		this.idReceiver = idReceiver;
+	}
+
+	
 }

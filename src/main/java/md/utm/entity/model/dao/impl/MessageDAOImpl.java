@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import org.hibernate.Query;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -55,13 +56,21 @@ public class MessageDAOImpl extends GenericDAOImpl implements MessageDAO {
 	}
 
 	
-	public List<Message> getMessagesForConversation(Integer idProfile) {
+	public List<Message> getMessagesForConversation(Integer idReceiver) {
 
 		Integer myId = (Integer) ActionContext.getContext().getSession().get("profile_id");
 		if (myId == null) {
 			return new ArrayList<Message>();
 		}
 
+		Query createQuery = getSession()
+				.createQuery("from Message where  idSender in (:myid, :profileId)  and idReceiver in (:myid, :profileId)  order by idMessage asc, creationDate desc");
+		createQuery.setInteger("profileId", idReceiver);
+		createQuery.setInteger("myid", myId);
+		 createQuery.setMaxResults(5);
+		createQuery.list();
+		return createQuery.list();
+		
 		// select * from Message where idSender=? and where idMessage=
 		// ( message_id from profile_message where profile_id = [profilul meu])
 		// aduc doate mesajele de la senderul dat unde se contine in tabela
@@ -73,18 +82,39 @@ public class MessageDAOImpl extends GenericDAOImpl implements MessageDAO {
 
 		// return getHibernateTemplate().find("from Message ");
 
-		return getHibernateTemplate().find(
-				"select m from Message m join m.profiles pm where pm.idProfile=? and m.idSender=?", myId, idProfile);
+	//	return getHibernateTemplate().find(
+		//		"select m from Message m join m.profiles pm where pm.idProfile=? or m.idSender=?", myId, idProfile); /*and*/
 
+		
+/*		Integer myid = (Integer) ActionContext.getContext().getSession().get("profile_id");
+		if (myid == null) {
+			throw new NullProfileException();
+		}
+		Query createQuery = getSession()
+				.createQuery("from message where idSender=:profileId and idMessage=: (select message_id from profile_messages where profile_id=:myid)");
+		createQuery.setInteger("profileId", idProfile);
+		createQuery.setInteger("myid", myid);
+		 createQuery.setMaxResults(5);
+		createQuery.list();
+		return createQuery.list();*/
 	}
 
 	
 	@Transactional
-	public Message createAMessage(Message message) {
+	public Message createAMessage(Message message, Integer idReceiver) {
+
+		Integer myId = (Integer) ActionContext.getContext().getSession().get("profile_id");
+		if (myId == null) {
+			//return new ArrayList<Message>();
+		}
 		message.setCreationDate(new Date());
-		message.getProfiles().add(profileDAO.getSesionProfile());
+		message.setIdSender(myId);
+		message.setIdReceiver(idReceiver);
+		//message.getProfiles().add(profileDAO.getSesionProfile());
 		save(message);
 		return message;
 	}
+
+
 
 }

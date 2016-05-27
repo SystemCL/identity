@@ -1,5 +1,6 @@
 package md.utm.entity.model.dao.impl;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.hibernate.Query;
@@ -12,6 +13,7 @@ import com.opensymphony.xwork2.ActionContext;
 import md.utm.entity.exception.NullProfileException;
 import md.utm.entity.model.dao.ProfileDAO;
 import md.utm.entity.model.dao.UserDAO;
+import md.utm.entity.model.entity.Message;
 import md.utm.entity.model.entity.Profile;
 import md.utm.entity.model.entity.UserAccount;
 
@@ -24,6 +26,11 @@ public class ProfileDAOImpl extends GenericDAOImpl implements ProfileDAO {
 	
 	public List<Profile> getProfilesWhoConversedWithMe() {
 
+		Integer myId = (Integer) ActionContext.getContext().getSession().get("profile_id");
+		if (myId == null) {
+			return new ArrayList<Profile>();
+		}
+		
 		Integer idProf = (Integer) ActionContext.getContext().getSession().get("profile_id");
 		if (idProf == null) {
 			throw new NullProfileException();
@@ -37,7 +44,7 @@ public class ProfileDAOImpl extends GenericDAOImpl implements ProfileDAO {
 		 (SELECT message_id FROM profile_messages WHERE profile_id =1)) ORDER BY firstname asc
 		 * */
 
-		return getHibernateTemplate().find("from Profile");
+		return getHibernateTemplate().find("from Profile where idProfile in (Select idSender from Message where idReceiver =? and idSender<>?)", myId, myId);
 
 	}
 
@@ -131,12 +138,13 @@ public class ProfileDAOImpl extends GenericDAOImpl implements ProfileDAO {
 	}
 
 
+	@Transactional
 	public Profile createFriend() {
 		Profile friendp = new Profile();
 		friendp.setFirstName("Vlad");
 		friendp.setLastName("TRTRRR");
 		
-		save(friendp);
+		//save(friendp);
 		friendp.getFriendsList().add(friendp);
 		save(friendp);
 		return null;

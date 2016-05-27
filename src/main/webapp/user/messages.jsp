@@ -32,17 +32,23 @@
 			<s:if test="profileConversations.size() > 0">
 			<table border="1px"  style="float:left; width:20%; margin-left:20px; margin-right:40px;">
 				<tr>
-					<td colspan="6"><center>Conversations</center></td>
+					<td colspan="6" bgcolor="#E6E6FA"><center>Conversations</center></td>
 				</tr>
 				<s:iterator value="profileConversations">
 					<tr>
 						
-						  <td >
+						  <td>
 	 					<a href=<s:url action="getMessagesBySenderId">
 			 			<s:param name="idProfileOfConversation" value="%{idProfile}" />
-						 </s:url>>
+						 </s:url>
+						>
 						<!--  <img alt="Up" width="50" height="50px" src=<s:url value="%{image}"/>>  -->
+						<s:if test="%{profile.picture==null}">
+		                  <img class="example" height="70" width="70"  src="images/holder.png">
+	                   </s:if>
+	                   <s:else>
 						 <img  height="70" width="70" src="<s:url  action="imageAction" ><s:param name="userProfileId" value="%{idProfile}" /></s:url>" />
+					   </s:else>	 
 						 </a>
  
 						 </td>
@@ -63,21 +69,21 @@
 	
 	
 		<s:if test="listMessages.size() > 0">
-			<table  border="1px" cellpadding="8px" style="float:left; width:40%;     background-color: #fff; ">
+			<table  border="1px" cellpadding="8px" style="float:left; width:40%;  background-color: #fff; position:inline; ">
 				<tr>
 					<td colspan="6"><center>Messages</center></td>
 				</tr>
 				<s:iterator value="listMessages">
 					<tr>
-						<s:if test="idSender != #session['profile_id']">
+						<s:if test="idSender == #session['profile_id']">
 						<!-- Mesajele mele vor fi pe dreapta  -->
-							<td align="right">
+							<td align="right" bgcolor="#90EE90">
 							<s:property value="message" /><br>
 							<font class="ora_mess"><s:date name="creationDate" nice="true"  /></font>
 							</td>
 						</s:if>
 						<s:else>
-							<td align="left">
+							<td align="left" bgcolor="#B0C4DE">
 							<s:property value="message" /><br>
 							<font class="ora_mess"><s:date name="creationDate" nice="true"  /></font>
 							</td>

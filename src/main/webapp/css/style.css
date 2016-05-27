@@ -36,8 +36,8 @@ p:before{
  }
  
  
-#element1 {float:left; margin-left:40%; }
-#element2 {float :left; margin-left:20px; }
+#element1 {float:left; margin-left:40%; position: inline; }
+#element2 {float:right; margin-right:20%;margin-left:20px; margin-top:-200px; position: inline; }
 
 
 

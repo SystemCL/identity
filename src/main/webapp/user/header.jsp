@@ -50,7 +50,7 @@ getCommentsAction -->
 
 	<ul id="menu" >
 	  <li><a href="loadMainPage">Identity</a></li> <!-- loadMainPage --> <!-- getCommentsAction -->
-	  <li><a href="getFriendsAction">Knowns</a></li>
+	  <li><a href="getFriendsSearch">Knowns</a></li>
 	  <li><a href="getConversation">Messages</a></li> <!-- getMessages -->
 	  <li><a href="getRecomandationsAction">Recomandation</a></li>
 	  <li><a href="getProfile">Edit your profile</a></li>

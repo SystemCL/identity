@@ -96,9 +96,9 @@ public class CrudMessageAction extends ActionSupport implements ModelDriven<Mess
 
 	public String sendMessageToProfile() {
 
-		message = messageDAO.createAMessage(message);
+		message = messageDAO.createAMessage(message, this.idProfileOfConversation);
 
-		if (message.getIdMessage() != null) {
+		if (message.getIdMessage() != null)  {
 			return Action.SUCCESS;
 		}
 		return Action.ERROR;

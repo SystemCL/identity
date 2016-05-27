@@ -127,12 +127,14 @@
 		<action name="rateUpAction" class="md.utm.entity.action.user.CrudCommentAction"
 			method="rateUpComment">
 			<result name="success" type="redirectAction">getCommentsAction</result>
+			<result name="success" type="redirectAction">loadMainPage</result>
 			<result name="error" type="redirectAction">getCommentsAction</result>
 		</action>
 
 		<action name="rateDownAction" class="md.utm.entity.action.user.CrudCommentAction"
 			method="rateDownComment">
 			<result name="success" type="redirectAction">getCommentsAction</result>
+			<result name="success" type="redirectAction">loadMainPage</result>
 			<result name="error" type="redirectAction">getCommentsAction</result>
 		</action>
 

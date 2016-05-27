@@ -81,7 +81,7 @@ public class CrudProfileAction extends ActionSupport implements ModelDriven<Prof
 	
 	public String getProfilesSearch(){
 		profileSearchList = profileDAO.getAllProfilesBySearch();
-		System.out.println("AAAAAAAAAAAAAAAAAAAAAAAAAAA "+profileSearchList);
+		//System.out.println("AAAAAAAAAAAAAAAAAAAAAAAAAAA "+profileSearchList);
 		if(profileSearchList == null){
 			profileSearchList = new ArrayList<Profile>();
 		}
@@ -137,6 +137,7 @@ public class CrudProfileAction extends ActionSupport implements ModelDriven<Prof
 	}
 
 
+
    public String addFriend(){
 	/*   friend = profileDAO.createFriend(profileDAO);
 	   if(friend.getIdProfile() != null){
@@ -144,8 +145,8 @@ public class CrudProfileAction extends ActionSupport implements ModelDriven<Prof
 	   }
 	   return Action.ERROR;
 */
-	  // profileDAO.createFriend();
-	   profileDAO.addFriendWithId(1);
+    	profileDAO.createFriend();
+	   //profileDAO.addFriendWithId(1);
 	   
 	   return Action.SUCCESS;
 		

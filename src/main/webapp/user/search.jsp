@@ -20,22 +20,23 @@
 				<br> <br> <br> <br>
 				<table border="1px" cellpadding="8px" width=50%>
 					<tr>
-						<td colspan="6"><center>Profiles</center></td>
+						<td colspan="6" bgcolor="#E6E6FA"><center>Profiles</center></td>
 					</tr>
 					<s:iterator value="profileSearchList">
 
                         <tr>
-						<td  align="left"><s:if test="%{profile.idProfile==null}">
-								<left> <img class="example" height="50" width="50"
-									src="images/holder.png"> </left>
-							</s:if> <s:else>
-								<left> <img height="50" width="50"
+						<td  align="left">
+						<s:if test="%{profile.picture==null}">
+								<img class="example" height="50" width="50"
+									src="images/holder.png"> 
+						</s:if> 
+						 <s:else>
+						         <img height="50" width="50"
 									src="<s:url  action="imageAction" >
-									<s:param name="userProfileId" value="%{profile.idProfile}"/></s:url>" />
-								</left>
-								
-
-							</s:else> <s:property value="firstName" /> <s:property value="lastName" />
+									<s:param name="userProfileId" value="%{profile.idProfile}"/></s:url>" />													
+						</s:else> 
+						
+							<s:property value="firstName" /> <s:property value="lastName" />
 							<%-- <s:submit value="Add Friend" action="addFriend" /> --%> <%-- <img  height="70" width="70" src="<s:url value="/images/up.png"/> <s:param name="userProfileId" value="%{idProfile}" /></s:url>" /> --%>
 						  
 						   </td>

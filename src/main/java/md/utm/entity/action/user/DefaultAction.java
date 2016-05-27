@@ -1,6 +1,7 @@
 package md.utm.entity.action.user;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 
@@ -33,6 +34,8 @@ public class DefaultAction extends ActionSupport implements SessionAware {
 	private List<Profile> profileConversations;
 	private List<Message> listMessages;
 	private List<Comment> commentList;
+	private List<Message> inversedList;
+
 
 	Integer idProfileOfConversation;
 	private Map<String, Object> sessionMap;
@@ -94,12 +97,21 @@ public class DefaultAction extends ActionSupport implements SessionAware {
 	}
 
 	public String getMessagesByIdProfile() {
-		idSender = idProfileOfConversation;
+	//	idSender = idProfileOfConversation;
+	//	inversedList = null;
+		
+		
 		if (this.getIdProfileOfConversation() != null) {
 			listMessages = messageDAO.getMessagesForConversation(this.getIdProfileOfConversation());
-			System.out.println(listMessages.toString());
+	//		inversedList = new ArrayList<Message>(listMessages);
+	//		for(int i=listMessages.size(); i>5; i--){
+	//			inversedList.add(listMessages.get(i));
+				
+	//		}
+	//		Collections.copy(listMessages,inversedList);
+	//		System.out.println(listMessages.toString());
 		}
-		System.out.println(listMessages);
+	//	System.out.println(listMessages);
 		if (listMessages == null) {
 			listMessages = new ArrayList<Message>();
 		}
@@ -170,6 +182,13 @@ public class DefaultAction extends ActionSupport implements SessionAware {
 		this.commentList = commentList;
 	}
 
+	public List<Message> getInversedList() {
+		return inversedList;
+	}
+
+	public void setInversedList(List<Message> inversedList) {
+		this.inversedList = inversedList;
+	}
 	
 	public void setSession(Map<String, Object> session) {
 		this.sessionMap = session;

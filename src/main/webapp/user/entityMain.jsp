@@ -19,17 +19,22 @@
 	<%@include file="header.jsp"%>
 
 	<br>
-	<br>
-	<br>
+
+	<center>
+	<h3 style="margin-top:40px" >
+				<s:property value="%{profile.firstName}" />
+				<s:property value="%{profile.lastName}"  />
+	</h3>
+	</center>
     
-	<s:if test="%{profileImage==null}">
+	<s:if test="%{profile.picture==null}">
 		 <center><img class="example" height="200" width="200"  src="images/holder.png"></center>
 	</s:if>
 	 <s:else>
 		<center><img  height="200" width="200" src="<s:url  action="imageAction" ><s:param name="userProfileId" value="%{profile.idProfile}"/></s:url>" /></center>
 		<%-- <center><img  height="200" width="200" src="<s:url  action="imageAction" ><s:param name="userProfileId" value="%{profile.idProfile}"/></s:url>" /></center> --%>
 	</s:else> 
-	<div id="element2">
+	<div id="element2" >
 				<p>
 					<s:property value="%{profile.status}" />
 				</p>
@@ -44,20 +49,21 @@
 		</form>
 	</center> --%>
 
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
+	
 
 
 
-	<center>
-			<h1>
-				<s:property value="%{profile.firstName}" />
-				<s:property value="%{profile.lastName}"  />
-			</h1>
-			<br> Email:
+
+
+<!--     <table align="center" width="600" bgcolor="#ffcc00">
+    <tr>
+    <td> -->
+    <center>
+    <br>
+    <table style=" width:15%;">
+    <tr>
+    <td >
+     Email:
 			<s:property value="%{profile.email}" />
 			<br> Data nasterii:
 			<s:date name="%{profile.dBirthday}" format="dd MMM yyyy" />
@@ -66,18 +72,28 @@
 			<br> Status:
 			<s:property value="%{profile.status}" />
 			<br>
-	</center>
+    </td>
+    </tr>
+    </table>
+    </center>
+    
+	
+	
+
+<!-- 	</td>
+	</tr>
+   </table> -->
 	<br>
 
 
-	<center>
+	<div align=center >
 		<s:if test="commentList.size() > 0">
 
 			<table border="1px" cellpadding="8px">
 
 				<tr>
 
-					<td colspan="6"><center>Opinions</center></td>
+					<td colspan="5" bgcolor="#E6E6FA"><center>Opinions</center></td>
 
 				</tr>
 				<s:iterator value="commentList">
@@ -109,7 +125,7 @@
 				</s:iterator>
 			</table>
 		</s:if>
-	</center>
+	</div>
 
 
 <!--  Trebuie de modificat pentru ca sa afiseze lista de profile pe pagina entityMain.jsp -->
