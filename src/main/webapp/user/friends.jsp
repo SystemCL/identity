@@ -50,7 +50,6 @@ alertCV()
 						
 <!-- 				   <td>
 				   
-
 				   
 				  </td> -->
 				</tr>
@@ -62,75 +61,7 @@ alertCV()
 	<br>
 	<br>
 
-	<center>
-		<table style="width: 50%; height: 50px; overflow-y: scroll;">
-
-			<tr>
-				<td>[FOTO]</td>
-				<td>Ploaia Vladisav</td>
-				<td>
-					<form method="get" action="messages.jsp" style="float: right;">
-						<input type="submit" value="Send Message">
-					</form>
-				</td>
-				<td>CV access<input type="checkbox" id="checkbox_id"
-					onclick="out.alert('daaaa')" value="foo"></td>
-			</tr>
-			<tr>
-				<td>[FOTO]</td>
-				<td>Adrian Tabirta</td>
-				<td>
-					<form method="get" action="messages.jsp" style="float: right;">
-						<input type="submit" value="Send Message">
-					</form>
-				</td>
-				<td>CV access<input type="checkbox" name="cv_acces" value="CV"></td>
-
-			</tr>
-			<tr>
-				<td>[FOTO]</td>
-				<td>Dorin Turcan</td>
-				<td>
-					<form method="get" action="messages.jsp" style="float: right;">
-						<input type="submit" value="Send Message">
-					</form>
-				</td>
-				<td>CV access<input type="checkbox" name="cv_acces" value="CV"></td>
-			</tr>
-			<tr>
-				<td>[FOTO]</td>
-				<td>Dorin Turcan</td>
-				<td>
-					<form method="get" action="messages.jsp" style="float: right;">
-						<input type="submit" value="Send Message">
-					</form>
-				</td>
-				<td>CV access<input type="checkbox" name="cv_acces" value="CV"></td>
-			</tr>
-			<tr>
-				<td>[FOTO]</td>
-				<td>Dorin Turcan</td>
-				<td>
-					<form method="get" action="messages.jsp" style="float: right;">
-						<input type="submit" value="Send Message">
-					</form>
-				</td>
-				<td>CV access<input type="checkbox" name="cv_acces" value="CV"></td>
-			</tr>
-			<tr>
-				<td>[FOTO]</td>
-				<td>Dorin Turcan</td>
-				<td>
-					<form method="get" action="messages.jsp" style="float: right;">
-						<input type="submit" value="Send Message">
-					</form>
-				</td>
-				<td>CV access<input type="checkbox" name="cv_acces" value="CV"></td>
-			</tr>
-
-		</table>
-	</center>
-
+	
 
 </body>
 </html>

@@ -12,25 +12,23 @@
 <body>
 
 	<%@include file="header.jsp"%>
-	<br>
-	<br>
-	
 
 
 <!-- id="example" -->
+<h3 style="margin-top:-60px">
 <center><a>
 						<s:property value="#session['firstName']" />
 	  					<s:property value=" " />
 						<s:property value="#session['lastName']" />
 </a></center>
-
+</h3>
 
 <br/>
 
 
 <center><div>
 			<s:if test="profileConversations.size() > 0">
-			<table border="1px"  style="float:left; width:20%; margin-left:20px; margin-right:40px;">
+			<table border="1px"  style="float:left; width:20%; margin-left:20px; margin-right:110px;">
 				<tr>
 					<td colspan="6" bgcolor="#E6E6FA"><center>Conversations</center></td>
 				</tr>

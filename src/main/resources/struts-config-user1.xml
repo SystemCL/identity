@@ -190,7 +190,7 @@
 			<result name="error" type="redirectAction">user/login.jsp</result>
 		</action>
 		
-		<action name="getFriendsSearch" class="md.utm.entity.action.user.CrudProfileAction"
+		<action name="getFriendsSearchAction" class="md.utm.entity.action.user.CrudProfileAction"
 		method="getProfilesSearch">
 			<result name="success">user/search.jsp</result>
 			<result name="error">user/entityMain.jsp</result>
@@ -204,10 +204,13 @@
 		</action>
 		
 
+		<action name="getAllFriendsAction" class="md.utm.entity.action.user.CrudProfileAction"
+		method="getAllFriends">
+			<result name="success">user/friends.jsp</result>
+			<result name="error">user/entityMain.jsp</result>
+		</action>
+
 		
 	</package>
-	
-	
-
 
 </struts>

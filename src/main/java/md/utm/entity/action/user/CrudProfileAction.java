@@ -30,7 +30,10 @@ public class CrudProfileAction extends ActionSupport implements ModelDriven<Prof
 	private List<Profile> profileSearchList;
 
 	private Integer idFriend;
+	private String numeFriend;
 	
+	
+
 	public Integer getIdFriend() {
 		return idFriend;
 	}
@@ -39,6 +42,14 @@ public class CrudProfileAction extends ActionSupport implements ModelDriven<Prof
 		this.idFriend = idFriend;
 	}
 
+	public String getNumeFriend() {
+		return numeFriend;
+	}
+
+	public void setNumeFriend(String numeFriend) {
+		this.numeFriend = numeFriend;
+	}
+	
 	public Profile getProfile() {
 		return profile;
 	}
@@ -80,7 +91,8 @@ public class CrudProfileAction extends ActionSupport implements ModelDriven<Prof
 	}
 	
 	public String getProfilesSearch(){
-		profileSearchList = profileDAO.getAllProfilesBySearch();
+		profileSearchList = profileDAO.getAllProfilesBySearch(numeFriend);
+		
 		//System.out.println("AAAAAAAAAAAAAAAAAAAAAAAAAAA "+profileSearchList);
 		if(profileSearchList == null){
 			profileSearchList = new ArrayList<Profile>();
@@ -91,7 +103,16 @@ public class CrudProfileAction extends ActionSupport implements ModelDriven<Prof
 	}
 	
 	
-
+   public String getAllFriends(){
+	   
+	   profileSearchList = profileDAO.getAllFriends();
+		if( profileSearchList == null ){
+			return Action.ERROR;
+		}
+	  
+	   return Action.SUCCESS;
+	   
+   }
 	
 	public Profile getModel() {
 		// TODO Auto-generated method stub

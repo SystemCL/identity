@@ -18,10 +18,9 @@
 
 	<%@include file="header.jsp"%>
 
-	<br>
 
 	<center>
-	<h3 style="margin-top:40px" >
+	<h3 style="margin-top:-60px" >
 				<s:property value="%{profile.firstName}" />
 				<s:property value="%{profile.lastName}"  />
 	</h3>
@@ -48,11 +47,6 @@
 			
 		</form>
 	</center> --%>
-
-	
-
-
-
 
 
 <!--     <table align="center" width="600" bgcolor="#ffcc00">

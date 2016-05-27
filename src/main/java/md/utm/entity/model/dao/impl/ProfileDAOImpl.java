@@ -74,7 +74,7 @@ public class ProfileDAOImpl extends GenericDAOImpl implements ProfileDAO {
 	}
 	
 
-	public List<Profile> getAllProfilesBySearch() {
+/*	public List<Profile> getAllProfilesBySearch() {
 		
 		System.out.println("In profileDAOImpl");
 		//Integer idProf = (Integer) ActionContext.getContext().getSession().get("profile_id");
@@ -82,7 +82,7 @@ public class ProfileDAOImpl extends GenericDAOImpl implements ProfileDAO {
 		//	throw new NullProfileException();
 		//}
 		
-/*		Query createQuery = getSession()
+		Query createQuery = getSession()
 				.createQuery(" * from Profile"); //trebuie de adus profilurile, unde numele este introdus in textbox la search
 		
 	//	createQuery.setInteger("profileId", idProf);
@@ -90,11 +90,11 @@ public class ProfileDAOImpl extends GenericDAOImpl implements ProfileDAO {
 		createQuery.list();
 		
 		System.out.println(createQuery);
-		return createQuery.list();*/
+		return createQuery.list();
 		
 		return getHibernateTemplate().find("from Profile");
 		
-	}
+	}*/
 	
 	public String addFriendWithId(Integer idProfile){
 		
@@ -149,7 +149,25 @@ public class ProfileDAOImpl extends GenericDAOImpl implements ProfileDAO {
 		save(friendp);
 		return null;
 	}
+
+
+	public List<Profile> getAllProfilesBySearch(String numeFriend) {
+		
+		System.out.println(  "AICIIIIIII NUMEEE ---"+numeFriend);
+				Query createQuery = getSession().createQuery("from Profile where firstName like :name ");
+				createQuery.setString("name", numeFriend);
+			
+				return createQuery.list();	
 	
+	}
+	
+	
+	public List<Profile> getAllFriends() {
+
+
+		return getHibernateTemplate().find("from Profile");
+
+	}
 	
 
 }

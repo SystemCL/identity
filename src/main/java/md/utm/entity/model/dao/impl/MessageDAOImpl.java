@@ -64,7 +64,8 @@ public class MessageDAOImpl extends GenericDAOImpl implements MessageDAO {
 		}
 
 		Query createQuery = getSession()
-				.createQuery("from Message where  idSender in (:myid, :profileId)  and idReceiver in (:myid, :profileId)  order by idMessage asc, creationDate desc");
+				.createQuery("from Message where  idSender in (:myid, :profileId)  and idReceiver in (:myid, :profileId) and idMessage > (SELECT MAX(idMessage) - 5 FROM Message) ");
+/*		.createQuery("from Message where  idSender in (:myid, :profileId)  and idReceiver in (:myid, :profileId)  order by idMessage asc, creationDate desc");*/
 		createQuery.setInteger("profileId", idReceiver);
 		createQuery.setInteger("myid", myId);
 		 createQuery.setMaxResults(5);
