@@ -8,6 +8,18 @@
 <link rel="stylesheet" type="text/css" href="css/conversationTable.css" />
 
 <title>Messages</title>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js">
+</script>
+<script>
+$(document).ready(function(){
+	setInterval(function(){cache_clear()}, 7000);
+});
+
+function cache_clear(){
+	window.location.reload(true);
+}
+</script>
+
 </head>
 <body>
 
