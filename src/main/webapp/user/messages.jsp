@@ -108,7 +108,7 @@
 				<s:hidden name="idSender" value="%{idSender}"/>
 				<br>
 				<br>
-					<s:submit value="Trimite" action="sendMessageAction" />
+					<s:submit value="Trimite" action="sendMessageAction"  />
 				<!-- <br> <input style="float: right;" type="submit" value="Send"> -->
 			</form>
 	</div></center>

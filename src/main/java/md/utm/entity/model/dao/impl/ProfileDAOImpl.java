@@ -44,7 +44,8 @@ public class ProfileDAOImpl extends GenericDAOImpl implements ProfileDAO {
 		 (SELECT message_id FROM profile_messages WHERE profile_id =1)) ORDER BY firstname asc
 		 * */
 
-		return getHibernateTemplate().find("from Profile where idProfile in (Select idSender from Message where idReceiver =? and idSender<>?)", myId, myId);
+		//return getHibernateTemplate().find("from Profile where idProfile in (Select idSender from Message where idReceiver =? and idSender<>?)", myId, myId);
+		return getHibernateTemplate().find("from Profile");
 
 	}
 
